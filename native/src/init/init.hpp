@@ -4,7 +4,7 @@
 using kv_pairs = std::vector<std::pair<std::string, std::string>>;
 
 // For API 28 AVD, it uses legacy SAR setup that requires
-// special hacks in magiskinit to work properly. We do not
+// special hacks in magicmaskinit to work properly. We do not
 // necessarily want this enabled in production builds.
 #define ENABLE_AVD_HACK 0
 
@@ -25,11 +25,11 @@ struct BootConfig {
 
 #define DEFAULT_DT_DIR "/proc/device-tree/firmware/android"
 #define INIT_PATH  "/system/bin/init"
-#define REDIR_PATH "/data/magiskinit"
+#define REDIR_PATH "/data/magicmaskinit"
 
 extern std::vector<std::string> mount_list;
 
-int magisk_proxy_main(int argc, char *argv[]);
+int magicmask_proxy_main(int argc, char *argv[]);
 bool unxz(int fd, const uint8_t *buf, size_t size);
 void load_kernel_info(BootConfig *config);
 bool check_two_stage();
@@ -55,14 +55,14 @@ public:
     virtual void start() = 0;
 };
 
-class MagiskInit : public BaseInit {
+class MagicMaskInit : public BaseInit {
 private:
     void mount_rules_dir();
 protected:
 
 #if ENABLE_AVD_HACK
     // When this boolean is set, this means we are currently
-    // running magiskinit on legacy SAR AVD emulator
+    // running magicmaskinit on legacy SAR AVD emulator
     bool avd_hack = false;
 #endif
 
@@ -75,9 +75,9 @@ public:
     using BaseInit::BaseInit;
 };
 
-class SARBase : public MagiskInit {
+class SARBase : public MagicMaskInit {
 public:
-    using MagiskInit::MagiskInit;
+    using MagicMaskInit::MagicMaskInit;
 };
 
 /***************
@@ -141,11 +141,11 @@ public:
  * Initramfs
  ************/
 
-class RootFSInit : public MagiskInit {
+class RootFSInit : public MagicMaskInit {
 private:
     void prepare();
 public:
-    RootFSInit(char *argv[], BootConfig *config) : MagiskInit(argv, config) {
+    RootFSInit(char *argv[], BootConfig *config) : MagicMaskInit(argv, config) {
         LOGD("%s\n", __FUNCTION__);
     }
     void start() override {

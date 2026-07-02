@@ -5,13 +5,13 @@
 
     <data>
 
-        <import type="com.topjohnwu.magisk.core.Info" />
+        <import type="com.topjohnwu.magicmask.core.Info" />
 
-        <import type="com.topjohnwu.magisk.core.Config" />
+        <import type="com.topjohnwu.magicmask.core.Config" />
 
         <variable
             name="viewModel"
-            type="com.topjohnwu.magisk.ui.install.InstallViewModel" />
+            type="com.topjohnwu.magicmask.ui.install.InstallViewModel" />
 
     </data>
 

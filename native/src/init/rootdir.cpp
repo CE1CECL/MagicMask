@@ -1,11 +1,11 @@
 #include <sys/mount.h>
 #include <libgen.h>
 
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <base.hpp>
 
 #include "init.hpp"
-#include "magiskrc.inc"
+#include "magicmaskrc.inc"
 
 using namespace std;
 
@@ -45,17 +45,17 @@ static void patch_init_rc(const char *src, const char *dest, const char *tmp_dir
     // Inject custom rc scripts
     for (auto &script : rc_list) {
         // Replace template arguments of rc scripts with dynamic paths
-        replace_all(script, "${MAGISKTMP}", tmp_dir);
+        replace_all(script, "${MAGICMASKTMP}", tmp_dir);
         fprintf(rc, "\n%s\n", script.data());
     }
     rc_list.clear();
 
-    // Inject Magisk rc scripts
+    // Inject MagicMask rc scripts
     char pfd_svc[16], ls_svc[16];
     gen_rand_str(pfd_svc, sizeof(pfd_svc));
     gen_rand_str(ls_svc, sizeof(ls_svc));
-    LOGD("Inject magisk services: [%s] [%s]\n", pfd_svc, ls_svc);
-    fprintf(rc, MAGISK_RC, tmp_dir, pfd_svc, ls_svc);
+    LOGD("Inject magicmask services: [%s] [%s]\n", pfd_svc, ls_svc);
+    fprintf(rc, MAGICMASK_RC, tmp_dir, pfd_svc, ls_svc);
 
     fclose(rc);
     clone_attr(src, dest);
@@ -149,28 +149,28 @@ static void patch_socket_name(const char *path) {
 }
 
 static void extract_files(bool sbin) {
-    const char *m32 = sbin ? "/sbin/magisk32.xz" : "magisk32.xz";
-    const char *m64 = sbin ? "/sbin/magisk64.xz" : "magisk64.xz";
+    const char *m32 = sbin ? "/sbin/magicmask32.xz" : "magicmask32.xz";
+    const char *m64 = sbin ? "/sbin/magicmask64.xz" : "magicmask64.xz";
     const char *stub_xz = sbin ? "/sbin/stub.xz" : "stub.xz";
 
     if (access(m32, F_OK) == 0) {
-        auto magisk = mmap_data(m32);
+        auto magicmask = mmap_data(m32);
         unlink(m32);
-        int fd = xopen("magisk32", O_WRONLY | O_CREAT, 0755);
-        unxz(fd, magisk.buf, magisk.sz);
+        int fd = xopen("magicmask32", O_WRONLY | O_CREAT, 0755);
+        unxz(fd, magicmask.buf, magicmask.sz);
         close(fd);
-        patch_socket_name("magisk32");
+        patch_socket_name("magicmask32");
     }
     if (access(m64, F_OK) == 0) {
-        auto magisk = mmap_data(m64);
+        auto magicmask = mmap_data(m64);
         unlink(m64);
-        int fd = xopen("magisk64", O_WRONLY | O_CREAT, 0755);
-        unxz(fd, magisk.buf, magisk.sz);
+        int fd = xopen("magicmask64", O_WRONLY | O_CREAT, 0755);
+        unxz(fd, magicmask.buf, magicmask.sz);
         close(fd);
-        patch_socket_name("magisk64");
-        xsymlink("./magisk64", "magisk");
+        patch_socket_name("magicmask64");
+        xsymlink("./magicmask64", "magicmask");
     } else {
-        xsymlink("./magisk32", "magisk");
+        xsymlink("./magicmask32", "magicmask");
     }
     if (access(stub_xz, F_OK) == 0) {
         auto stub = mmap_data(stub_xz);
@@ -184,7 +184,7 @@ static void extract_files(bool sbin) {
 #define ROOTMIR     MIRRDIR "/system_root"
 #define NEW_INITRC  "/system/etc/init/hw/init.rc"
 
-void MagiskInit::patch_ro_root() {
+void MagicMaskInit::patch_ro_root() {
     mount_list.emplace_back("/data");
 
     string tmp_dir;
@@ -242,7 +242,7 @@ void MagiskInit::patch_ro_root() {
         patch_init_rc("/init.rc", ROOTOVL "/init.rc", tmp_dir.data());
     }
 
-    // Extract magisk
+    // Extract magicmask
     extract_files(false);
 
     // Oculus Go will use a special sepolicy if unlocked
@@ -267,10 +267,10 @@ void RootFSInit::prepare() {
     rename(backup_init(), "/init");
 }
 
-#define PRE_TMPSRC "/magisk"
+#define PRE_TMPSRC "/magicmask"
 #define PRE_TMPDIR PRE_TMPSRC "/tmp"
 
-void MagiskInit::patch_rw_root() {
+void MagicMaskInit::patch_rw_root() {
     mount_list.emplace_back("/data");
     // Create hardlink mirror of /sbin to /root
     mkdir("/root", 0777);
@@ -299,7 +299,7 @@ void MagiskInit::patch_rw_root() {
     setup_tmp(PRE_TMPDIR);
     chdir(PRE_TMPDIR);
 
-    // Extract magisk
+    // Extract magicmask
     extract_files(true);
 
     if ((!treble && access("/sepolicy", F_OK) == 0) || !hijack_sepolicy()) {
@@ -308,18 +308,18 @@ void MagiskInit::patch_rw_root() {
 
     chdir("/");
 
-    // Dump magiskinit as magisk
-    cp_afc(REDIR_PATH, "/sbin/magisk");
+    // Dump magicmaskinit as magicmask
+    cp_afc(REDIR_PATH, "/sbin/magicmask");
 }
 
-int magisk_proxy_main(int argc, char *argv[]) {
+int magicmask_proxy_main(int argc, char *argv[]) {
     setup_klog();
     LOGD("%s\n", __FUNCTION__);
 
     // Mount rootfs as rw to do post-init rootfs patches
     xmount(nullptr, "/", nullptr, MS_REMOUNT, nullptr);
 
-    unlink("/sbin/magisk");
+    unlink("/sbin/magicmask");
 
     // Move tmpfs to /sbin
     // make parent private before MS_MOVE
@@ -332,8 +332,8 @@ int magisk_proxy_main(int argc, char *argv[]) {
     // Create symlinks pointing back to /root
     recreate_sbin("/root", false);
 
-    // Tell magiskd to remount rootfs
+    // Tell magicmaskd to remount rootfs
     setenv("REMOUNT_ROOT", "1", 1);
-    execv("/sbin/magisk", argv);
+    execv("/sbin/magicmask", argv);
     return 1;
 }

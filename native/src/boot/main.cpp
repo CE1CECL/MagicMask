@@ -1,7 +1,7 @@
 #include <mincrypt/sha.h>
 #include <base.hpp>
 
-#include "magiskboot.hpp"
+#include "magicmaskboot.hpp"
 #include "compress.hpp"
 
 using namespace std;
@@ -14,7 +14,7 @@ static void print_formats() {
 
 static void usage(char *arg0) {
     fprintf(stderr,
-R"EOF(MagiskBoot - Boot Image Modification Tool
+R"EOF(MagicMaskBoot - Boot Image Modification Tool
 
 Usage: %s <action> [args...]
 
@@ -70,7 +70,7 @@ Supported actions:
       test
         Test the cpio's status
         Return value is 0 or bitwise or-ed of following values:
-        0x1:Magisk    0x2:unsupported    0x4:Sony
+        0x1:MagicMask    0x2:unsupported    0x4:Sony
       patch
         Apply ramdisk patches
         Configure with env variables: KEEPVERITY KEEPFORCEENCRYPT

@@ -8,9 +8,9 @@ repositories {
 
 gradlePlugin {
     plugins {
-        register("MagiskPlugin") {
-            id = "MagiskPlugin"
-            implementationClass = "MagiskPlugin"
+        register("MagicMaskPlugin") {
+            id = "MagicMaskPlugin"
+            implementationClass = "MagicMaskPlugin"
         }
     }
 }

@@ -3,7 +3,7 @@
 #include <sys/un.h>
 #include <sys/mount.h>
 
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <base.hpp>
 #include <daemon.hpp>
 #include <selinux.hpp>
@@ -18,7 +18,7 @@
 using namespace std;
 
 int SDK_INT = -1;
-string MAGISKTMP;
+string MAGICMASKTMP;
 
 bool RECOVERY_MODE = false;
 
@@ -171,17 +171,17 @@ static void handle_request_async(int client, int code, const sock_cred &cred) {
 static void handle_request_sync(int client, int code) {
     switch (code) {
     case MainRequest::CHECK_VERSION:
-#if MAGISK_DEBUG
-        write_string(client, MAGISK_VERSION ":MAGISK:D");
+#if MAGICMASK_DEBUG
+        write_string(client, MAGICMASK_VERSION ":MAGICMASK:D");
 #else
-        write_string(client, MAGISK_VERSION ":MAGISK:R");
+        write_string(client, MAGICMASK_VERSION ":MAGICMASK:R");
 #endif
         break;
     case MainRequest::CHECK_VERSION_CODE:
-        write_int(client, MAGISK_VER_CODE);
+        write_int(client, MAGICMASK_VER_CODE);
         break;
     case MainRequest::GET_PATH:
-        write_string(client, MAGISKTMP.data());
+        write_string(client, MAGICMASKTMP.data());
         break;
     case MainRequest::START_DAEMON:
         setup_logfile(true);
@@ -297,7 +297,7 @@ static void switch_cgroup(const char *cgroup, int pid) {
 }
 
 static void daemon_entry() {
-    magisk_logging();
+    magicmask_logging();
 
     // Block all signals
     sigset_t block_set;
@@ -305,7 +305,7 @@ static void daemon_entry() {
     pthread_sigmask(SIG_SETMASK, &block_set, nullptr);
 
     // Change process name
-    set_nice_name("magiskd");
+    set_nice_name("magicmaskd");
 
     int fd = xopen("/dev/null", O_WRONLY);
     xdup2(fd, STDOUT_FILENO);
@@ -322,7 +322,7 @@ static void daemon_entry() {
 
     start_log_daemon();
 
-    LOGI(NAME_WITH_VER(Magisk) " daemon started\n");
+    LOGI(NAME_WITH_VER(MagicMask) " daemon started\n");
 
     // Escape from cgroup
     int pid = getpid();
@@ -336,7 +336,7 @@ static void daemon_entry() {
     // Get self stat
     char buf[64];
     xreadlink("/proc/self/exe", buf, sizeof(buf));
-    MAGISKTMP = dirname(buf);
+    MAGICMASKTMP = dirname(buf);
     xstat("/proc/self/exe", &self_st);
 
     // Get API level
@@ -359,7 +359,7 @@ static void daemon_entry() {
     restore_tmpcon();
 
     // Cleanups
-    auto mount_list = MAGISKTMP + "/" ROOTMNT;
+    auto mount_list = MAGICMASKTMP + "/" ROOTMNT;
     if (access(mount_list.data(), F_OK) == 0) {
         file_readline(true, mount_list.data(), [](string_view line) -> bool {
             umount2(line.data(), MNT_DETACH);
@@ -370,10 +370,10 @@ static void daemon_entry() {
         xmount(nullptr, "/", nullptr, MS_REMOUNT | MS_RDONLY, nullptr);
         unsetenv("REMOUNT_ROOT");
     }
-    rm_rf((MAGISKTMP + "/" ROOTOVL).data());
+    rm_rf((MAGICMASKTMP + "/" ROOTOVL).data());
 
     // Load config status
-    auto config = MAGISKTMP + "/" INTLROOT "/config";
+    auto config = MAGICMASKTMP + "/" INTLROOT "/config";
     parse_prop_file(config.data(), [](auto key, auto val) -> bool {
         if (key == "RECOVERYMODE" && val == "true")
             RECOVERY_MODE = true;
@@ -382,7 +382,7 @@ static void daemon_entry() {
 
     // Use isolated devpts if kernel support
     if (access("/dev/pts/ptmx", F_OK) == 0) {
-        auto pts = MAGISKTMP + "/" SHELLPTS;
+        auto pts = MAGICMASKTMP + "/" SHELLPTS;
         if (access(pts.data(), F_OK)) {
             xmkdirs(pts.data(), 0755);
             xmount("devpts", pts.data(), "devpts",

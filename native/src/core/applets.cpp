@@ -2,7 +2,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <selinux.hpp>
 #include <base.hpp>
 
@@ -54,14 +54,14 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if (argv0 == "magisk" || argv0 == "magisk32" || argv0 == "magisk64") {
+    if (argv0 == "magicmask" || argv0 == "magicmask32" || argv0 == "magicmask64") {
         if (argc > 1 && argv[1][0] != '-') {
-            // Calling applet with "magisk [applet] args..."
+            // Calling applet with "magicmask [applet] args..."
             --argc;
             ++argv;
             argv0 = argv[0];
         } else {
-            return magisk_main(argc, argv);
+            return magicmask_main(argc, argv);
         }
     }
 

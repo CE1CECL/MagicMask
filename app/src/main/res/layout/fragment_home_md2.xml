@@ -5,15 +5,15 @@
 
     <data>
 
-        <import type="com.topjohnwu.magisk.core.Info" />
+        <import type="com.topjohnwu.magicmask.core.Info" />
 
-        <import type="com.topjohnwu.magisk.ui.home.DeveloperItem" />
+        <import type="com.topjohnwu.magicmask.ui.home.DeveloperItem" />
 
-        <import type="com.topjohnwu.magisk.ui.home.IconLink" />
+        <import type="com.topjohnwu.magicmask.ui.home.IconLink" />
 
         <variable
             name="viewModel"
-            type="com.topjohnwu.magisk.ui.home.HomeViewModel" />
+            type="com.topjohnwu.magicmask.ui.home.HomeViewModel" />
 
     </data>
 
@@ -87,8 +87,8 @@
             </com.google.android.material.card.MaterialCardView>
 
             <include
-                android:id="@+id/home_magisk_wrapper"
-                layout="@layout/include_home_magisk"
+                android:id="@+id/home_magicmask_wrapper"
+                layout="@layout/include_home_magicmask"
                 viewModel="@{viewModel}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -105,7 +105,7 @@
                 android:layout_marginStart="@dimen/l1"
                 android:layout_marginTop="@dimen/l1"
                 android:layout_marginEnd="@dimen/l1"
-                app:layout_constraintTop_toBottomOf="@+id/home_magisk_wrapper" />
+                app:layout_constraintTop_toBottomOf="@+id/home_magicmask_wrapper" />
 
             <Space
                 goneUnless="@{Info.env.isActive}"
@@ -120,7 +120,7 @@
                 android:layout_marginStart="@dimen/l1"
                 android:layout_marginEnd="@dimen/l1"
                 android:onClick="@{() -> viewModel.onDeletePressed()}"
-                android:text="@string/uninstall_magisk_title"
+                android:text="@string/uninstall_magicmask_title"
                 android:textAllCaps="false"
                 android:textSize="12sp"
                 app:cornerRadius="@dimen/r1"

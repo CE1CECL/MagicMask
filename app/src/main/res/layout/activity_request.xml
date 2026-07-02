@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.topjohnwu.magisk.ui.surequest.SuRequestViewModel" />
+            type="com.topjohnwu.magicmask.ui.surequest.SuRequestViewModel" />
 
     </data>
 
@@ -76,7 +76,7 @@
                         android:text="@{viewModel.title}"
                         android:textAppearance="@style/AppearanceFoundation.Body"
                         android:textStyle="bold"
-                        tools:text="Magisk" />
+                        tools:text="MagicMask" />
 
                     <TextView
                         android:id="@+id/package_name"
@@ -88,7 +88,7 @@
                         android:minWidth="200dp"
                         android:text="@{viewModel.packageName}"
                         android:textAppearance="@style/AppearanceFoundation.Caption.Variant"
-                        tools:text="com.topjohnwu.magisk" />
+                        tools:text="com.topjohnwu.magicmask" />
                 </LinearLayout>
             </LinearLayout>
 

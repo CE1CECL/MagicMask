@@ -6,14 +6,14 @@
     <string name="logs">Log</string>
     <string name="settings">Tənzimləmələr</string>
     <string name="install">Quraşdır</string>
-    <string name="unsupport_magisk_title">Dəstəklənməyən Magisk Versiyası</string>
+    <string name="unsupport_magicmask_title">Dəstəklənməyən MagicMask Versiyası</string>
 
     <!--Status Fragment-->
     <string name="invalid_update_channel">Etibarsız Yeniləmə Kanalı</string>
     <string name="keep_force_encryption">Şifrələməyə məcbur etməni qoru</string>
     <string name="keep_dm_verity">AVB 2.0/dm-verity\'i qoru</string>
-    <string name="uninstall_magisk_title">Magisk\'i Sil</string>
-    <string name="uninstall_magisk_msg">Bütün əlavələr ləğv olunacaq/silinəcək. Root silinəcək, və əgər hal-hazırda deyilsə, bütün məlumatlarınız potensiyal olaraq şifrələnəcək.</string>
+    <string name="uninstall_magicmask_title">MagicMask\'i Sil</string>
+    <string name="uninstall_magicmask_msg">Bütün əlavələr ləğv olunacaq/silinəcək. Root silinəcək, və əgər hal-hazırda deyilsə, bütün məlumatlarınız potensiyal olaraq şifrələnəcək.</string>
     <string name="update">Yenilə</string>
 
     <!--Module Fragment-->
@@ -36,11 +36,11 @@
     <string name="app_changelog">Yeniliklər</string>
 
     <!-- System Components, Notifications -->
-    <string name="update_channel">Magisk Yeniləmələri</string>
+    <string name="update_channel">MagicMask Yeniləmələri</string>
     <string name="progress_channel">Nəticə Bildirişləri</string>
     <string name="download_complete">Yükləmə bitdi</string>
     <string name="download_file_error">Faylı yükləmək alınmadı</string>
-    <string name="magisk_update_title">Magisk Yeniləməsi Var!</string>
+    <string name="magicmask_update_title">MagicMask Yeniləməsi Var!</string>
 
     <!--Toasts, Dialogs-->
     <string name="download">Yüklə</string>
@@ -136,7 +136,7 @@
     <string name="pid">PID: %1$d</string>
     <string name="target_uid">Hədəf UID: %1$d</string>
 
-    <!-- MagiskHide -->
+    <!-- MagicMaskHide -->
     <string name="show_system_app">Sistem tətbiqlərini göstər</string>
 
 </resources>

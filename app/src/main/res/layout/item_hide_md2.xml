@@ -5,15 +5,15 @@
 
     <data>
 
-        <import type="com.topjohnwu.magisk.R" />
+        <import type="com.topjohnwu.magicmask.R" />
 
         <variable
             name="item"
-            type="com.topjohnwu.magisk.ui.deny.DenyListRvItem" />
+            type="com.topjohnwu.magicmask.ui.deny.DenyListRvItem" />
 
         <variable
             name="viewModel"
-            type="com.topjohnwu.magisk.ui.deny.DenyListViewModel" />
+            type="com.topjohnwu.magicmask.ui.deny.DenyListViewModel" />
 
     </data>
 
@@ -66,7 +66,7 @@
                     app:layout_constraintStart_toEndOf="@+id/hide_icon"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_chainStyle="packed"
-                    tools:text="@string/magisk" />
+                    tools:text="@string/magicmask" />
 
                 <TextView
                     android:id="@+id/hide_package"
@@ -78,7 +78,7 @@
                     app:layout_constraintEnd_toEndOf="@+id/hide_name"
                     app:layout_constraintStart_toStartOf="@+id/hide_name"
                     app:layout_constraintTop_toBottomOf="@+id/hide_name"
-                    tools:text="com.topjohnwu.magisk" />
+                    tools:text="com.topjohnwu.magicmask" />
 
                 <com.topjohnwu.widget.IndeterminateCheckBox
                     android:id="@+id/hide_expand_icon"

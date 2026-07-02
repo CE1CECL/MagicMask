@@ -19,15 +19,15 @@
     <string name="home_package">Paket</string>
     <string name="home_app_title">Uygulama</string>
 
-    <string name="home_notice_content">Magisk\'i SADECE resmi github sayfasından indirin. Başka kaynaklardaki dosyalar kötücül olabilir!</string>
+    <string name="home_notice_content">MagicMask\'i SADECE resmi github sayfasından indirin. Başka kaynaklardaki dosyalar kötücül olabilir!</string>
     <string name="home_support_title">Bizi Destekleyin</string>
     <string name="home_item_source">Kaynak</string>
-    <string name="home_support_content">Magisk özgür ve açık kaynaklıdır ve her zaman da öyle kalacaktır. Ancak küçük bir bağış göndererek bize önem verdiğinizi gösterebilirsiniz.</string>
+    <string name="home_support_content">MagicMask özgür ve açık kaynaklıdır ve her zaman da öyle kalacaktır. Ancak küçük bir bağış göndererek bize önem verdiğinizi gösterebilirsiniz.</string>
     <string name="home_installed_version">Yüklü</string>
     <string name="home_latest_version">Güncel</string>
     <string name="invalid_update_channel">Geçersiz Güncelleme Kanalı</string>
-    <string name="uninstall_magisk_title">Magisk\'i Kaldır</string>
-    <string name="uninstall_magisk_msg">Tüm modüller devre dışı bırakılacak/kaldırılacak!\nRoot erişimi kaldırılacak!\nVerileriniz şifrelenmemişse potansiyel olarak şifrelenecek!</string>
+    <string name="uninstall_magicmask_title">MagicMask\'i Kaldır</string>
+    <string name="uninstall_magicmask_msg">Tüm modüller devre dışı bırakılacak/kaldırılacak!\nRoot erişimi kaldırılacak!\nVerileriniz şifrelenmemişse potansiyel olarak şifrelenecek!</string>
 
     <!--Install-->
     <string name="keep_force_encryption">Şifrelemeye zorlamayı sürdür</string>
@@ -49,7 +49,7 @@
 
     <!--Superuser-->
     <string name="su_request_title">Yetkili Kullanıcı İsteği</string>
-    <string name="touch_filtered_warning">Çünkü bir uygulama yetkili kullanıcı isteğini engelliyor, Magisk sizin yanıtınızı doğrulayamaz</string>
+    <string name="touch_filtered_warning">Çünkü bir uygulama yetkili kullanıcı isteğini engelliyor, MagicMask sizin yanıtınızı doğrulayamaz</string>
     <string name="deny">Reddet</string>
     <string name="prompt">Sor</string>
     <string name="grant">İzin ver</string>
@@ -79,7 +79,7 @@
 
     <!--Logs-->
     <string name="log_data_none">Günlük boş, daha fazla Yetkili Kullanıcı İzni isteyen uygulama kullanmayı deneyin</string>
-    <string name="log_data_magisk_none">Magisk günlükleri boş, bu biraz garip</string>
+    <string name="log_data_magicmask_none">MagicMask günlükleri boş, bu biraz garip</string>
     <string name="menuSaveLog">Günlüğü kaydet</string>
     <string name="menuClearLog">Günlüğü temizle</string>
     <string name="logs_cleared">Günlük başarıyla temizlendi</string>
@@ -88,7 +88,7 @@
 
     <!--SafetyNet-->
 
-    <!--MagiskHide-->
+    <!--MagicMaskHide-->
     <string name="show_system_app">Sistem uyg. göster</string>
     <string name="show_os_app">İşletim Sistemi uyg. göster</string>
     <string name="hide_filter_hint">İsme göre filtrele</string>
@@ -115,9 +115,9 @@
     <string name="settings_dark_mode_dark">Her Zaman Karanlık</string>
     <string name="settings_download_path_title">İndirme dizini</string>
     <string name="settings_download_path_message">Dosyalar %1$s konumuna kaydedilecek</string>
-    <string name="settings_hide_app_title">Magisk uygulamasını gizle</string>
+    <string name="settings_hide_app_title">MagicMask uygulamasını gizle</string>
     <string name="settings_hide_app_summary">Rastgele paket kimliğine ve isme sabip bir vekil uygulama yükle</string>
-    <string name="settings_restore_app_title">Magisk uygulamasını geri yükle</string>
+    <string name="settings_restore_app_title">MagicMask uygulamasını geri yükle</string>
     <string name="settings_restore_app_summary">Uygulamanın gizliliğini kaldır ve orijinal APK\'ye geri döndür</string>
     <string name="language">Dil</string>
     <string name="system_default">(Sistem Varsayılanı)</string>
@@ -177,11 +177,11 @@
     <string name="isolate_summary">Her root oturumunun kendine ait bir izole ad alanı olur</string>
 
     <!--Notifications-->
-    <string name="update_channel">Magisk Güncellemeleri</string>
+    <string name="update_channel">MagicMask Güncellemeleri</string>
     <string name="progress_channel">İlerleme Bildirimleri</string>
     <string name="download_complete">İndirme tamamlandı</string>
     <string name="download_file_error">Dosya indirme hatası</string>
-    <string name="magisk_update_title">Magisk Güncellemesi Mevcut!</string>
+    <string name="magicmask_update_title">MagicMask Güncellemesi Mevcut!</string>
 
     <!--Toasts, Dialogs-->
     <string name="yes">Evet</string>
@@ -192,7 +192,7 @@
     <string name="flashing">Yükleniyor…</string>
     <string name="done">Tamamlandı!</string>
     <string name="failure">Başarısız!</string>
-    <string name="hide_app_title">Magisk uygulaması gizleniyor...</string>
+    <string name="hide_app_title">MagicMask uygulaması gizleniyor...</string>
     <string name="open_link_failed_toast">Bağlantıyı açabilecek bir uygulama bulunamadı</string>
     <string name="complete_uninstall">Tamamen Kaldır</string>
     <string name="restore_img">İmajları Geri Yükle</string>
@@ -201,15 +201,15 @@
     <string name="restore_fail">Stock yedeği yok!</string>
     <string name="setup_fail">Kurulum başarısız</string>
     <string name="env_fix_title">Ek Kurulum Gerekli</string>
-    <string name="env_fix_msg">Cihazınızın Magisk\'i çalıştırması için ek bir kuruluma ihtiyacı var. Ek kuruluma devam etmek ve yeniden başlatmak istiyor musunuz?</string>
+    <string name="env_fix_msg">Cihazınızın MagicMask\'i çalıştırması için ek bir kuruluma ihtiyacı var. Ek kuruluma devam etmek ve yeniden başlatmak istiyor musunuz?</string>
     <string name="setup_msg">Ortam kurulumu çalıştırılıyor…</string>
     <string name="authenticate">Kimlik Doğrulaması</string>
-    <string name="unsupport_magisk_title">Desteklenmeyen Magisk Sürümü</string>
-    <string name="unsupport_magisk_msg">Uygulamanın bu sürümü %1$s\'den daha düşük Magisk sürümünü desteklememektedir.\n\nUygulama Magisk yüklü değilmiş gibi davranacaktır. Lütfen en kısa sürede Magisk\'i güncelleyiniz.</string>
+    <string name="unsupport_magicmask_title">Desteklenmeyen MagicMask Sürümü</string>
+    <string name="unsupport_magicmask_msg">Uygulamanın bu sürümü %1$s\'den daha düşük MagicMask sürümünü desteklememektedir.\n\nUygulama MagicMask yüklü değilmiş gibi davranacaktır. Lütfen en kısa sürede MagicMask\'i güncelleyiniz.</string>
     <string name="unsupport_general_title">Anormal Durum</string>
     <string name="unsupport_system_app_msg">Uygulamayı sistem uygulaması olarak çalıştırmak desteklenmemektedir. Lütfen uygulamayı tekrar kullanıcı uygulaması haline getiriniz.</string>
-    <string name="unsupport_other_su_msg">Magisk\'e ait olmayan bir \"su\" komutu algılandı. Lütfen diğer desteklenmeyen \"su\" komutlarını kaldırın.</string>
-    <string name="unsupport_external_storage_msg">Magisk harici bir depolamaya yüklendi. Lütfen uygulamayı dahili depolamaya taşıyınız.</string>
+    <string name="unsupport_other_su_msg">MagicMask\'e ait olmayan bir \"su\" komutu algılandı. Lütfen diğer desteklenmeyen \"su\" komutlarını kaldırın.</string>
+    <string name="unsupport_external_storage_msg">MagicMask harici bir depolamaya yüklendi. Lütfen uygulamayı dahili depolamaya taşıyınız.</string>
     <string name="unsupport_nonroot_stub_msg">Root yokken uygulama gizli modda çalışmaya devam edemez. Lütfen orijinal APK\'ye geri döndürünüz.</string>
     <string name="unsupport_nonroot_stub_title">@string/settings_restore_app_title</string>
     <string name="external_rw_permission_denied">Bu işlevi aktif etmek için depolama izni vermelisiniz</string>

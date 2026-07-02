@@ -18,16 +18,16 @@
     <string name="hide">Anubrir</string>
     <string name="home_package">Paquete</string>
     <string name="home_app_title">Aplicación</string>
-    <string name="home_notice_content">Baxa Magisk NAMÁS dende la páxina oficial de GitHub. ¡Los ficheros de fontes desconocíes puen ser maliciosos!</string>
+    <string name="home_notice_content">Baxa MagicMask NAMÁS dende la páxina oficial de GitHub. ¡Los ficheros de fontes desconocíes puen ser maliciosos!</string>
     <string name="home_support_title">Collaboración</string>
     <string name="home_follow_title">Redes sociales</string>
     <string name="home_item_source">Códigu fonte</string>
-    <string name="home_support_content">Magisk ye y va ser de códigu abiertu y gratuitu. Sicasí, pues ayudanos faciendo una donación o collaborando.</string>
+    <string name="home_support_content">MagicMask ye y va ser de códigu abiertu y gratuitu. Sicasí, pues ayudanos faciendo una donación o collaborando.</string>
     <string name="home_installed_version">Versión instalada</string>
     <string name="home_latest_version">Última versión</string>
     <string name="invalid_update_channel">La canal d\'anovamientu nun ye válida</string>
-    <string name="uninstall_magisk_title">Desinstalar Magisk</string>
-    <string name="uninstall_magisk_msg">¡Van quitase y desactivase tolos módulos y l\'accesu root!\nCualesquier almacenamientu internu ensin cifrar pente l\'usu de Magisk va volver cifrase.</string>
+    <string name="uninstall_magicmask_title">Desinstalar MagicMask</string>
+    <string name="uninstall_magicmask_msg">¡Van quitase y desactivase tolos módulos y l\'accesu root!\nCualesquier almacenamientu internu ensin cifrar pente l\'usu de MagicMask va volver cifrase.</string>
     <!--Install-->
     <string name="keep_force_encryption">Caltener el cifráu forciáu</string>
     <string name="keep_dm_verity">Caltener l\'AVB 2.0/dm-verity</string>
@@ -48,7 +48,7 @@
     <string name="flash_screen_title">Instalación</string>
     <!--Superuser-->
     <string name="su_request_title">Solicitú de superusuariu</string>
-    <string name="touch_filtered_warning">Como una aplicación torga la solicitú de superusuariu, Magisk nun pue verificar la to rempuesta</string>
+    <string name="touch_filtered_warning">Como una aplicación torga la solicitú de superusuariu, MagicMask nun pue verificar la to rempuesta</string>
     <string name="deny">Negar</string>
     <string name="prompt">Entrugar</string>
     <string name="grant">Conceder</string>
@@ -76,14 +76,14 @@
     <string name="superuser_policy_none">Pel momentu, nenguna aplicación pidió\'l permisu de superusuariu.</string>
     <!--Logs-->
     <string name="log_data_none">El rexistru ta baleru. Prueba a usar más aplicaciones de root</string>
-    <string name="log_data_magisk_none">El rexistru de Magisk ta baleru. ¡Qué raro!</string>
+    <string name="log_data_magicmask_none">El rexistru de MagicMask ta baleru. ¡Qué raro!</string>
     <string name="menuSaveLog">Guardar el rexistru</string>
     <string name="menuClearLog">Llimpiar el rexistru</string>
     <string name="logs_cleared">El rexistru borróse correutamente</string>
     <string name="pid">PID: %1$d</string>
     <string name="target_uid">UID de destín: %1$d</string>
     <!--SafetyNet-->
-    <!--MagiskHide-->
+    <!--MagicMaskHide-->
     <string name="show_system_app">Aplicaciones del sistema</string>
     <string name="show_os_app">Aplicaciones del SO</string>
     <string name="hide_filter_hint">Peñerar pol nome</string>
@@ -112,7 +112,7 @@
     <string name="settings_dark_mode_dark">Escuridá</string>
     <string name="settings_download_path_title">Camín de les descargues</string>
     <string name="settings_download_path_message">Los ficheros van guardase en «%1$s»</string>
-    <string name="settings_hide_app_title">Anubrir Magisk</string>
+    <string name="settings_hide_app_title">Anubrir MagicMask</string>
     <string name="settings_hide_app_summary">Instala una aplicación intermedia con una ID y una etiqueta al debalu</string>
     <string name="settings_restore_app_title">Restaurar el mou visible</string>
     <string name="settings_restore_app_summary">Fai que l\'aplicación orixinal vuelva ser visible</string>
@@ -125,9 +125,9 @@
     <string name="settings_update_beta">Beta</string>
     <string name="settings_update_custom">Canal personalizada</string>
     <string name="settings_update_custom_msg">Inxerta la URL d\'una canal personalizada</string>
-    <string name="settings_zygisk_summary">Executa partes de Magisk nel degorriu de Zygote</string>
+    <string name="settings_zygisk_summary">Executa partes de MagicMask nel degorriu de Zygote</string>
     <string name="settings_denylist_title">Forciar la llista d\'esclusión</string>
-    <string name="settings_denylist_summary">Los procesos de la llista d\'esclusión tienen toles modificaciones de Magisk anulaes</string>
+    <string name="settings_denylist_summary">Los procesos de la llista d\'esclusión tienen toles modificaciones de MagicMask anulaes</string>
     <string name="settings_denylist_error">Esta función rique l\'activación de: %1$s</string>
     <string name="settings_denylist_config_title">Configurar la llista d\'esclusión</string>
     <string name="settings_denylist_config_summary">Seleiciona los procesos que s\'inclúin na llista d\'esclusión</string>
@@ -177,13 +177,13 @@
     <string name="requester_summary">Les sesiones de root herieden l\'espaciu de nomes de los solicitantes</string>
     <string name="isolate_summary">Cada sesión de root tien el so espaciu de nomes propiu</string>
     <!--Notifications-->
-    <string name="update_channel">Anovamientos de Magisk</string>
+    <string name="update_channel">Anovamientos de MagicMask</string>
     <string name="progress_channel">Avisos de progresos</string>
     <string name="updated_channel">Anovamientu completáu</string>
     <string name="download_complete">Completóse la descarga</string>
     <string name="download_file_error">Hebo un fallu al baxar el ficheru</string>
-    <string name="magisk_update_title">¡Hai un anovamientu pa Magisk!</string>
-    <string name="updated_title">Magisk anovóse</string>
+    <string name="magicmask_update_title">¡Hai un anovamientu pa MagicMask!</string>
+    <string name="updated_title">MagicMask anovóse</string>
     <string name="updated_text">Toca equí p\'abrir l\'aplicación</string>
     <!--Toasts, Dialogs-->
     <string name="yes">Sí</string>
@@ -195,7 +195,7 @@
     <string name="flashing">Flaxando…</string>
     <string name="done">¡Fecho!</string>
     <string name="failure">¡Falló!</string>
-    <string name="hide_app_title">Anubriendo l\'aplicación Magisk…</string>
+    <string name="hide_app_title">Anubriendo l\'aplicación MagicMask…</string>
     <string name="open_link_failed_toast">Nun s\'atopó nenguna aplicación p\'abrir l\'enllaz</string>
     <string name="complete_uninstall">Desinstalar dafechu</string>
     <string name="restore_img">Restaurar les imáxenes</string>
@@ -204,16 +204,16 @@
     <string name="restore_fail">¡La copia de seguranza de la imaxe de fábrica nun esiste!</string>
     <string name="setup_fail">La configuración falló</string>
     <string name="env_fix_title">Configuración adicional</string>
-    <string name="env_fix_msg">El preséu precisa una configuración adicional pa que Magisk funcione afayadizamente. ¿Quies siguir y reaniciar?</string>
+    <string name="env_fix_msg">El preséu precisa una configuración adicional pa que MagicMask funcione afayadizamente. ¿Quies siguir y reaniciar?</string>
     <string name="setup_msg">Executando la configuración del entornu…</string>
     <string name="authenticate">Autenticación</string>
-    <string name="unsupport_magisk_title">Versión non compatible</string>
-    <string name="unsupport_magisk_msg">Esta versión de l\'aplicación nun ye compatible coles versiones de Magisk anteriores a la %1$s.\n\nL\'aplicación va comportase como si Magisk nun tuviere instaláu, anueva Magisk namás que puedas.</string>
+    <string name="unsupport_magicmask_title">Versión non compatible</string>
+    <string name="unsupport_magicmask_msg">Esta versión de l\'aplicación nun ye compatible coles versiones de MagicMask anteriores a la %1$s.\n\nL\'aplicación va comportase como si MagicMask nun tuviere instaláu, anueva MagicMask namás que puedas.</string>
     <string name="unsupport_general_title">Estáu anormal</string>
     <string name="unsupport_system_app_msg">Esta aplicación nun se pue executar nel espaciu del sistema. Volvi instalala mas nel espaciu del usuariu.</string>
-    <string name="unsupport_other_su_msg">Detectóse un binariu «su» que nun ye de Magisk. Quita cualesquier solución de root y/o volvi instalar Magisk.</string>
-    <string name="unsupport_external_storage_msg">Magisk ta instaláu nel almacenamientu esternu. Movi l\'aplicación al almacenamientu internu, por favor.</string>
-    <string name="unsupport_nonroot_stub_msg">Magisk nun pue siguir funcionando nel mou anubríu darréu que se perdió\'l root. Restaura\'l mou visible de l\'aplicación.</string>
+    <string name="unsupport_other_su_msg">Detectóse un binariu «su» que nun ye de MagicMask. Quita cualesquier solución de root y/o volvi instalar MagicMask.</string>
+    <string name="unsupport_external_storage_msg">MagicMask ta instaláu nel almacenamientu esternu. Movi l\'aplicación al almacenamientu internu, por favor.</string>
+    <string name="unsupport_nonroot_stub_msg">MagicMask nun pue siguir funcionando nel mou anubríu darréu que se perdió\'l root. Restaura\'l mou visible de l\'aplicación.</string>
     <string name="unsupport_nonroot_stub_title">@string/settings_restore_app_title</string>
     <string name="external_rw_permission_denied">Concede\'l permisu d\'almacenamientu p\'activar esta funcionalidá</string>
     <string name="install_unknown_denied">Permite la instalación d\'aplicaciones desconocíes p\'activar esta funcionalidá</string>

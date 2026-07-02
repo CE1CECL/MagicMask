@@ -7,7 +7,7 @@
 
 #include <base.hpp>
 #include <daemon.hpp>
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <selinux.hpp>
 
 #include "zygisk.hpp"
@@ -64,10 +64,10 @@ extern "C" void zygisk_inject_entry(void *handle) {
         unsetenv("LD_PRELOAD");
     }
 
-    MAGISKTMP = getenv(MAGISKTMP_ENV);
+    MAGICMASKTMP = getenv(MAGICMASKTMP_ENV);
     self_handle = handle;
 
-    unsetenv(MAGISKTMP_ENV);
+    unsetenv(MAGICMASKTMP_ENV);
     sanitize_environ();
     hook_functions();
     new_daemon_thread(&unload_first_stage, nullptr);
@@ -76,7 +76,7 @@ extern "C" void zygisk_inject_entry(void *handle) {
 // The following code runs in zygote/app process
 
 extern "C" void zygisk_log_write(int prio, const char *msg, int len) {
-    // If we don't have the log pipe set, request magiskd for it. This could actually happen
+    // If we don't have the log pipe set, request magicmaskd for it. This could actually happen
     // multiple times in the zygote daemon (parent process) because we had to close this
     // file descriptor to prevent crashing.
     //
@@ -85,7 +85,7 @@ extern "C" void zygisk_log_write(int prio, const char *msg, int len) {
     // to pass FD checks, just to have it re-initialized immediately after any
     // logging happens ¯\_(ツ)_/¯.
     //
-    // To be consistent with this behavior, we also have to close the log pipe to magiskd
+    // To be consistent with this behavior, we also have to close the log pipe to magicmaskd
     // to make zygote NOT crash if necessary. For nativeForkAndSpecialize, we can actually
     // add this FD into fds_to_ignore to pass the check. For other cases, we accomplish this by
     // hooking __android_log_close and closing it at the same time as the rest of logging FDs.
@@ -115,7 +115,7 @@ extern "C" void zygisk_log_write(int prio, const char *msg, int len) {
     sigaddset(&mask, SIGPIPE);
     pthread_sigmask(SIG_BLOCK, &mask, &orig_mask);
 
-    magisk_log_write(prio, msg, len);
+    magicmask_log_write(prio, msg, len);
 
     // Consume SIGPIPE if exists, then restore mask
     timespec ts{};
@@ -125,7 +125,7 @@ extern "C" void zygisk_log_write(int prio, const char *msg, int len) {
 
 static inline bool should_load_modules(uint32_t flags) {
     return (flags & UNMOUNT_MASK) != UNMOUNT_MASK &&
-           (flags & PROCESS_IS_MAGISK_APP) != PROCESS_IS_MAGISK_APP;
+           (flags & PROCESS_IS_MAGICMASK_APP) != PROCESS_IS_MAGICMASK_APP;
 }
 
 int remote_get_info(int uid, const char *process, uint32_t *flags, vector<int> &fds) {
@@ -141,13 +141,13 @@ int remote_get_info(int uid, const char *process, uint32_t *flags, vector<int> &
     return -1;
 }
 
-// The following code runs in magiskd
+// The following code runs in magicmaskd
 
 static vector<int> get_module_fds(bool is_64_bit) {
     vector<int> fds;
     // All fds passed to send_fds have to be valid file descriptors.
     // To workaround this issue, send over STDOUT_FILENO as an indicator of an
-    // invalid fd as it will always be /dev/null in magiskd
+    // invalid fd as it will always be /dev/null in magicmaskd
     if (is_64_bit) {
 #if defined(__LP64__)
         std::transform(module_list->begin(), module_list->end(), std::back_inserter(fds),
@@ -189,7 +189,7 @@ static void connect_companion(int client, bool is_64_bit) {
         socketpair(AF_UNIX, SOCK_STREAM | SOCK_CLOEXEC, 0, fds);
         zygiskd_socket = fds[0];
         if (fork_dont_care() == 0) {
-            string exe = MAGISKTMP + "/magisk" + (is_64_bit ? "64" : "32");
+            string exe = MAGICMASKTMP + "/magicmask" + (is_64_bit ? "64" : "32");
             // This fd has to survive exec
             fcntl(fds[1], F_SETFD, 0);
             char buf[16];
@@ -231,11 +231,11 @@ static void setup_files(int client, const sock_cred *cred) {
     bool is_64_bit = str_ends(buf, "64");
     if (is_64_bit) {
         hbin = HIJACK_BIN64;
-        mbin = MAGISKTMP + "/" ZYGISKBIN "/loader64.so";
+        mbin = MAGICMASKTMP + "/" ZYGISKBIN "/loader64.so";
         app_fd = app_process_64;
     } else {
         hbin = HIJACK_BIN32;
-        mbin = MAGISKTMP + "/" ZYGISKBIN "/loader32.so";
+        mbin = MAGICMASKTMP + "/" ZYGISKBIN "/loader32.so";
         app_fd = app_process_32;
     }
 
@@ -283,10 +283,10 @@ static void setup_files(int client, const sock_cred *cred) {
     xmount(mbin.data(), hbin, nullptr, MS_BIND, nullptr);
 
     send_fd(client, app_fd);
-    write_string(client, MAGISKTMP);
+    write_string(client, MAGICMASKTMP);
 }
 
-static void magiskd_passthrough(int client) {
+static void magicmaskd_passthrough(int client) {
     bool is_64_bit = read_int(client);
     write_int(client, 0);
     send_fd(client, is_64_bit ? app_process_64 : app_process_32);
@@ -305,7 +305,7 @@ static void get_process_info(int client, const sock_cred *cred) {
     }
     int manager_app_id = get_manager();
     if (to_app_id(uid) == manager_app_id) {
-        flags |= PROCESS_IS_MAGISK_APP;
+        flags |= PROCESS_IS_MAGICMASK_APP;
     } else if (to_app_id(uid) == sys_ui_app_id) {
         flags |= PROCESS_IS_SYS_UI;
     }
@@ -381,7 +381,7 @@ void zygisk_handler(int client, const sock_cred *cred) {
         setup_files(client, cred);
         break;
     case ZygiskRequest::PASSTHROUGH:
-        magiskd_passthrough(client);
+        magicmaskd_passthrough(client);
         break;
     case ZygiskRequest::GET_INFO:
         get_process_info(client, cred);

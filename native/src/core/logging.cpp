@@ -1,7 +1,7 @@
 #include <sys/uio.h>
 #include <android/log.h>
 
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <base.hpp>
 #include <daemon.hpp>
 #include <stream.hpp>
@@ -124,7 +124,7 @@ static void *logfile_writer(void *arg) {
     }
 }
 
-void magisk_log_write(int prio, const char *msg, int len) {
+void magicmask_log_write(int prio, const char *msg, int len) {
     if (logd_fd < 0)
         return;
 

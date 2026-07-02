@@ -10,15 +10,15 @@ lsparanoid {
 }
 
 android {
-    namespace = "com.topjohnwu.magisk"
+    namespace = "com.topjohnwu.magicmask"
 
     val canary = !Config.version.contains(".")
 
     val url = if (canary) null
-    else "https://cdn.jsdelivr.net/gh/topjohnwu/magisk-files@${Config.version}/app-release.apk"
+    else "https://cdn.jsdelivr.net/gh/topjohnwu/magicmask-files@${Config.version}/app-release.apk"
 
     defaultConfig {
-        applicationId = "com.topjohnwu.magisk"
+        applicationId = "com.topjohnwu.magicmask"
         versionCode = 1
         versionName = "1.0"
         buildConfigField("int", "STUB_VERSION", Config.stubVersion)

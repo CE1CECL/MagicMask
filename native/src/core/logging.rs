@@ -18,7 +18,7 @@ enum ALogPriority {
 
 extern "C" {
     fn __android_log_write(prio: i32, tag: *const u8, msg: *const u8);
-    fn magisk_log_write(prio: i32, msg: *const u8, len: i32);
+    fn magicmask_log_write(prio: i32, msg: *const u8, len: i32);
     fn zygisk_log_write(prio: i32, msg: *const u8, len: i32);
 }
 
@@ -37,12 +37,12 @@ pub fn android_logging() {
         let mut buf: [u8; 4096] = [0; 4096];
         fmt_to_buf(&mut buf, args);
         unsafe {
-            __android_log_write(level_to_prio(level), b"Magisk\0".as_ptr(), buf.as_ptr());
+            __android_log_write(level_to_prio(level), b"MagicMask\0".as_ptr(), buf.as_ptr());
         }
     }
     fn android_log_write(level: LogLevel, msg: &[u8]) {
         unsafe {
-            __android_log_write(level_to_prio(level), b"Magisk\0".as_ptr(), msg.as_ptr());
+            __android_log_write(level_to_prio(level), b"MagicMask\0".as_ptr(), msg.as_ptr());
         }
     }
 
@@ -57,25 +57,25 @@ pub fn android_logging() {
     }
 }
 
-pub fn magisk_logging() {
-    fn magisk_fmt(level: LogLevel, args: Arguments) {
+pub fn magicmask_logging() {
+    fn magicmask_fmt(level: LogLevel, args: Arguments) {
         let mut buf: [u8; 4096] = [0; 4096];
         let len = fmt_to_buf(&mut buf, args);
         unsafe {
-            __android_log_write(level_to_prio(level), b"Magisk\0".as_ptr(), buf.as_ptr());
-            magisk_log_write(level_to_prio(level), buf.as_ptr(), len as i32);
+            __android_log_write(level_to_prio(level), b"MagicMask\0".as_ptr(), buf.as_ptr());
+            magicmask_log_write(level_to_prio(level), buf.as_ptr(), len as i32);
         }
     }
-    fn magisk_write(level: LogLevel, msg: &[u8]) {
+    fn magicmask_write(level: LogLevel, msg: &[u8]) {
         unsafe {
-            __android_log_write(level_to_prio(level), b"Magisk\0".as_ptr(), msg.as_ptr());
-            magisk_log_write(level_to_prio(level), msg.as_ptr(), msg.len() as i32);
+            __android_log_write(level_to_prio(level), b"MagicMask\0".as_ptr(), msg.as_ptr());
+            magicmask_log_write(level_to_prio(level), msg.as_ptr(), msg.len() as i32);
         }
     }
 
     let logger = Logger {
-        fmt: magisk_fmt,
-        write: magisk_write,
+        fmt: magicmask_fmt,
+        write: magicmask_write,
         flags: 0,
     };
     exit_on_error(false);
@@ -89,13 +89,13 @@ pub fn zygisk_logging() {
         let mut buf: [u8; 4096] = [0; 4096];
         let len = fmt_to_buf(&mut buf, args);
         unsafe {
-            __android_log_write(level_to_prio(level), b"Magisk\0".as_ptr(), buf.as_ptr());
+            __android_log_write(level_to_prio(level), b"MagicMask\0".as_ptr(), buf.as_ptr());
             zygisk_log_write(level_to_prio(level), buf.as_ptr(), len as i32);
         }
     }
     fn zygisk_write(level: LogLevel, msg: &[u8]) {
         unsafe {
-            __android_log_write(level_to_prio(level), b"Magisk\0".as_ptr(), msg.as_ptr());
+            __android_log_write(level_to_prio(level), b"MagicMask\0".as_ptr(), msg.as_ptr());
             zygisk_log_write(level_to_prio(level), msg.as_ptr(), msg.len() as i32);
         }
     }

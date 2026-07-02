@@ -1,6 +1,6 @@
 /*
  * Original code: https://github.com/Chainfire/injectvm-binderjack/blob/master/app/src/main/jni/libinject/inject.cpp
- * The code is heavily modified and sublicensed to GPLv3 for incorporating into Magisk.
+ * The code is heavily modified and sublicensed to GPLv3 for incorporating into MagicMask.
  *
  * Copyright (c) 2015, Simone 'evilsocket' Margaritelli
  * Copyright (c) 2015-2019, Jorrit 'Chainfire' Jongma

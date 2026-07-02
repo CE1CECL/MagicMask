@@ -11,8 +11,8 @@
     <string name="invalid_update_channel">ช่องทางการอัปเดตไม่ถูกต้อง</string>
     <string name="keep_force_encryption">เก็บค่าบังคับการเข้ารหัส</string>
     <string name="keep_dm_verity">เก็บค่า AVB 2.0/dm-verity</string>
-    <string name="uninstall_magisk_title">ถอนการติดตั้ง Magisk</string>
-    <string name="uninstall_magisk_msg">โมดูลทั้งหมดจะถูกปิดการใช้งาน/ถูกลบ, สิทธิการเข้าถึง Root จะถูกลบ และข้อมูลของคุณอาจถูกเข้ารหัส</string>
+    <string name="uninstall_magicmask_title">ถอนการติดตั้ง MagicMask</string>
+    <string name="uninstall_magicmask_msg">โมดูลทั้งหมดจะถูกปิดการใช้งาน/ถูกลบ, สิทธิการเข้าถึง Root จะถูกลบ และข้อมูลของคุณอาจถูกเข้ารหัส</string>
     <string name="update">อัปเดต</string>
 
     <!--Module Fragment-->
@@ -34,11 +34,11 @@
     <string name="app_changelog">สิ่งที่เพิ่มใหม่</string>
 
     <!-- System Components, Notifications -->
-    <string name="update_channel">การอัปเดต Magisk</string>
+    <string name="update_channel">การอัปเดต MagicMask</string>
     <string name="progress_channel">สถานะ</string>
     <string name="download_complete">ดาวน์โหลดสำเร็จ</string>
     <string name="download_file_error">เกิดข้อผิดพลาดในการดาวน์โหลดไฟล์</string>
-    <string name="magisk_update_title">มีการอัปเดต Magisk!</string>
+    <string name="magicmask_update_title">มีการอัปเดต MagicMask!</string>
 
     <!--Toasts, Dialogs-->
     <string name="repo_install_title">ติดตั้ง %1$s %2$s(%3$d)</string>

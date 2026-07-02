@@ -102,7 +102,7 @@ void setfilecon_at(int dirfd, const char *name, const char *con) {
     lsetfilecon(path, con);
 }
 
-#if MAGISK_DEBUG
+#if MAGICMASK_DEBUG
 static bool se_state = false;
 bool selinux_enabled() {
     return se_state;
@@ -114,7 +114,7 @@ bool selinux_enabled() {
 #endif
 
 void enable_selinux() {
-#if MAGISK_DEBUG
+#if MAGICMASK_DEBUG
     if (access(SELINUX_MNT, F_OK) != 0)
         return;
     se_state = true;

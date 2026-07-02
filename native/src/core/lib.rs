@@ -8,7 +8,7 @@ pub mod ffi {
     extern "Rust" {
         fn rust_test_entry();
         fn android_logging();
-        fn magisk_logging();
+        fn magicmask_logging();
         fn zygisk_logging();
     }
 }

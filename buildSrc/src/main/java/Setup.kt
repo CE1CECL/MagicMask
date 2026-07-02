@@ -71,7 +71,7 @@ fun Project.setupCommon() {
     androidBase {
         compileSdkVersion(33)
         buildToolsVersion = "33.0.1"
-        ndkPath = "$sdkDirectory/ndk/magisk"
+        ndkPath = "$sdkDirectory/ndk/magicmask"
 
         defaultConfig {
             minSdk = 21
@@ -219,26 +219,26 @@ fun Project.setupApp() {
         into("src/main/jniLibs")
         into("armeabi-v7a") {
             from(rootProject.file("native/out/armeabi-v7a")) {
-                include("busybox", "magiskboot", "magiskinit", "magiskpolicy", "magisk")
-                rename { if (it == "magisk") "libmagisk32.so" else "lib$it.so" }
+                include("busybox", "magicmaskboot", "magicmaskinit", "magicmaskpolicy", "magicmask")
+                rename { if (it == "magicmask") "libmagicmask32.so" else "lib$it.so" }
             }
         }
         into("x86") {
             from(rootProject.file("native/out/x86")) {
-                include("busybox", "magiskboot", "magiskinit", "magiskpolicy", "magisk")
-                rename { if (it == "magisk") "libmagisk32.so" else "lib$it.so" }
+                include("busybox", "magicmaskboot", "magicmaskinit", "magicmaskpolicy", "magicmask")
+                rename { if (it == "magicmask") "libmagicmask32.so" else "lib$it.so" }
             }
         }
         into("arm64-v8a") {
             from(rootProject.file("native/out/arm64-v8a")) {
-                include("busybox", "magiskboot", "magiskinit", "magiskpolicy", "magisk")
-                rename { if (it == "magisk") "libmagisk64.so" else "lib$it.so" }
+                include("busybox", "magicmaskboot", "magicmaskinit", "magicmaskpolicy", "magicmask")
+                rename { if (it == "magicmask") "libmagicmask64.so" else "lib$it.so" }
             }
         }
         into("x86_64") {
             from(rootProject.file("native/out/x86_64")) {
-                include("busybox", "magiskboot", "magiskinit", "magiskpolicy", "magisk")
-                rename { if (it == "magisk") "libmagisk64.so" else "lib$it.so" }
+                include("busybox", "magicmaskboot", "magicmaskinit", "magicmaskpolicy", "magicmask")
+                rename { if (it == "magicmask") "libmagicmask64.so" else "lib$it.so" }
             }
         }
         onlyIf {
@@ -291,8 +291,8 @@ fun Project.setupApp() {
             filesMatching("**/util_functions.sh") {
                 filter {
                     it.replace(
-                        "#MAGISK_VERSION_STUB",
-                        "MAGISK_VER='${Config.version}'\nMAGISK_VER_CODE=${Config.versionCode}"
+                        "#MAGICMASK_VERSION_STUB",
+                        "MAGICMASK_VER='${Config.version}'\nMAGICMASK_VER_CODE=${Config.versionCode}"
                     )
                 }
                 filter<FixCrLfFilter>("eol" to FixCrLfFilter.CrLf.newInstance("lf"))
@@ -302,7 +302,7 @@ fun Project.setupApp() {
 
         val keysDir = rootProject.file("tools/keys")
         val outSrcDir = File(buildDir, "generated/source/keydata/$name")
-        val outSrc = File(outSrcDir, "com/topjohnwu/magisk/signing/KeyData.java")
+        val outSrc = File(outSrcDir, "com/topjohnwu/magicmask/signing/KeyData.java")
 
         val genSrcTask = tasks.register("generate${variantCapped}KeyData") {
             inputs.dir(keysDir)

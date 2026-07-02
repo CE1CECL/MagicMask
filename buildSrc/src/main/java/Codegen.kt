@@ -67,7 +67,7 @@ private fun PrintStream.byteField(name: String, bytes: ByteArray) {
 fun genKeyData(keysDir: File, outSrc: File) {
     outSrc.parentFile.mkdirs()
     PrintStream(outSrc).use {
-        it.println("package com.topjohnwu.magisk.signing;")
+        it.println("package com.topjohnwu.magicmask.signing;")
         it.println("public final class KeyData {")
 
         it.byteField("verityCert", File(keysDir, "verity.x509.pem").readBytes())
@@ -225,7 +225,7 @@ fun genStubClasses(factoryOutDir: File, appOutDir: File) {
         pkgDir.mkdirs()
         PrintStream(File(pkgDir, "$name.java")).use {
             it.println("package $pkg;")
-            it.println("public class $name extends com.topjohnwu.magisk.$type {}")
+            it.println("public class $name extends com.topjohnwu.magicmask.$type {}")
         }
     }
 
@@ -234,7 +234,7 @@ fun genStubClasses(factoryOutDir: File, appOutDir: File) {
 }
 
 fun genEncryptedResources(res: ByteArray, outDir: File) {
-    val mainPkgDir = File(outDir, "com/topjohnwu/magisk")
+    val mainPkgDir = File(outDir, "com/topjohnwu/magicmask")
     mainPkgDir.mkdirs()
 
     // Generate iv and key
@@ -254,7 +254,7 @@ fun genEncryptedResources(res: ByteArray, outDir: File) {
     }
 
     PrintStream(File(mainPkgDir, "Bytes.java")).use {
-        it.println("package com.topjohnwu.magisk;")
+        it.println("package com.topjohnwu.magicmask;")
         it.println("public final class Bytes {")
 
         it.byteField("key", key)

@@ -1,22 +1,22 @@
 # Installation
 
-If you already have Magisk installed, it is **strongly recommended** to upgrade directly via the Magisk app using its "Direct Install" method. The following tutorial is only for the initial installation.
+If you already have MagicMask installed, it is **strongly recommended** to upgrade directly via the MagicMask app using its "Direct Install" method. The following tutorial is only for the initial installation.
 
 ## Getting Started
 
 Before you start:
 
 - This tutorial assumes you understand how to use `adb` and `fastboot`
-- If you plan to also install custom kernels, install it after Magisk
+- If you plan to also install custom kernels, install it after MagicMask
 - Your device's bootloader has to be unlocked
 
 ---
 
-Download and install the latest [Magisk app](https://github.com/topjohnwu/Magisk/releases/latest). In the home screen, you should see:
+Download and install the latest [MagicMask app](https://github.com/topjohnwu/MagicMask/releases/latest). In the home screen, you should see:
 
 <p align="center"><img src="images/device_info.png" width="500"/></p>
 
-The result of **Ramdisk** determines whether your device has ramdisk in the boot partition. If your device does not have boot ramdisk, read the [Magisk in Recovery](#magisk-in-recovery) section before continuing.
+The result of **Ramdisk** determines whether your device has ramdisk in the boot partition. If your device does not have boot ramdisk, read the [MagicMask in Recovery](#magicmask-in-recovery) section before continuing.
 
 > _(Unfortunately, there are exceptions as some devices' bootloader accepts ramdisk even if it shouldn't. In this case, you will have to follow the instructions as if your device's boot partition **does** include ramdisk. There is no way to detect this, so the only way to know for sure is to actually try. Fortunately, as far as we know, only some Xiaomi devices are known to have this property, so most people can simply ignore this piece of information.)_
 
@@ -45,49 +45,49 @@ Let's continue to [Patching Images](#patching-images).
 ## Patching Images
 
 - Copy the boot/init_boot/recovery image to your device
-- Press the **Install** button in the Magisk card
+- Press the **Install** button in the MagicMask card
 - If you are patching a recovery image, check the **"Recovery Mode"** option
 - If your device does **NOT** have a separate `vbmeta` partition, check the **"Patch vbmeta in boot image"** option
 - Choose **"Select and Patch a File"** in method, and select the boot/init_boot/recovery image
 - Start the installation, and copy the patched image to your PC using ADB:<br>
-  `adb pull /sdcard/Download/magisk_patched_[random_strings].img`
+  `adb pull /sdcard/Download/magicmask_patched_[random_strings].img`
 - Flash the patched boot/init_boot/recovery image to your device;<br>
   for most devices, reboot into fastboot mode and flash with command:<br>
-  `fastboot flash boot[_x] /path/to/magisk_patched_[random_strings].img` or <br>
-  `fastboot flash init_boot[_x] /path/to/magisk_patched.img_[random_strings]` or <br>
-  `fastboot flash recovery /path/to/magisk_patched.img_[random_strings]`, <br>
+  `fastboot flash boot[_x] /path/to/magicmask_patched_[random_strings].img` or <br>
+  `fastboot flash init_boot[_x] /path/to/magicmask_patched.img_[random_strings]` or <br>
+  `fastboot flash recovery /path/to/magicmask_patched.img_[random_strings]`, <br>
   where `[_x]` should be `_a` or `_b` or empty depending on your device
 - (Optional) If your device has a separate `vbmeta` partition, you can patch the `vbmeta` partition with command:<br>
   `fastboot flash vbmeta --disable-verity --disable-verification vbmeta.img` (note that it may **wipe your data**)
-- Reboot and launch Magisk app (you will see a stub Magisk app if you have wipped your data; use it to bootstrap to a complete Magisk app), and you will see a prompt asking for environment fix; click and wait for the reboot
+- Reboot and launch MagicMask app (you will see a stub MagicMask app if you have wipped your data; use it to bootstrap to a complete MagicMask app), and you will see a prompt asking for environment fix; click and wait for the reboot
 - Voila!
 
 ## Uninstallation
 
-The easiest way to uninstall Magisk is directly through the Magisk app. If you insist on using custom recoveries, rename the Magisk APK to `uninstall.zip` and flash it like any other ordinary flashable zip.
+The easiest way to uninstall MagicMask is directly through the MagicMask app. If you insist on using custom recoveries, rename the MagicMask APK to `uninstall.zip` and flash it like any other ordinary flashable zip.
 
-## Magisk in Recovery
+## MagicMask in Recovery
 
-In the case when your device does not have ramdisk in boot images, Magisk has no choice but to hijack the recovery partition. For these devices, you will have to **reboot to recovery** every time you want Magisk enabled.
+In the case when your device does not have ramdisk in boot images, MagicMask has no choice but to hijack the recovery partition. For these devices, you will have to **reboot to recovery** every time you want MagicMask enabled.
 
-When Magisk hijacks the recovery, there is a special mechanism to allow you to _actually_ boot into recovery mode. Each device model has its own key combo to boot into recovery, as an example for Galaxy S10 it is (Power + Bixby + Volume Up). A quick search online should easily get you this info. As soon as you press the key combo and the device vibrates with a splash screen, release all buttons to boot into Magisk. If you decide to boot into the actual recovery mode, **long press volume up until you see the recovery screen**.
+When MagicMask hijacks the recovery, there is a special mechanism to allow you to _actually_ boot into recovery mode. Each device model has its own key combo to boot into recovery, as an example for Galaxy S10 it is (Power + Bixby + Volume Up). A quick search online should easily get you this info. As soon as you press the key combo and the device vibrates with a splash screen, release all buttons to boot into MagicMask. If you decide to boot into the actual recovery mode, **long press volume up until you see the recovery screen**.
 
-As a summary, after installing Magisk in recovery **(starting from power off)**:
+As a summary, after installing MagicMask in recovery **(starting from power off)**:
 
-- **(Power up normally) → (System with NO Magisk)**
-- **(Recovery Key Combo) → (Splash screen) → (Release all buttons) → (System with Magisk)**
+- **(Power up normally) → (System with NO MagicMask)**
+- **(Recovery Key Combo) → (Splash screen) → (Release all buttons) → (System with MagicMask)**
 - **(Recovery Key Combo) → (Splash screen) → (Long press volume up) → (Recovery Mode)**
 
-(Note: You **CANNOT** use custom recoveries to install or upgrade Magisk in this case!!)
+(Note: You **CANNOT** use custom recoveries to install or upgrade MagicMask in this case!!)
 
 ## Samsung (System-as-root)
 
 > If your Samsung device is NOT launched with Android 9.0 or higher, you are reading the wrong section.
 
-### Before Installing Magisk
+### Before Installing MagicMask
 
-- Installing Magisk **WILL** trip KNOX
-- Installing Magisk for the first time **REQUIRES** a full data wipe (this is **NOT** counting the data wipe when unlocking bootloader). Backup your data before continue.
+- Installing MagicMask **WILL** trip KNOX
+- Installing MagicMask for the first time **REQUIRES** a full data wipe (this is **NOT** counting the data wipe when unlocking bootloader). Backup your data before continue.
 - Download Odin (for Windows) or [Heimdall](https://www.glassechidna.com.au/heimdall/) (for Linux) that supports your device.
 
 ### Unlocking Bootloader
@@ -105,16 +105,16 @@ Unlocking the bootloader on modern Samsung devices have some caveats. The newly 
 
 - Use either [samfirm.js](https://github.com/jesec/samfirm.js), [Frija](https://forum.xda-developers.com/s10-plus/how-to/tool-frija-samsung-firmware-downloader-t3910594), or [Samloader](https://forum.xda-developers.com/s10-plus/how-to/tool-samloader-samfirm-frija-replacement-t4105929) to download the latest firmware zip of your device directly from Samsung servers.
 - Unzip the firmware and copy the `AP` tar file to your device. It is normally named as `AP_[device_model_sw_ver].tar.md5`
-- Press the **Install** button in the Magisk card
+- Press the **Install** button in the MagicMask card
 - If your device does **NOT** have boot ramdisk, check the **"Recovery Mode"** option
 - Choose **"Select and Patch a File"** in method, and select the `AP` tar file
 - Start the installation, and copy the patched tar file to your PC using ADB:<br>
-  `adb pull /sdcard/Download/magisk_patched_[random_strings].tar`<br>
+  `adb pull /sdcard/Download/magicmask_patched_[random_strings].tar`<br>
   **DO NOT USE MTP** as it is known to corrupt large files.
-- Reboot to download mode. Open Odin on your PC, and flash `magisk_patched.tar` as `AP`, together with `BL`, `CP`, and `CSC` (**NOT** `HOME_CSC` because we want to **wipe data**) from the original firmware.
+- Reboot to download mode. Open Odin on your PC, and flash `magicmask_patched.tar` as `AP`, together with `BL`, `CP`, and `CSC` (**NOT** `HOME_CSC` because we want to **wipe data**) from the original firmware.
 - Your device should reboot automatically once Odin finished flashing. Agree to do a factory reset if asked.
-- If your device does **NOT** have boot ramdisk, reboot to recovery now to enable Magisk (reason stated in [Magisk in Recovery](#magisk-in-recovery)).
-- Install the Magisk app you've already downloaded and launch the app. It should show a dialog asking for additional setup.
+- If your device does **NOT** have boot ramdisk, reboot to recovery now to enable MagicMask (reason stated in [MagicMask in Recovery](#magicmask-in-recovery)).
+- Install the MagicMask app you've already downloaded and launch the app. It should show a dialog asking for additional setup.
 - Let the app do its job and automatically reboot the device. Voila!
 
 ### Upgrading the OS
@@ -124,18 +124,18 @@ Once you have rooted your Samsung device, you can no longer upgrade your Android
 ### Important Notes
 
 - **Never, ever** try to restore either `boot`, `recovery`, or `vbmeta` partitions back to stock! You can brick your device by doing so, and the only way to recover from this is to do a full Odin restore with data wipe.
-- To upgrade your device with a new firmware, **NEVER** directly use the stock `AP` tar file with reasons mentioned above. **Always** patch `AP` in the Magisk app and use that instead.
+- To upgrade your device with a new firmware, **NEVER** directly use the stock `AP` tar file with reasons mentioned above. **Always** patch `AP` in the MagicMask app and use that instead.
 - Never just flash only `AP`, or else Odin may shrink your `/data` filesystem size. Flash `AP` + `BL` + `CP` + `HOME_CSC` when upgrading.
 
 ## Custom Recovery
 
 > **This installation method is deprecated and is maintained with minimum effort. YOU HAVE BEEN WARNED!**
 
-Installing using custom recoveries is only possible if your device has boot ramdisk. Installing Magisk through custom recoveries on modern devices is no longer recommended. If you face any issues, please use the proper [Patch Image](#patching-images) method.
+Installing using custom recoveries is only possible if your device has boot ramdisk. Installing MagicMask through custom recoveries on modern devices is no longer recommended. If you face any issues, please use the proper [Patch Image](#patching-images) method.
 
-- Download the Magisk APK
-- Rename the `.apk` file extension to `.zip`, for example: `Magisk-v24.0.apk` → `Magisk-v24.0.zip`. If you have trouble renaming the file extension (like on Windows), use a file manager on Android or the one included in the custom recovery to rename the file.
+- Download the MagicMask APK
+- Rename the `.apk` file extension to `.zip`, for example: `MagicMask-v24.0.apk` → `MagicMask-v24.0.zip`. If you have trouble renaming the file extension (like on Windows), use a file manager on Android or the one included in the custom recovery to rename the file.
 - Flash the zip just like any other ordinary flashable zip.
-- Reboot and check whether the Magisk app is installed. If it isn't installed automatically, manually install the APK.
+- Reboot and check whether the MagicMask app is installed. If it isn't installed automatically, manually install the APK.
 
 > Warning: the `sepolicy.rule` file of modules may be stored in the `cache` partition. DO NOT WIPE THE `CACHE` PARTITION.

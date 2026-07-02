@@ -20,16 +20,16 @@
     <string name="home_package">Balíček</string>
     <string name="home_app_title">App</string>
 
-    <string name="home_notice_content">Magisk sťahujte IBA z oficiálnej stránky na GitHubé. Súbory z neznámych zdrojov môžu byť škodlivé!</string>
+    <string name="home_notice_content">MagicMask sťahujte IBA z oficiálnej stránky na GitHubé. Súbory z neznámych zdrojov môžu byť škodlivé!</string>
     <string name="home_support_title">Podporte nás</string>
     <string name="home_follow_title">Sledujte nás</string>
     <string name="home_item_source">Zdroj</string>
-    <string name="home_support_content">Magisk je a vždy bude slobodný a s otvoreným kódom. Môžete nám však dať najavo, že vám na nás záleží, tým, že nám prispejete.</string>
+    <string name="home_support_content">MagicMask je a vždy bude slobodný a s otvoreným kódom. Môžete nám však dať najavo, že vám na nás záleží, tým, že nám prispejete.</string>
     <string name="home_installed_version">Nainštalované</string>
     <string name="home_latest_version">Posledná</string>
     <string name="invalid_update_channel">Neplatný aktualizačný kanál</string>
-    <string name="uninstall_magisk_title">Odinštalovať Magisk</string>
-    <string name="uninstall_magisk_msg">Všetky moduly budú zakázané/odstránené!\nRoot bude odstránený!\nAkékoľvek interné úložisko nešifrované pomocou Magisku bude znovu zašifrované!</string>
+    <string name="uninstall_magicmask_title">Odinštalovať MagicMask</string>
+    <string name="uninstall_magicmask_msg">Všetky moduly budú zakázané/odstránené!\nRoot bude odstránený!\nAkékoľvek interné úložisko nešifrované pomocou MagicMasku bude znovu zašifrované!</string>
 
     <!--Install-->
     <string name="keep_force_encryption">Ponechať vynútené šifrovanie</string>
@@ -52,7 +52,7 @@
 
     <!--Superuser-->
     <string name="su_request_title">Požiadavka superužívateľa</string>
-    <string name="touch_filtered_warning">Pretože aplikácia zakrýva požiadavku superužívateľa, Magisk nemôže overiť vašu odpoveď</string>
+    <string name="touch_filtered_warning">Pretože aplikácia zakrýva požiadavku superužívateľa, MagicMask nemôže overiť vašu odpoveď</string>
     <string name="deny">Zamietnuť</string>
     <string name="prompt">Výzva</string>
     <string name="grant">Udeliť</string>
@@ -82,7 +82,7 @@
 
     <!--Logs-->
     <string name="log_data_none">Nie sú žiadne záznamy, skúste nejakú appku vyžadujúcu práva superpoužívateľa</string>
-    <string name="log_data_magisk_none">Záznamy Magisku sú prázdne, to je divné</string>
+    <string name="log_data_magicmask_none">Záznamy MagicMasku sú prázdne, to je divné</string>
     <string name="menuSaveLog">Uložiť záznam</string>
     <string name="menuClearLog">Odstrániť záznam</string>
     <string name="logs_cleared">Záznam úspešne odstránený</string>
@@ -91,7 +91,7 @@
 
     <!--SafetyNet-->
 
-    <!--MagiskHide-->
+    <!--MagicMaskHide-->
     <string name="show_system_app">Zobraziť systémové aplikácie</string>
     <string name="show_os_app">Zobraziť aplikácie OS</string>
     <string name="hide_filter_hint">Filtrovať podľa názvu</string>
@@ -122,9 +122,9 @@
     <string name="settings_dark_mode_dark">Vždy tmavý</string>
     <string name="settings_download_path_title">Cesta na sťahovanie</string>
     <string name="settings_download_path_message">Súbory budú uložené do %1$s</string>
-    <string name="settings_hide_app_title">Skryť aplikáciu Magisk</string>
+    <string name="settings_hide_app_title">Skryť aplikáciu MagicMask</string>
     <string name="settings_hide_app_summary">Inštalovať proxy aplikáciu s náhodným ID balíčka a vlastným názvom aplikácie</string>
-    <string name="settings_restore_app_title">Obnoviť aplikáciu Magisk</string>
+    <string name="settings_restore_app_title">Obnoviť aplikáciu MagicMask</string>
     <string name="settings_restore_app_summary">Odkryť aplikáciu a obnoviť pôvodný súbor APK</string>
     <string name="language">Jazyk</string>
     <string name="system_default">(Predvolený systémom)</string>
@@ -135,9 +135,9 @@
     <string name="settings_update_beta">Beta</string>
     <string name="settings_update_custom">Vlastný kanál</string>
     <string name="settings_update_custom_msg">Zadajte vlastnú URL</string>
-    <string name="settings_zygisk_summary">Spustiť časti Magisku v démonovi zygote</string>
+    <string name="settings_zygisk_summary">Spustiť časti MagicMasku v démonovi zygote</string>
     <string name="settings_denylist_title">Vynútiť zoznam zamietnutých</string>
-    <string name="settings_denylist_summary">Pre procesy na zozname zamietnutých budú všetky úpravy Magiskom vrátené</string>
+    <string name="settings_denylist_summary">Pre procesy na zozname zamietnutých budú všetky úpravy MagicMaskom vrátené</string>
     <string name="settings_denylist_error">Táto funkcia vyžaduje, aby bolo povolené %1$s</string>
     <string name="settings_denylist_config_title">Nastavenie zoznamu zamietnutých</string>
     <string name="settings_denylist_config_summary">Vyberte procesy, ktoré majú byť zahrnuté do zoznamu blokovaných</string>
@@ -190,13 +190,13 @@
     <string name="isolate_summary">Každá relácia root bude mať vlastný izolovaný namespace</string>
 
     <!--Notifications-->
-    <string name="update_channel">Aktualizácie Magisku</string>
+    <string name="update_channel">Aktualizácie MagicMasku</string>
     <string name="progress_channel">Upozornenia o priebehu</string>
     <string name="updated_channel">Aktualizácia dokončená</string>
     <string name="download_complete">Sťahovanie ukončené</string>
     <string name="download_file_error">Chyba sťahovania súboru</string>
-    <string name="magisk_update_title">Je dostupná aktualizácia Magisku!</string>
-    <string name="updated_title">Magisk aktualizovaný</string>
+    <string name="magicmask_update_title">Je dostupná aktualizácia MagicMasku!</string>
+    <string name="updated_title">MagicMask aktualizovaný</string>
     <string name="updated_text">Ťuknutím otvoríte apku</string>
 
     <!--Toasts, Dialogs-->
@@ -209,7 +209,7 @@
     <string name="flashing">Flashovanie...</string>
     <string name="done">Hotovo!</string>
     <string name="failure">Zlyhalo!</string>
-    <string name="hide_app_title">Skrýva sa aplikácia Magisk…</string>
+    <string name="hide_app_title">Skrýva sa aplikácia MagicMask…</string>
     <string name="open_link_failed_toast">Nepodarilo sa nájsť vhodnú aplikáciu na otvorenie odkazu</string>
     <string name="complete_uninstall">Úplne odinštalovať</string>
     <string name="restore_img">Obnoviť obrazy</string>
@@ -218,16 +218,16 @@
     <string name="restore_fail">Stock záloha neexistuje!</string>
     <string name="setup_fail">Nastavenie zlyhalo</string>
     <string name="env_fix_title">Vyžaduje sa ďalšie nastavenie</string>
-    <string name="env_fix_msg">Aby Magisk fungoval správne, vaše zariadenie potrebuje ďalšie nastavenie. Chcete pokračovať a reštartovať?</string>
+    <string name="env_fix_msg">Aby MagicMask fungoval správne, vaše zariadenie potrebuje ďalšie nastavenie. Chcete pokračovať a reštartovať?</string>
     <string name="setup_msg">Nastavenie je spustené…</string>
     <string name="authenticate">Autentifikovať</string>
-    <string name="unsupport_magisk_title">Nepodporovaná verzia Magisku</string>
-    <string name="unsupport_magisk_msg">Táto verzia aplikácie nepodporuje Magisk s verziou nižšou ako %1$s.\n\nAplikácia sa bude správať, akoby Magisk nebol nainštalový, aktualizujte Magisk čo najskôr.</string>
+    <string name="unsupport_magicmask_title">Nepodporovaná verzia MagicMasku</string>
+    <string name="unsupport_magicmask_msg">Táto verzia aplikácie nepodporuje MagicMask s verziou nižšou ako %1$s.\n\nAplikácia sa bude správať, akoby MagicMask nebol nainštalový, aktualizujte MagicMask čo najskôr.</string>
     <string name="unsupport_general_title">Abnormálny stav</string>
     <string name="unsupport_system_app_msg">Spustenie tejto apky ako systémovej nie je podporované. Preveďte apku na používateľskú.</string>
-    <string name="unsupport_other_su_msg">Bol nájdený binárny súbor \"su\", ktorý nie je pre Magisk. Odstráňte, prosím, konkurenčné root spôsoby a/alebo preinštalujte Magisk.</string>
-    <string name="unsupport_external_storage_msg">Magisk je nainštalovaný na externom úložisku. Prosím, presuňte apku na interné úložisko.</string>
-    <string name="unsupport_nonroot_stub_msg">Skrytá aplikácia Magisk nemôže pokračovať v práci, lebo root sa stratil. Prosím, obnovte ju z pôvodného súboru APK.</string>
+    <string name="unsupport_other_su_msg">Bol nájdený binárny súbor \"su\", ktorý nie je pre MagicMask. Odstráňte, prosím, konkurenčné root spôsoby a/alebo preinštalujte MagicMask.</string>
+    <string name="unsupport_external_storage_msg">MagicMask je nainštalovaný na externom úložisku. Prosím, presuňte apku na interné úložisko.</string>
+    <string name="unsupport_nonroot_stub_msg">Skrytá aplikácia MagicMask nemôže pokračovať v práci, lebo root sa stratil. Prosím, obnovte ju z pôvodného súboru APK.</string>
     <string name="unsupport_nonroot_stub_title">@string/settings_restore_app_title</string>
     <string name="external_rw_permission_denied">Udeľte povolenie na zapnutie tejto funkcie</string>
     <string name="post_notifications_denied">Udeľte upozorneniam povolenie na zapnutie tejto funkcie</string>

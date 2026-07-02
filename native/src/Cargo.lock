@@ -52,7 +52,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "505e71a4706fa491e9b1b55f51b95d4037d0821ee40131190475f692b35b009b"
 
 [[package]]
-name = "magisk"
+name = "magicmask"
 version = "0.0.0"
 dependencies = [
  "base",
@@ -60,14 +60,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "magiskboot"
+name = "magicmaskboot"
 version = "0.0.0"
 dependencies = [
  "base",
 ]
 
 [[package]]
-name = "magiskinit"
+name = "magicmaskinit"
 version = "0.0.0"
 dependencies = [
  "base",
@@ -75,7 +75,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "magiskpolicy"
+name = "magicmaskpolicy"
 version = "0.0.0"
 dependencies = [
  "base",

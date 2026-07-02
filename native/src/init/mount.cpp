@@ -6,7 +6,7 @@
 
 #include <base.hpp>
 #include <selinux.hpp>
-#include <magisk.hpp>
+#include <magicmask.hpp>
 
 #include "init.hpp"
 
@@ -112,9 +112,9 @@ static void switch_root(const string &path) {
     frm_rf(root);
 }
 
-void MagiskInit::mount_rules_dir() {
+void MagicMaskInit::mount_rules_dir() {
     dev_t rules_dev = 0;
-    parse_prop_file(".backup/.magisk", [&rules_dev](auto key, auto value) -> bool {
+    parse_prop_file(".backup/.magicmask", [&rules_dev](auto key, auto value) -> bool {
         if (key == "RULESDEVICE") {
             sscanf(value.data(), "%" PRIuPTR, &rules_dev);
             return false;
@@ -127,11 +127,11 @@ void MagiskInit::mount_rules_dir() {
     if (xmount(BLOCKDIR "/rules", MIRRDIR "/rules", "ext4", 0, nullptr) == 0) {
         string custom_rules_dir = MIRRDIR "/rules";
         if (access((custom_rules_dir + "/unencrypted").data(), F_OK) == 0) {
-            custom_rules_dir += "/unencrypted/magisk";
+            custom_rules_dir += "/unencrypted/magicmask";
         } else if (access((custom_rules_dir + "/adb").data(), F_OK) == 0) {
             custom_rules_dir += "/adb/modules";
         } else {
-            custom_rules_dir += "/magisk";
+            custom_rules_dir += "/magicmask";
         }
         // Create bind mount
         xmkdirs(RULESDIR, 0);
@@ -226,15 +226,15 @@ void BaseInit::exec_init() {
 void BaseInit::prepare_data() {
     LOGD("Setup data tmp\n");
     xmkdir("/data", 0755);
-    xmount("magisk", "/data", "tmpfs", 0, "mode=755");
+    xmount("magicmask", "/data", "tmpfs", 0, "mode=755");
 
-    cp_afc("/init", "/data/magiskinit");
+    cp_afc("/init", "/data/magicmaskinit");
     cp_afc("/.backup", "/data/.backup");
     cp_afc("/overlay.d", "/data/overlay.d");
 }
 
-void MagiskInit::setup_tmp(const char *path) {
-    LOGD("Setup Magisk tmp at %s\n", path);
+void MagicMaskInit::setup_tmp(const char *path) {
+    LOGD("Setup MagicMask tmp at %s\n", path);
     chdir("/data");
 
     xmkdir(INTLROOT, 0755);
@@ -244,13 +244,13 @@ void MagiskInit::setup_tmp(const char *path) {
 
     mount_rules_dir();
 
-    cp_afc(".backup/.magisk", INTLROOT "/config");
+    cp_afc(".backup/.magicmask", INTLROOT "/config");
     rm_rf(".backup");
 
     // Create applet symlinks
     for (int i = 0; applet_names[i]; ++i)
-        xsymlink("./magisk", applet_names[i]);
-    xsymlink("./magiskpolicy", "supolicy");
+        xsymlink("./magicmask", applet_names[i]);
+    xsymlink("./magicmaskpolicy", "supolicy");
 
     xmount(".", path, nullptr, MS_BIND | MS_REC, nullptr);
 

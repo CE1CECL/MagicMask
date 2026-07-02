@@ -20,15 +20,15 @@
     <string name="home_package">Pakiet</string>
     <string name="home_app_title">Aplikacja</string>
 
-    <string name="home_notice_content">Pobieraj Magisk tylko z oficjalnej strony GitHub. Pliki z nieznanych źródeł mogą być szkodliwe!</string>
+    <string name="home_notice_content">Pobieraj MagicMask tylko z oficjalnej strony GitHub. Pliki z nieznanych źródeł mogą być szkodliwe!</string>
     <string name="home_support_title">Wesprzyj nas</string>
     <string name="home_item_source">Źródło</string>
-    <string name="home_support_content">Magisk jest i zawsze będzie darmowy i otwarty. Niemniej możesz nam pokazać, że Ci zależy, wysyłając drobną darowiznę.</string>
+    <string name="home_support_content">MagicMask jest i zawsze będzie darmowy i otwarty. Niemniej możesz nam pokazać, że Ci zależy, wysyłając drobną darowiznę.</string>
     <string name="home_installed_version">Zainstalowany</string>
     <string name="home_latest_version">Ostatni</string>
     <string name="invalid_update_channel">Nieprawidłowy kanał aktualizacji</string>
-    <string name="uninstall_magisk_title">Odinstaluj Magisk</string>
-    <string name="uninstall_magisk_msg">Wszystkie moduły zostaną wyłączone/usunięte!\nRoot zostanie usunięty!\nTwoje dane mogą zostać potencjalnie zaszyfrowane, jeśli jeszcze nie są!</string>
+    <string name="uninstall_magicmask_title">Odinstaluj MagicMask</string>
+    <string name="uninstall_magicmask_msg">Wszystkie moduły zostaną wyłączone/usunięte!\nRoot zostanie usunięty!\nTwoje dane mogą zostać potencjalnie zaszyfrowane, jeśli jeszcze nie są!</string>
 
     <!--Install-->
     <string name="keep_force_encryption">Zachowaj force encryption (wymuszenie szyfrowania)</string>
@@ -51,7 +51,7 @@
 
     <!--Superuser-->
     <string name="su_request_title">Żądanie dostępu do Superusera</string>
-    <string name="touch_filtered_warning">Ponieważ zapytanie o Superuser aplikacji jest przysłonięte, Magisk nie może zweryfikować twojej odpowiedzi.</string>
+    <string name="touch_filtered_warning">Ponieważ zapytanie o Superuser aplikacji jest przysłonięte, MagicMask nie może zweryfikować twojej odpowiedzi.</string>
     <string name="deny">Odmów</string>
     <string name="prompt">Zapytaj</string>
     <string name="grant">Zezwól</string>
@@ -81,7 +81,7 @@
 
     <!--Logs-->
     <string name="log_data_none">Logi są puste, spróbuj użyć aplikacji wymagających roota.</string>
-    <string name="log_data_magisk_none">Logi Magisk są puste, to jest dziwne.</string>
+    <string name="log_data_magicmask_none">Logi MagicMask są puste, to jest dziwne.</string>
     <string name="menuSaveLog">Zapisz log</string>
     <string name="menuClearLog">Wyczyść log</string>
     <string name="logs_cleared">Log został pomyślnie wyczyszczony.</string>
@@ -90,7 +90,7 @@
 
     <!--SafetyNet-->
 
-    <!-- MagiskHide -->
+    <!-- MagicMaskHide -->
     <string name="show_system_app">Pokaż aplikacje systemowe</string>
     <string name="show_os_app">Pokaż aplikacje OS</string>
     <string name="hide_filter_hint">Filtruj według nazwy</string>
@@ -120,9 +120,9 @@
     <string name="settings_dark_mode_dark">Zawsze ciemny</string>
     <string name="settings_download_path_title">Ścieżka pobierania plików</string>
     <string name="settings_download_path_message">Pliki zostaną zapisane do %1$s</string>
-    <string name="settings_hide_app_title">Ukryj aplikację Magisk</string>
+    <string name="settings_hide_app_title">Ukryj aplikację MagicMask</string>
     <string name="settings_hide_app_summary">Zainstaluj aplikację z losowym ID pakietu i własną etykietą.</string>
-    <string name="settings_restore_app_title">Przywróć aplikację Magisk</string>
+    <string name="settings_restore_app_title">Przywróć aplikację MagicMask</string>
     <string name="settings_restore_app_summary">Przestań ukrywać aplikację i przywróć oryginalny plik APK</string>
     <string name="language">Język</string>
     <string name="system_default">(Domyślny systemowy)</string>
@@ -133,9 +133,9 @@
     <string name="settings_update_beta">Beta</string>
     <string name="settings_update_custom">Własny kanał</string>
     <string name="settings_update_custom_msg">Wprowadź adres URL własnego kanału</string>
-    <string name="settings_zygisk_summary">Uruchom cześć Magiska w zygocie Demona</string>
+    <string name="settings_zygisk_summary">Uruchom cześć MagicMaska w zygocie Demona</string>
     <string name="settings_denylist_title">Wymuś Listę Odmów</string>
-    <string name="settings_denylist_summary">Procesy z Listy Odmów będą miały wszystkie modyfikacje Magisk cofnięte</string>
+    <string name="settings_denylist_summary">Procesy z Listy Odmów będą miały wszystkie modyfikacje MagicMask cofnięte</string>
     <string name="settings_denylist_error">Ta funkcja wymaga aby %1$s było włączone</string>
     <string name="settings_denylist_config_title">Ustaw Listę Odmów</string>
     <string name="settings_denylist_config_summary">Wybierz proces który ma zostać zawarty w Liście Odmów</string>
@@ -188,13 +188,13 @@
     <string name="isolate_summary">Każda sesja roota otrzyma własną, izolowaną przestrzeń nazw</string>
 
     <!--Notifications-->
-    <string name="update_channel">Aktualizacja Magisk</string>
+    <string name="update_channel">Aktualizacja MagicMask</string>
     <string name="progress_channel">Powiadomienia o postępach</string>
     <string name="updated_channel">Aktualizacja zakończona</string>
     <string name="download_complete">Pobieranie zakończone</string>
     <string name="download_file_error">Błąd pobierania pliku</string>
-    <string name="magisk_update_title">Aktualizacja Magisk dostępna!</string>
-    <string name="updated_title">Magisk zaktualizowany</string>
+    <string name="magicmask_update_title">Aktualizacja MagicMask dostępna!</string>
+    <string name="updated_title">MagicMask zaktualizowany</string>
     <string name="updated_text">Naciśnij aby otworzyć applikację</string>
 
     <!--Toasts, Dialogs-->
@@ -207,7 +207,7 @@
     <string name="flashing">Flashowanie…</string>
     <string name="done">Gotowe!</string>
     <string name="failure">Błąd</string>
-    <string name="hide_app_title">Ukrywam aplikację Magisk…</string>
+    <string name="hide_app_title">Ukrywam aplikację MagicMask…</string>
     <string name="open_link_failed_toast">Nie znaleziono aplikacji do otwarcia linku</string>
     <string name="complete_uninstall">Odinstaluj całkowicie</string>
     <string name="restore_img">Przywróć obrazy</string>
@@ -216,15 +216,15 @@
     <string name="restore_fail">Kopia zapasowa nie istnieje!</string>
     <string name="setup_fail">Konfiguracja nieudana</string>
     <string name="env_fix_title">Wymaga dodatkowej konfiguracji</string>
-    <string name="env_fix_msg">Twoje urządzenie wymaga dodatkowej konfiguracji aby Magisk działał właściwie. Czy chcesz kontynuować i uruchomić ponownie?</string>
+    <string name="env_fix_msg">Twoje urządzenie wymaga dodatkowej konfiguracji aby MagicMask działał właściwie. Czy chcesz kontynuować i uruchomić ponownie?</string>
     <string name="setup_msg">Uruchamianie środowiska konfiguracji…</string>
     <string name="authenticate">Uwierzytelnianie</string>
-    <string name="unsupport_magisk_title">Nieobsługiwana wersja Magisk</string>
-    <string name="unsupport_magisk_msg">Ta wersja aplikacji nie obsługuje Magisk w wersji niższej niż %1$s.\n\nAplikacja będzie zachowywać się tak jakby Magisk nie był zainstalowany, proszę uaktualnij Magisk.</string>
+    <string name="unsupport_magicmask_title">Nieobsługiwana wersja MagicMask</string>
+    <string name="unsupport_magicmask_msg">Ta wersja aplikacji nie obsługuje MagicMask w wersji niższej niż %1$s.\n\nAplikacja będzie zachowywać się tak jakby MagicMask nie był zainstalowany, proszę uaktualnij MagicMask.</string>
     <string name="unsupport_general_title">Nieprawidłowy stan</string>
     <string name="unsupport_system_app_msg">Uruchomienie tej aplikacji jako systemowa nie jest obsługiwane. Proszę przemienić ją na aplikację użytkownika.</string>
-    <string name="unsupport_other_su_msg">Wykryto komendę \"su\" nie należącą do Magisk. Proszę usunąć tę drugą aplikację \"su\".</string>
-    <string name="unsupport_external_storage_msg">Zainstalowano Magisk na pamięci zewnętrznej. Proszę przenieść ją na pamięć wewnętrzną.</string>
+    <string name="unsupport_other_su_msg">Wykryto komendę \"su\" nie należącą do MagicMask. Proszę usunąć tę drugą aplikację \"su\".</string>
+    <string name="unsupport_external_storage_msg">Zainstalowano MagicMask na pamięci zewnętrznej. Proszę przenieść ją na pamięć wewnętrzną.</string>
     <string name="unsupport_nonroot_stub_msg">Ta aplikacja nie może dłużej działać w trybie ukrycia jako że root został utracony. Proszę przywrócić ją do oryginalnego stanu.</string>
     <string name="unsupport_nonroot_stub_title">@string/settings_restore_app_title</string>
     <string name="external_rw_permission_denied">Zezwól na dostęp do pamięci wewnętrznej, aby włączyć tę funkcję.</string>

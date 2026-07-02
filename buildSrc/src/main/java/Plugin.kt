@@ -18,11 +18,11 @@ object Config {
     fun contains(key: String) = get(key) != null
 
     val version: String get() = get("version") ?: commitHash
-    val versionCode: Int get() = get("magisk.versionCode")!!.toInt()
-    val stubVersion: String get() = get("magisk.stubVersion")!!
+    val versionCode: Int get() = get("magicmask.versionCode")!!.toInt()
+    val stubVersion: String get() = get("magicmask.stubVersion")!!
 }
 
-class MagiskPlugin : Plugin<Project> {
+class MagicMaskPlugin : Plugin<Project> {
     override fun apply(project: Project) = project.applyPlugin()
 
     private fun Project.applyPlugin() {

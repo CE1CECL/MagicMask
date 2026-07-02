@@ -19,10 +19,10 @@ kapt {
 }
 
 android {
-    namespace = "com.topjohnwu.magisk"
+    namespace = "com.topjohnwu.magicmask"
 
     defaultConfig {
-        applicationId = "com.topjohnwu.magisk"
+        applicationId = "com.topjohnwu.magicmask"
         vectorDrawables.useSupportLibrary = true
         versionName = Config.version
         versionCode = Config.versionCode

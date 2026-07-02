@@ -7,7 +7,7 @@ extern "C" {
 }
 
 pub fn setup_klog() {
-    const PREFIX: &[u8; 12] = b"magiskinit: ";
+    const PREFIX: &[u8; 12] = b"magicmaskinit: ";
     const PFX_LEN: usize = PREFIX.len();
 
     fn klog_fmt(_: LogLevel, args: Arguments) {

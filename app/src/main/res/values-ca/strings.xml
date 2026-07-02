@@ -19,15 +19,15 @@
     <string name="home_package">Paquet</string>
     <string name="home_app_title">App</string>
 
-    <string name="home_notice_content">Descarregui Magisk NOMÉS des de la pàgina oficial de GitHub. Fitxers d\'altres fonts desconegudes poden ser maliciosos!</string>
+    <string name="home_notice_content">Descarregui MagicMask NOMÉS des de la pàgina oficial de GitHub. Fitxers d\'altres fonts desconegudes poden ser maliciosos!</string>
     <string name="home_support_title">Doni suport</string>
     <string name="home_item_source">Codi font</string>
-    <string name="home_support_content">Magisk és, i sempre serà, gratis i codi lliure. De totes maneres, pot mostrar el seu interès fent una petita donació.</string>
+    <string name="home_support_content">MagicMask és, i sempre serà, gratis i codi lliure. De totes maneres, pot mostrar el seu interès fent una petita donació.</string>
     <string name="home_installed_version">Instal·lat</string>
     <string name="home_latest_version">Última</string>
     <string name="invalid_update_channel">Canal d\'actualització invàlid</string>
-    <string name="uninstall_magisk_title">Desinstal·lar Magisk</string>
-    <string name="uninstall_magisk_msg">Tots els mòduls seran desactivats i eliminats! L\'accés d\'arrel s\'eliminarà i, possiblement, xifrarà totes les dades (si no estan ja xifrades).</string>
+    <string name="uninstall_magicmask_title">Desinstal·lar MagicMask</string>
+    <string name="uninstall_magicmask_msg">Tots els mòduls seran desactivats i eliminats! L\'accés d\'arrel s\'eliminarà i, possiblement, xifrarà totes les dades (si no estan ja xifrades).</string>
 
     <!--Install-->
     <string name="keep_force_encryption">Mantenir el xifrat forçat</string>
@@ -49,7 +49,7 @@
 
     <!--Superuser-->
     <string name="su_request_title">Petició de superusuari</string>
-    <string name="touch_filtered_warning">Com que una aplicació està ofuscant la petició de superusuari, Magisk no pot verificar la seva resposta</string>
+    <string name="touch_filtered_warning">Com que una aplicació està ofuscant la petició de superusuari, MagicMask no pot verificar la seva resposta</string>
     <string name="deny">Denegar</string>
     <string name="prompt">Preguntar</string>
     <string name="grant">Permetre</string>
@@ -79,7 +79,7 @@
 
     <!--Logs-->
     <string name="log_data_none">No hi ha cap registre. Provi d\'utilitzar aplicacions que requereixen permisos de superusuari.</string>
-    <string name="log_data_magisk_none">Els registres de Magisk estan buits. Això és estrany.</string>
+    <string name="log_data_magicmask_none">Els registres de MagicMask estan buits. Això és estrany.</string>
     <string name="menuSaveLog">Desar registre</string>
     <string name="menuClearLog">Netejar registre ara</string>
     <string name="logs_cleared">Registre netejat correctament.</string>
@@ -88,7 +88,7 @@
 
     <!--SafetyNet-->
 
-    <!-- MagiskHide -->
+    <!-- MagicMaskHide -->
     <string name="show_system_app">Mostra aplicacions del sistema</string>
     <string name="show_os_app">Mostra aplicacions del SO</string>
     <string name="hide_filter_hint">Filtra per nom</string>
@@ -115,10 +115,10 @@
     <string name="settings_dark_mode_dark">Sempre fosc</string>
     <string name="settings_download_path_title">Directori de baixades</string>
     <string name="settings_download_path_message">Els arxius es desaran a %1$s</string>
-    <string name="settings_hide_app_title">Amagar Magisk Manager</string>
-    <string name="settings_hide_app_summary">Torna a empaquetar Magisk Manager amb un nom de paquet a l\'atzar</string>
-    <string name="settings_restore_app_title">Restaurar Magisk Manager</string>
-    <string name="settings_restore_app_summary">Restaura Magisk Manager amb el nom de paquet original</string>
+    <string name="settings_hide_app_title">Amagar MagicMask Manager</string>
+    <string name="settings_hide_app_summary">Torna a empaquetar MagicMask Manager amb un nom de paquet a l\'atzar</string>
+    <string name="settings_restore_app_title">Restaurar MagicMask Manager</string>
+    <string name="settings_restore_app_summary">Restaura MagicMask Manager amb el nom de paquet original</string>
     <string name="language">Idioma</string>
     <string name="system_default">(Idioma del sistema)</string>
     <string name="settings_check_update_title">Comprovar Actualitzacions</string>
@@ -177,11 +177,11 @@
     <string name="isolate_summary">Totes les sessions d\'arrel tindran la seva pròpia Namespace</string>
 
     <!--Notifications-->
-    <string name="update_channel">Actualització de Magisk</string>
+    <string name="update_channel">Actualització de MagicMask</string>
     <string name="progress_channel">Notificacions de progrés</string>
     <string name="download_complete">Baixada completada</string>
     <string name="download_file_error">Error en baixar l\'arxiu</string>
-    <string name="magisk_update_title">Actualització de Magisk disponible!</string>
+    <string name="magicmask_update_title">Actualització de MagicMask disponible!</string>
 
     <!--Toasts, Dialogs-->
     <string name="yes">Sí</string>
@@ -193,7 +193,7 @@
     <string name="flashing">Arranjament…</string>
     <string name="done">Fet!</string>
     <string name="failure">Fallit</string>
-    <string name="hide_app_title">Amagant Magisk Manager…</string>
+    <string name="hide_app_title">Amagant MagicMask Manager…</string>
     <string name="open_link_failed_toast">No s\'ha trobat una aplicació per obrir l\'enllaç</string>
     <string name="complete_uninstall">Desinstal·lació completa</string>
     <string name="restore_img">Restaura imatges</string>
@@ -202,14 +202,14 @@
     <string name="restore_fail">La còpia de seguretat de Estock no existeix!</string>
     <string name="setup_fail">Instal·lació fallida</string>
     <string name="env_fix_title">Es requereix instal·lació addicional</string>
-    <string name="env_fix_msg">El teu dispositiu necessita instal·lació addicional per Magisk per funcionar correctament. Es baixarà el ZIP d\'instal·lació de Magisk, vol procedir a la instal·lació ara?</string>
+    <string name="env_fix_msg">El teu dispositiu necessita instal·lació addicional per MagicMask per funcionar correctament. Es baixarà el ZIP d\'instal·lació de MagicMask, vol procedir a la instal·lació ara?</string>
     <string name="setup_msg">S\'està executant la configuració de l\'entorn…</string>
     <string name="authenticate">Autenticar</string>
-    <string name="unsupport_magisk_title">Versió de Magisk incompatible</string>
-    <string name="unsupport_magisk_msg">Aquesta versió de Magisk Manager no suporta versions de Magisk més petites que la %1$s.\n\nL\'aplicació es comportarà com si Magisk no estigués instal·lat, si us plau actualitzi Magisk com més aviat millor.</string>
+    <string name="unsupport_magicmask_title">Versió de MagicMask incompatible</string>
+    <string name="unsupport_magicmask_msg">Aquesta versió de MagicMask Manager no suporta versions de MagicMask més petites que la %1$s.\n\nL\'aplicació es comportarà com si MagicMask no estigués instal·lat, si us plau actualitzi MagicMask com més aviat millor.</string>
     <string name="external_rw_permission_denied">Ha de donar permís d\'emmagatzematge per activar aquesta funcionalitat</string>
     <string name="add_shortcut_title">Afegeix una drecera a la pantalla d\'inici</string>
-    <string name="add_shortcut_msg">Després d\'amagar Magisk Manager, el seu nom i icona poden ser difícils de reconèixer. Vols afegir una bonica drecera a la teva pantalla d\'inici?</string>
+    <string name="add_shortcut_msg">Després d\'amagar MagicMask Manager, el seu nom i icona poden ser difícils de reconèixer. Vols afegir una bonica drecera a la teva pantalla d\'inici?</string>
     <string name="app_not_found">No s\'ha trobat una aplicació per emprar aquesta acció</string>
 
 </resources>

@@ -6,7 +6,7 @@
 #include <set>
 #include <string>
 
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <db.hpp>
 #include <base.hpp>
 #include <daemon.hpp>
@@ -48,7 +48,7 @@ static void mount_mirrors() {
 
     // Bind remount module root to clear nosuid
     if (access(SECURE_DIR, F_OK) == 0 || SDK_INT < 24) {
-        auto dest = MAGISKTMP + "/" MODULEMNT;
+        auto dest = MAGICMASKTMP + "/" MODULEMNT;
         xmkdir(SECURE_DIR, 0700);
         xmkdir(MODULEROOT, 0755);
         xmkdir(dest.data(), 0755);
@@ -60,15 +60,15 @@ static void mount_mirrors() {
     }
 
     // Prepare worker
-    auto worker_dir = MAGISKTMP + "/" WORKERDIR;
+    auto worker_dir = MAGICMASKTMP + "/" WORKERDIR;
     xmount("worker", worker_dir.data(), "tmpfs", 0, "mode=755");
     xmount(nullptr, worker_dir.data(), nullptr, MS_PRIVATE, nullptr);
 
     // Recursively bind mount / to mirror dir
-    if (auto mirror_dir = MAGISKTMP + "/" MIRRDIR; !mount_mirror("/", mirror_dir)) {
+    if (auto mirror_dir = MAGICMASKTMP + "/" MIRRDIR; !mount_mirror("/", mirror_dir)) {
         LOGI("fallback to mount subtree\n");
         // rootfs may fail, fallback to bind mount each mount point
-        set<string, greater<>> mounted_dirs {{ MAGISKTMP }};
+        set<string, greater<>> mounted_dirs {{ MAGICMASKTMP }};
         for (const auto &info: parse_mount_info("self")) {
             if (info.type == "rootfs"sv) continue;
             // the greatest mount point that less than info.target, which is possibly a parent
@@ -84,10 +84,10 @@ static void mount_mirrors() {
     }
 }
 
-static bool magisk_env() {
+static bool magicmask_env() {
     char buf[4096];
 
-    LOGI("* Initializing Magisk environment\n");
+    LOGI("* Initializing MagicMask environment\n");
 
     preserve_stub_apk();
     string pkg;
@@ -97,7 +97,7 @@ static bool magisk_env() {
             pkg.empty() ? "xxx" /* Ensure non-exist path */ : pkg.data());
 
     // Alternative binaries paths
-    const char *alt_bin[] = { "/cache/data_adb/magisk", "/data/magisk", buf };
+    const char *alt_bin[] = { "/cache/data_adb/magicmask", "/data/magicmask", buf };
     for (auto alt : alt_bin) {
         struct stat st{};
         if (lstat(alt, &st) == 0) {
@@ -123,14 +123,14 @@ static bool magisk_env() {
     if (access(DATABIN "/busybox", X_OK))
         return false;
 
-    sprintf(buf, "%s/" BBPATH "/busybox", MAGISKTMP.data());
+    sprintf(buf, "%s/" BBPATH "/busybox", MAGICMASKTMP.data());
     mkdir(dirname(buf), 0755);
     cp_afc(DATABIN "/busybox", buf);
     exec_command_async(buf, "--install", "-s", dirname(buf));
 
-    if (access(DATABIN "/magiskpolicy", X_OK) == 0) {
-        sprintf(buf, "%s/magiskpolicy", MAGISKTMP.data());
-        cp_afc(DATABIN "/magiskpolicy", buf);
+    if (access(DATABIN "/magicmaskpolicy", X_OK) == 0) {
+        sprintf(buf, "%s/magicmaskpolicy", MAGICMASKTMP.data());
+        cp_afc(DATABIN "/magicmaskpolicy", buf);
     }
 
     return true;
@@ -257,8 +257,8 @@ static void post_fs_data() {
         goto early_abort;
     }
 
-    if (!magisk_env()) {
-        LOGE("* Magisk environment incomplete, abort\n");
+    if (!magicmask_env()) {
+        LOGE("* MagicMask environment incomplete, abort\n");
         goto early_abort;
     }
 

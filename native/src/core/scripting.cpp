@@ -2,7 +2,7 @@
 #include <vector>
 #include <sys/wait.h>
 
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <base.hpp>
 #include <selinux.hpp>
 #include <daemon.hpp>
@@ -16,14 +16,14 @@ using namespace std;
 static const char *bbpath() {
     static string path;
     if (path.empty())
-        path = MAGISKTMP + "/" BBPATH "/busybox";
+        path = MAGICMASKTMP + "/" BBPATH "/busybox";
     return path.data();
 }
 
 static void set_script_env() {
     setenv("ASH_STANDALONE", "1", 1);
     char new_path[4096];
-    sprintf(new_path, "%s:%s", getenv("PATH"), MAGISKTMP.data());
+    sprintf(new_path, "%s:%s", getenv("PATH"), MAGICMASKTMP.data());
     setenv("PATH", new_path, 1);
     if (zygisk_enabled)
         setenv("ZYGISK_ENABLED", "1", 1);
@@ -152,8 +152,8 @@ void exec_module_scripts(const char *stage, const vector<string_view> &modules) 
 
 constexpr char install_script[] = R"EOF(
 APK=%s
-log -t Magisk "pm_install: $APK"
-log -t Magisk "pm_install: $(pm install -g -r $APK 2>&1)"
+log -t MagicMask "pm_install: $APK"
+log -t MagicMask "pm_install: $(pm install -g -r $APK 2>&1)"
 appops set %s REQUEST_INSTALL_PACKAGES allow
 rm -f $APK
 )EOF";
@@ -170,8 +170,8 @@ void install_apk(const char *apk) {
 
 constexpr char uninstall_script[] = R"EOF(
 PKG=%s
-log -t Magisk "pm_uninstall: $PKG"
-log -t Magisk "pm_uninstall: $(pm uninstall $PKG 2>&1)"
+log -t MagicMask "pm_uninstall: $PKG"
+log -t MagicMask "pm_uninstall: $(pm uninstall $PKG 2>&1)"
 )EOF";
 
 void uninstall_pkg(const char *pkg) {
@@ -186,8 +186,8 @@ void uninstall_pkg(const char *pkg) {
 constexpr char clear_script[] = R"EOF(
 PKG=%s
 USER=%d
-log -t Magisk "pm_clear: $PKG (user=$USER)"
-log -t Magisk "pm_clear: $(pm clear --user $USER $PKG 2>&1)"
+log -t MagicMask "pm_clear: $PKG (user=$USER)"
+log -t MagicMask "pm_clear: $(pm clear --user $USER $PKG 2>&1)"
 )EOF";
 
 void clear_pkg(const char *pkg, int user_id) {
@@ -210,8 +210,8 @@ static void abort(FILE *fp, const char *fmt, ...) {
 }
 
 constexpr char install_module_script[] = R"EOF(
-exec $(magisk --path)/.magisk/busybox/busybox sh -c '
-. /data/adb/magisk/util_functions.sh
+exec $(magicmask --path)/.magicmask/busybox/busybox sh -c '
+. /data/adb/magicmask/util_functions.sh
 install_module
 exit 0'
 )EOF";
@@ -222,7 +222,7 @@ void install_module(const char *file) {
     if (access(DATABIN, F_OK) ||
         access(DATABIN "/busybox", X_OK) ||
         access(DATABIN "/util_functions.sh", F_OK))
-        abort(stderr, "Incomplete Magisk install");
+        abort(stderr, "Incomplete MagicMask install");
     if (access(file, F_OK))
         abort(stderr, "'%s' does not exist", file);
 

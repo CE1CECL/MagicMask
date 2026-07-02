@@ -20,15 +20,15 @@
     <string name="home_package">Пакунок</string>
     <string name="home_app_title">Застосунок</string>
 
-    <string name="home_notice_content">Завантажуйте Magisk ЛИШЕ з офіційної сторінки на GitHub. Файли з невідомих джерел можуть містити шкідливий функціонал!</string>
+    <string name="home_notice_content">Завантажуйте MagicMask ЛИШЕ з офіційної сторінки на GitHub. Файли з невідомих джерел можуть містити шкідливий функціонал!</string>
     <string name="home_support_title">Підтримати нас</string>
     <string name="home_item_source">Джерело</string>
-    <string name="home_support_content">Magisk є, і завжди буде безкоштовним та з відкритим кодом. Однак, якщо вам не байдуже, можете зробити невеличке пожертвування.</string>
+    <string name="home_support_content">MagicMask є, і завжди буде безкоштовним та з відкритим кодом. Однак, якщо вам не байдуже, можете зробити невеличке пожертвування.</string>
     <string name="home_installed_version">Встановлено</string>
     <string name="home_latest_version">Найновіша</string>
     <string name="invalid_update_channel">Невірний канал оновлення</string>
-    <string name="uninstall_magisk_title">Видалити Magisk</string>
-    <string name="uninstall_magisk_msg">Ця дія призведе до вимкнення/видалення всіх модулів! Рут буде повністю видалено!\nВаші дані можуть зашифруватися, якщо вони не зашифровані!\nВпевнені, що бажаєте продовжити?</string>
+    <string name="uninstall_magicmask_title">Видалити MagicMask</string>
+    <string name="uninstall_magicmask_msg">Ця дія призведе до вимкнення/видалення всіх модулів! Рут буде повністю видалено!\nВаші дані можуть зашифруватися, якщо вони не зашифровані!\nВпевнені, що бажаєте продовжити?</string>
 
     <!--Install-->
     <string name="keep_force_encryption">Залишити примусове шифрування</string>
@@ -50,7 +50,7 @@
 
     <!--Superuser-->
     <string name="su_request_title">Запит прав суперкористувача</string>
-    <string name="touch_filtered_warning">Magisk не може перевірити вашу відповідь, тому що застосунок заступає вікно запиту прав суперкористувача</string>
+    <string name="touch_filtered_warning">MagicMask не може перевірити вашу відповідь, тому що застосунок заступає вікно запиту прав суперкористувача</string>
     <string name="deny">Відмовити</string>
     <string name="prompt">Запитувати</string>
     <string name="grant">Надати</string>
@@ -80,7 +80,7 @@
 
     <!--Logs-->
     <string name="log_data_none">Покищо немає даних в журналі, спробуйте більше користуватися застосунками, які потребують прав суперкористувача</string>
-    <string name="log_data_magisk_none">Журнал Magisk порожній, це дивно.</string>
+    <string name="log_data_magicmask_none">Журнал MagicMask порожній, це дивно.</string>
     <string name="menuSaveLog">Зберегти журнал</string>
     <string name="menuClearLog">Очистити журнал</string>
     <string name="logs_cleared">Журнал успішно очищено</string>
@@ -89,7 +89,7 @@
 
     <!--SafetyNet-->
 
-    <!--MagiskHide-->
+    <!--MagicMaskHide-->
     <string name="show_system_app">Показувати системні застосунки</string>
     <string name="show_os_app">Показувати вбудовані застосунки</string>
     <string name="hide_filter_hint">Фільтрувати за назвою</string>
@@ -116,9 +116,9 @@
     <string name="settings_dark_mode_dark">Завжди темний</string>
     <string name="settings_download_path_title">Шлях завантаження</string>
     <string name="settings_download_path_message">Файли зберігатимуться в %1$s</string>
-    <string name="settings_hide_app_title">Сховати застосунок Magisk</string>
+    <string name="settings_hide_app_title">Сховати застосунок MagicMask</string>
     <string name="settings_hide_app_summary">Встановити проксі-застосунок з довільним ID пакунку та назвою</string>
-    <string name="settings_restore_app_title">Відновити застосунок Magisk</string>
+    <string name="settings_restore_app_title">Відновити застосунок MagicMask</string>
     <string name="settings_restore_app_summary">Відновити застосунок з оригінального APK та показати його</string>
     <string name="language">Мова</string>
     <string name="system_default">(системна)</string>
@@ -129,9 +129,9 @@
     <string name="settings_update_beta">Бета реліз</string>
     <string name="settings_update_custom">Власний</string>
     <string name="settings_update_custom_msg">Вставте власний URL</string>
-    <string name="settings_zygisk_summary">Запускати частини Magisk в сервісі zygote</string>
+    <string name="settings_zygisk_summary">Запускати частини MagicMask в сервісі zygote</string>
     <string name="settings_denylist_title">Enforce DenyList</string>
-    <string name="settings_denylist_summary">Processes on the denylist will have all Magisk modifications reverted</string>
+    <string name="settings_denylist_summary">Processes on the denylist will have all MagicMask modifications reverted</string>
     <string name="settings_denylist_error">Для цієї функції потрібно увімкнути %1$s</string>
     <string name="settings_denylist_config_title">Налаштувати DenyList</string>
     <string name="settings_denylist_config_summary">Вибрати процеси, які будуть додані до denylist</string>
@@ -184,11 +184,11 @@
     <string name="isolate_summary">Кожнен сеанс суперкористувача має власний ізольований простір імен</string>
 
     <!--Notifications-->
-    <string name="update_channel">Оновлення Magisk</string>
+    <string name="update_channel">Оновлення MagicMask</string>
     <string name="progress_channel">Сповіщення прогресу</string>
     <string name="download_complete">Завантаження завершено</string>
     <string name="download_file_error">Помилка завантаження файлу</string>
-    <string name="magisk_update_title">Доступне оновлення Magisk!</string>
+    <string name="magicmask_update_title">Доступне оновлення MagicMask!</string>
 
     <!--Toasts, Dialogs-->
     <string name="yes">Так</string>
@@ -200,7 +200,7 @@
     <string name="flashing">Прошивання…</string>
     <string name="done">Готово!</string>
     <string name="failure">Не вдалося!</string>
-    <string name="hide_app_title">Ховання застосунку Magisk…</string>
+    <string name="hide_app_title">Ховання застосунку MagicMask…</string>
     <string name="open_link_failed_toast">Не знайдено застосунку для відкриття посилання</string>
     <string name="complete_uninstall">Повне видалення</string>
     <string name="restore_img">Відновити розділи</string>
@@ -209,15 +209,15 @@
     <string name="restore_fail">Немає оригінальної резервної копії!</string>
     <string name="setup_fail">Не вдалося налаштувати</string>
     <string name="env_fix_title">Потрібне додаткове налаштування</string>
-    <string name="env_fix_msg">Для вашого пристрою необхідне додаткове налаштування, щоб Magisk працював як слід. Бажаєте виконати налаштування та перезавантажити пристрій?</string>
+    <string name="env_fix_msg">Для вашого пристрою необхідне додаткове налаштування, щоб MagicMask працював як слід. Бажаєте виконати налаштування та перезавантажити пристрій?</string>
     <string name="setup_msg">Налаштування робочого середовища…</string>
     <string name="authenticate">Автентифікувати</string>
-    <string name="unsupport_magisk_title">Версія Magisk не підтримується</string>
-    <string name="unsupport_magisk_msg">Ця версія застосунку не підтримує версію Magisk, нижчу за %1$s.\n\nЗастосунок буде працювати так, ніби немає встановленого Magisk. Будь ласка, оновіть Magisk якнайшвидше.</string>
+    <string name="unsupport_magicmask_title">Версія MagicMask не підтримується</string>
+    <string name="unsupport_magicmask_msg">Ця версія застосунку не підтримує версію MagicMask, нижчу за %1$s.\n\nЗастосунок буде працювати так, ніби немає встановленого MagicMask. Будь ласка, оновіть MagicMask якнайшвидше.</string>
     <string name="unsupport_general_title">Ненормальний стан</string>
     <string name="unsupport_system_app_msg">Запуск цього застосунку як системний застосунок не підтримується. Будь ласка, перевстановіть цей застосунок, щоб він був як звичайний застосунок, який встановлений користувачем.</string>
-    <string name="unsupport_other_su_msg">Виявлено команду \"su\", яка не належить до Magisk. Будь ласка, видаліть інші непідтримувані su.</string>
-    <string name="unsupport_external_storage_msg">Magisk встановлено на зовнішнє сховище. Будь ласка, перемістіть застосунок на внутрішнє сховище.</string>
+    <string name="unsupport_other_su_msg">Виявлено команду \"su\", яка не належить до MagicMask. Будь ласка, видаліть інші непідтримувані su.</string>
+    <string name="unsupport_external_storage_msg">MagicMask встановлено на зовнішнє сховище. Будь ласка, перемістіть застосунок на внутрішнє сховище.</string>
     <string name="unsupport_nonroot_stub_msg">Застосунок не може продовжувати працювати в прихованому режимі, тому що втрачено root. Будь ласка, відновіть оригінальний застосунок з APK.</string>
     <string name="unsupport_nonroot_stub_title">@string/settings_restore_app_title</string>
     <string name="external_rw_permission_denied">Надайте доступ до сховища, щоб увімкнути цей функціонал</string>

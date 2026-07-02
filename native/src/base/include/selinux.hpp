@@ -17,13 +17,13 @@
 #define SPLIT_PLAT_CIL      PLAT_POLICY_DIR "plat_sepolicy.cil"
 
 // Unconstrained domain the daemon and root processes run in
-#define SEPOL_PROC_DOMAIN   "magisk"
+#define SEPOL_PROC_DOMAIN   "magicmask"
 // Highly constrained domain, sole purpose is to connect to daemon
-#define SEPOL_CLIENT_DOMAIN "magisk_client"
+#define SEPOL_CLIENT_DOMAIN "magicmask_client"
 // Unconstrained file type that anyone can access
-#define SEPOL_FILE_TYPE     "magisk_file"
+#define SEPOL_FILE_TYPE     "magicmask_file"
 // Special file type to allow clients to transit to client domain automatically
-#define SEPOL_EXEC_TYPE     "magisk_exec"
+#define SEPOL_EXEC_TYPE     "magicmask_exec"
 
 extern void (*freecon)(char *con);
 extern int (*setcon)(const char *con);

@@ -13,8 +13,8 @@
     <!--Install Fragment-->
     <string name="keep_force_encryption">Запазване на наложеното криптиране</string>
     <string name="keep_dm_verity">Запазване на AVB 2.0/dm-verity</string>
-    <string name="uninstall_magisk_title">Деинсталиране на Magisk</string>
-    <string name="uninstall_magisk_msg">Всички модули ще бъдат изключени/премахнати. Руут достъпът ще бъде премахнат и е възможно криптиране на данните Ви.</string>
+    <string name="uninstall_magicmask_title">Деинсталиране на MagicMask</string>
+    <string name="uninstall_magicmask_msg">Всички модули ще бъдат изключени/премахнати. Руут достъпът ще бъде премахнат и е възможно криптиране на данните Ви.</string>
     <string name="update">Актуализация</string>
 
     <!--Module Fragment-->
@@ -39,10 +39,10 @@
     <string name="repo_install_title">Инсталиране на %1$s %2$s(%3$d)</string>
     <string name="download">Изтегляне</string>
     <string name="reboot">Рестартиране</string>
-    <string name="magisk_update_title">Достъпно е издание на Magisk.</string>
+    <string name="magicmask_update_title">Достъпно е издание на MagicMask.</string>
     <string name="release_notes">Бележки</string>
     <string name="manager_download_install">Докоснете за изтегляне и инсталиране.</string>
-    <string name="update_channel">Актуализации на Magisk</string>
+    <string name="update_channel">Актуализации на MagicMask</string>
     <string name="flashing">Инсталиране</string>
     <string name="open_link_failed_toast">Не е намерено приложение за отваряне на препратката.</string>
     <string name="direct_install">Директно инсталиране (Препоръчва се.)</string>

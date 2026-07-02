@@ -1,6 +1,6 @@
 #include <sys/mount.h>
 
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <base.hpp>
 #include <socket.hpp>
 #include <sys/vfs.h>
@@ -13,7 +13,7 @@ void FirstStageInit::prepare() {
     prepare_data();
     restore_ramdisk_init();
     auto init = mmap_data("/init", true);
-    // Redirect original init to magiskinit
+    // Redirect original init to magicmaskinit
     init.patch({ make_pair(INIT_PATH, REDIR_PATH) });
 }
 

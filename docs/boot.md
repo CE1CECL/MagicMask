@@ -42,7 +42,7 @@ Method | Initial rootdir | Final rootdir
 
 From documents online, Google's definition of SAR only considers how the kernel boots the device (**Initial rootdir** in the table above), meaning that only devices using **Method B** is *officially* considered an SAR device from Google's standpoint.
 
-However for Magisk, the real difference lies in what the device ends up using when fully booted (**Final rootdir** in the table above), meaning that **as far as Magisk's concern, both Method B and C is a form of SAR**, but just implemented differently. Every instance of SAR later mentioned in this document will refer to **Magisk's definition** unless specifically says otherwise.
+However for MagicMask, the real difference lies in what the device ends up using when fully booted (**Final rootdir** in the table above), meaning that **as far as MagicMask's concern, both Method B and C is a form of SAR**, but just implemented differently. Every instance of SAR later mentioned in this document will refer to **MagicMask's definition** unless specifically says otherwise.
 
 The criteria for Method C is a little complicated, in layman's words: either your device is modern enough to launch with Android 10+, or you are running an Android 10+ custom ROM on a device that was using Method A.
 
@@ -76,9 +76,9 @@ These types are ordered chronologically by the time they were first available.
 
 - **Type I**: Good old legacy ramdisk boot
 - **Type II**: Legacy A/B devices. Pixel 1 is the first device of this type, being both the first A/B and SAR device
-- **Type III**: Late 2018 - 2019 devices that are A-only. **The worst type of device to ever exist as far as Magisk is concerned.**
+- **Type III**: Late 2018 - 2019 devices that are A-only. **The worst type of device to ever exist as far as MagicMask is concerned.**
 - **Type IV**: All devices using Boot Method C are Type IV. A/B Type IV ramdisk can boot into either Android or recovery based on info from bootloader; A-only Type IV ramdisk can only boot into Android.
 
-Further details on Type III devices: Magisk is always installed in the ramdisk of a boot image. For all other device types, because their `boot` partition have ramdisk included, Magisk can be easily installed by patching boot image through the Magisk app or flash zip in custom recovery. However for Type III devices, they are **limited to install Magisk into the `recovery` partition**. Magisk will not function when booted normally; instead Type III device owners have to always reboot to recovery to maintain Magisk access.
+Further details on Type III devices: MagicMask is always installed in the ramdisk of a boot image. For all other device types, because their `boot` partition have ramdisk included, MagicMask can be easily installed by patching boot image through the MagicMask app or flash zip in custom recovery. However for Type III devices, they are **limited to install MagicMask into the `recovery` partition**. MagicMask will not function when booted normally; instead Type III device owners have to always reboot to recovery to maintain MagicMask access.
 
 Some Type III devices' bootloader will still accept and provide `initramfs` that was manually added to the `boot` image to the kernel (e.g. some Xiaomi phones), but many device don't (e.g. Samsung S10, Note 10). It solely depends on how the OEM implements its bootloader.

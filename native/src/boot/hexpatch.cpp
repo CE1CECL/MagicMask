@@ -2,7 +2,7 @@
 
 #include <base.hpp>
 
-#include "magiskboot.hpp"
+#include "magicmaskboot.hpp"
 
 using namespace std;
 

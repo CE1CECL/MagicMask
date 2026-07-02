@@ -1,5 +1,5 @@
 #include <base.hpp>
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <daemon.hpp>
 #include <db.hpp>
 #include <flags.h>
@@ -8,7 +8,7 @@
 
 using namespace std;
 
-#define ENFORCE_SIGNATURE (!MAGISK_DEBUG)
+#define ENFORCE_SIGNATURE (!MAGICMASK_DEBUG)
 
 // These functions will be called on every single zygote process specialization and su request,
 // so performance is absolutely critical. Most operations should either have its result cached
@@ -68,7 +68,7 @@ vector<bool> get_app_no_list() {
 
 void preserve_stub_apk() {
     mutex_guard g(pkg_lock);
-    string stub_path = MAGISKTMP + "/stub.apk";
+    string stub_path = MAGICMASKTMP + "/stub.apk";
     stub_apk_fd = xopen(stub_path.data(), O_RDONLY | O_CLOEXEC);
     unlink(stub_path.data());
     default_cert = new string(read_certificate(stub_apk_fd));
@@ -107,7 +107,7 @@ int get_manager(int user_id, string *pkg, bool install) {
             LOGW("pkg: no dyn APK, ignore\n");
             return false;
         }
-        bool mismatch = default_cert && read_certificate(dyn, MAGISK_VER_CODE) != *default_cert;
+        bool mismatch = default_cert && read_certificate(dyn, MAGICMASK_VER_CODE) != *default_cert;
         close(dyn);
         if (mismatch) {
             LOGE("pkg: dyn APK signature mismatch: %s\n", app_path);
@@ -224,7 +224,7 @@ int get_manager(int user_id, string *pkg, bool install) {
 #if ENFORCE_SIGNATURE
                 string apk = find_apk_path(JAVA_PACKAGE_NAME);
                 int fd = xopen(apk.data(), O_RDONLY | O_CLOEXEC);
-                string cert = read_certificate(fd, MAGISK_VER_CODE);
+                string cert = read_certificate(fd, MAGICMASK_VER_CODE);
                 close(fd);
                 if (default_cert && cert != *default_cert) {
                     // Found APK with invalid signature, force replace with stub

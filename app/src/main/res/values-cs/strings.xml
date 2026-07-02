@@ -21,12 +21,12 @@
 
     <string name="home_support_title">Podpořte nás</string>
     <string name="home_item_source">Zdroj</string>
-    <string name="home_support_content">Magisk je a vždy bude svobodný s otevřeným kódem. Můžete nám však zaslat malý dar jako poděkování.</string>
+    <string name="home_support_content">MagicMask je a vždy bude svobodný s otevřeným kódem. Můžete nám však zaslat malý dar jako poděkování.</string>
     <string name="home_installed_version">Nainstalovano</string>
     <string name="home_latest_version">Poslední</string>
     <string name="invalid_update_channel">Neplatný kanál aktualizace</string>
-    <string name="uninstall_magisk_title">Odinstalovat Magisk</string>
-    <string name="uninstall_magisk_msg">Všechny moduly budou zakázány/odstraněny!\nROOT bude odstraněn!\nPokud jsou data dešifrována, můžou být zašifrována!</string>
+    <string name="uninstall_magicmask_title">Odinstalovat MagicMask</string>
+    <string name="uninstall_magicmask_msg">Všechny moduly budou zakázány/odstraněny!\nROOT bude odstraněn!\nPokud jsou data dešifrována, můžou být zašifrována!</string>
 
     <!--Install-->
     <string name="keep_force_encryption">Ponechat Force Encryption</string>
@@ -48,7 +48,7 @@
 
     <!--Superuser-->
     <string name="su_request_title">Požadavek SuperUser</string>
-    <string name="touch_filtered_warning">Protože aplikace zavírá požadavek SuperUser, Magisk nemůže ověřit Vaši odpověď</string>
+    <string name="touch_filtered_warning">Protože aplikace zavírá požadavek SuperUser, MagicMask nemůže ověřit Vaši odpověď</string>
     <string name="deny">Zakázat</string>
     <string name="prompt">Zeptat se</string>
     <string name="grant">Povolit</string>
@@ -78,7 +78,7 @@
 
     <!--Logs-->
     <string name="log_data_none">Žádné protokoly. Vyzkoušejte nějakou aplikaci vyžadující oprávnění SuperUser.</string>
-    <string name="log_data_magisk_none">Protokoly Magisk jsou prázdné. To je zvláštní!</string>
+    <string name="log_data_magicmask_none">Protokoly MagicMask jsou prázdné. To je zvláštní!</string>
     <string name="menuSaveLog">Uložit protokol</string>
     <string name="menuClearLog">Smazat protokol</string>
     <string name="logs_cleared">Protokol byl smazán</string>
@@ -87,7 +87,7 @@
 
     <!--SafetyNet-->
 
-    <!--MagiskHide-->
+    <!--MagicMaskHide-->
     <string name="show_system_app">Zobrazit systémové aplikace</string>
     <string name="show_os_app">Zobrazit OS aplikace</string>
     <string name="hide_filter_hint">Filtrovat podle názvu</string>
@@ -114,9 +114,9 @@
     <string name="settings_dark_mode_dark">Tmavý</string>
     <string name="settings_download_path_title">Složka pro stahování</string>
     <string name="settings_download_path_message">Soubory budou uloženy do %1$s.</string>
-    <string name="settings_hide_app_title">Skrýt aplikaci Magisk</string>
+    <string name="settings_hide_app_title">Skrýt aplikaci MagicMask</string>
     <string name="settings_hide_app_summary">Skryjete aplikaci náhodným ID balíčku a vlastním názvem aplikace.</string>
-    <string name="settings_restore_app_title">Obnovit aplikaci Magisk</string>
+    <string name="settings_restore_app_title">Obnovit aplikaci MagicMask</string>
     <string name="settings_restore_app_summary">Obnovíte aplikaci zpět do původního APK.</string>
     <string name="language">Jazyk</string>
     <string name="system_default">(výchozí podle systému)</string>
@@ -176,11 +176,11 @@
     <string name="isolate_summary">Každá relace ROOT má svůj vlastní izolovaný jmenný prostor.</string>
 
     <!--Notifications-->
-    <string name="update_channel">Aktualizace Magisk</string>
+    <string name="update_channel">Aktualizace MagicMask</string>
     <string name="progress_channel">Oznámení o průběhu</string>
     <string name="download_complete">Stahování dokončeno</string>
     <string name="download_file_error">Chyba při stahování souboru</string>
-    <string name="magisk_update_title">Aktualizace Magisk je dostupná!</string>
+    <string name="magicmask_update_title">Aktualizace MagicMask je dostupná!</string>
 
     <!--Toasts, Dialogs-->
     <string name="yes">ANO</string>
@@ -202,7 +202,7 @@
     <string name="env_fix_title">Vyžaduje se další nastavení</string>
     <string name="setup_msg">Nastavení je spuštěno…</string>
     <string name="authenticate">Ověřit</string>
-    <string name="unsupport_magisk_title">Nepodporovaná verze Magisk</string>
+    <string name="unsupport_magicmask_title">Nepodporovaná verze MagicMask</string>
     <string name="external_rw_permission_denied">Udělte oprávnění pro povolení této funkce.</string>
     <string name="add_shortcut_title">Přidat odkaz na domovskou obrazovku</string>
     <string name="app_not_found">Nelze nalézt žádnou aplikaci, která dokáže provést tuto akci.</string>

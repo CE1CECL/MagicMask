@@ -21,12 +21,12 @@
 
     <string name="home_support_title">Podržite nas</string>
     <string name="home_item_source">Izvor</string>
-    <string name="home_support_content">Magisk je i uvijek će biti besplatan i otvoren. Međutim, možete nam pokazati da vam je stalo slanjem male donacije.</string>
+    <string name="home_support_content">MagicMask je i uvijek će biti besplatan i otvoren. Međutim, možete nam pokazati da vam je stalo slanjem male donacije.</string>
     <string name="home_installed_version">Instalirana</string>
     <string name="home_latest_version">Najnovija</string>
     <string name="invalid_update_channel">Nevažeći kanal ažuriranja</string>
-    <string name="uninstall_magisk_title">Deinstaliraj Magisk</string>
-    <string name="uninstall_magisk_msg">Svi će moduli biti onemogućeni/uklonjeni!\nRoot će biti uklonjen!\nVaši su podaci potencijalno šifrirani, ako već nisu!</string>
+    <string name="uninstall_magicmask_title">Deinstaliraj MagicMask</string>
+    <string name="uninstall_magicmask_msg">Svi će moduli biti onemogućeni/uklonjeni!\nRoot će biti uklonjen!\nVaši su podaci potencijalno šifrirani, ako već nisu!</string>
 
     <!--Install-->
     <string name="keep_force_encryption">Zadrži prisilno šifirannje</string>
@@ -77,7 +77,7 @@
 
     <!--Logs-->
     <string name="log_data_none">Nemate zapisnika, pokušajte više upotrebljavati svoje aplikacije s omogućenim SU.</string>
-    <string name="log_data_magisk_none">Zapisnici Magiska su prazni, to je čudno.</string>
+    <string name="log_data_magicmask_none">Zapisnici MagicMaska su prazni, to je čudno.</string>
     <string name="menuSaveLog">Spremi zapisnik</string>
     <string name="menuClearLog">Izbriši zapisnik</string>
     <string name="logs_cleared">Zapisnik uspješno izbrisan.</string>
@@ -86,7 +86,7 @@
 
     <!--SafetyNet-->
 
-    <!-- MagiskHide -->
+    <!-- MagicMaskHide -->
     <string name="show_system_app">Prikaži sistemske aplikacije</string>
     <string name="hide_filter_hint">Filtriraj prema nazivu</string>
     <string name="hide_search">Traži</string>
@@ -167,11 +167,11 @@
     <string name="isolate_summary">Svaka root sesija ima svoj vlastiti imenski prostor</string>
 
     <!--Notifications-->
-    <string name="update_channel">Magisk Ažuriranja</string>
+    <string name="update_channel">MagicMask Ažuriranja</string>
     <string name="progress_channel">Obavijesti o napretku</string>
     <string name="download_complete">Preuzimanje završeno</string>
     <string name="download_file_error">Pogreška pri preuzimanju datoteke</string>
-    <string name="magisk_update_title">Dostupno je Magisk ažuriranje!</string>
+    <string name="magicmask_update_title">Dostupno je MagicMask ažuriranje!</string>
 
     <!--Toasts, Dialogs-->
     <string name="yes">Da</string>
@@ -193,7 +193,7 @@
     <string name="env_fix_title">Zahtijeva dodatno postavljanje</string>
     <string name="setup_msg">Postavljanje okruženja za pokretanje…</string>
     <string name="authenticate">Potvrdi</string>
-    <string name="unsupport_magisk_title">Nepodržana Magisk verzija</string>
+    <string name="unsupport_magicmask_title">Nepodržana MagicMask verzija</string>
     <string name="external_rw_permission_denied">Odobrite dopuštenje za pohranu da biste omogućili ovu funkciju</string>
     <string name="add_shortcut_title">Dodaj prečac na početni zaslon</string>
     <string name="app_not_found">Nije pronađena nijedna aplikacijaza obradu ove radnju</string>

@@ -1,7 +1,7 @@
 #include <base.hpp>
 
 #include "cpio.hpp"
-#include "magiskboot.hpp"
+#include "magicmaskboot.hpp"
 #include "compress.hpp"
 
 using namespace std;
@@ -10,11 +10,11 @@ static const char *UNSUPPORT_LIST[] =
         { "sbin/launch_daemonsu.sh", "sbin/su", "init.xposed.rc",
           "boot/sbin/launch_daemonsu.sh" };
 
-static const char *MAGISK_LIST[] =
-        { ".backup/.magisk", "init.magisk.rc",
-          "overlay/init.magisk.rc" };
+static const char *MAGICMASK_LIST[] =
+        { ".backup/.magicmask", "init.magicmask.rc",
+          "overlay/init.magicmask.rc" };
 
-class magisk_cpio : public cpio {
+class magicmask_cpio : public cpio {
 public:
     void patch();
     int test();
@@ -28,7 +28,7 @@ bool check_env(const char *name) {
     return val != nullptr && val == "true"sv;
 }
 
-void magisk_cpio::patch() {
+void magicmask_cpio::patch() {
     bool keepverity = check_env("KEEPVERITY");
     bool keepforceencrypt = check_env("KEEPFORCEENCRYPT");
     fprintf(stderr, "Patch with flag KEEPVERITY=[%s] KEEPFORCEENCRYPT=[%s]\n",
@@ -59,20 +59,20 @@ void magisk_cpio::patch() {
     }
 }
 
-#define MAGISK_PATCHED    (1 << 0)
+#define MAGICMASK_PATCHED    (1 << 0)
 #define UNSUPPORTED_CPIO  (1 << 1)
 #define SONY_INIT         (1 << 2)
 
-int magisk_cpio::test() {
+int magicmask_cpio::test() {
     int ret = 0;
     for (auto file : UNSUPPORT_LIST) {
         if (exists(file)) {
             return UNSUPPORTED_CPIO;
         }
     }
-    for (auto file : MAGISK_LIST) {
+    for (auto file : MAGICMASK_LIST) {
         if (exists(file)) {
-            ret |= MAGISK_PATCHED;
+            ret |= MAGICMASK_PATCHED;
             break;
         }
     }
@@ -84,10 +84,10 @@ int magisk_cpio::test() {
 #define for_each_line(line, buf, size) \
 for (char *line = (char *) buf; line < (char *) buf + size && line[0]; line = strchr(line + 1, '\n') + 1)
 
-char *magisk_cpio::sha1() {
+char *magicmask_cpio::sha1() {
     char sha1[41];
     for (auto &e : entries) {
-        if (e.first == "init.magisk.rc" || e.first == "overlay/init.magisk.rc") {
+        if (e.first == "init.magicmask.rc" || e.first == "overlay/init.magicmask.rc") {
             for_each_line(line, e.second->data, e.second->filesize) {
                 if (strncmp(line, "#STOCKSHA1=", 11) == 0) {
                     strncpy(sha1, line + 12, 40);
@@ -95,7 +95,7 @@ char *magisk_cpio::sha1() {
                     return strdup(sha1);
                 }
             }
-        } else if (e.first == ".backup/.magisk") {
+        } else if (e.first == ".backup/.magicmask") {
             for_each_line(line, e.second->data, e.second->filesize) {
                 if (str_starts(line, "SHA1=")) {
                     strncpy(sha1, line + 5, 40);
@@ -113,7 +113,7 @@ char *magisk_cpio::sha1() {
 #define for_each_str(str, buf, size) \
 for (char *str = (char *) buf; str < (char *) buf + size; str += strlen(str) + 1)
 
-void magisk_cpio::restore() {
+void magicmask_cpio::restore() {
     // Collect files
     auto bk = entries.end();
     auto rl = entries.end();
@@ -124,7 +124,7 @@ void magisk_cpio::restore() {
             bk = it;
         } else if (it->first == ".backup/.rmlist") {
             rl = it;
-        } else if (it->first == ".backup/.magisk") {
+        } else if (it->first == ".backup/.magicmask") {
             mg = it;
         } else if (str_starts(it->first, ".backup/")) {
             backups.emplace_back(it);
@@ -132,7 +132,7 @@ void magisk_cpio::restore() {
     }
 
     // If the .backup folder is effectively empty, this means that the boot ramdisk was
-    // created from scratch by an old broken magiskboot. This is just a hacky workaround.
+    // created from scratch by an old broken magicmaskboot. This is just a hacky workaround.
     if (bk != entries.end() && mg != entries.end() && rl == entries.end() && backups.empty()) {
         fprintf(stderr, "Remove all in ramdisk\n");
         entries.clear();
@@ -156,12 +156,12 @@ void magisk_cpio::restore() {
     }
 }
 
-void magisk_cpio::backup(const char *orig) {
+void magicmask_cpio::backup(const char *orig) {
     entry_map backups;
     string rm_list;
     backups.emplace(".backup", new cpio_entry(S_IFDIR));
 
-    magisk_cpio o;
+    magicmask_cpio o;
     if (access(orig, R_OK) == 0)
         o.load_cpio(orig);
 
@@ -235,7 +235,7 @@ int cpio_commands(int argc, char *argv[]) {
     ++argv;
     --argc;
 
-    magisk_cpio cpio;
+    magicmask_cpio cpio;
     if (access(incpio, R_OK) == 0)
         cpio.load_cpio(incpio);
 

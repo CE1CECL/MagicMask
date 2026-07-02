@@ -20,16 +20,16 @@
     <string name="home_package">Paquete</string>
     <string name="home_app_title">App</string>
 
-    <string name="home_notice_content">Descarga Magisk SÓLO de la página de GitHub oficial. Archivos de fuentes desconocidas pueden resultar maliciosos!</string>
+    <string name="home_notice_content">Descarga MagicMask SÓLO de la página de GitHub oficial. Archivos de fuentes desconocidas pueden resultar maliciosos!</string>
     <string name="home_support_title">Apóyenos</string>
     <string name="home_follow_title">Síganos</string>
     <string name="home_item_source">Código fuente</string>
-    <string name="home_support_content">Magisk es, y siempre será gratuito y de código abierto. Sin embargo, puede apoyarnos enviando una pequeña donación.</string>
+    <string name="home_support_content">MagicMask es, y siempre será gratuito y de código abierto. Sin embargo, puede apoyarnos enviando una pequeña donación.</string>
     <string name="home_installed_version">Instalado</string>
     <string name="home_latest_version">Última</string>
     <string name="invalid_update_channel">Canal de actualización inválido</string>
-    <string name="uninstall_magisk_title">Desinstalar Magisk</string>
-    <string name="uninstall_magisk_msg">¡Todos los módulos serán desactivados/eliminados!\nSe eliminará la raíz!\n¡Sus datos serán potencialmente encriptados si no lo están ya!</string>
+    <string name="uninstall_magicmask_title">Desinstalar MagicMask</string>
+    <string name="uninstall_magicmask_msg">¡Todos los módulos serán desactivados/eliminados!\nSe eliminará la raíz!\n¡Sus datos serán potencialmente encriptados si no lo están ya!</string>
 
     <!--Install-->
     <string name="keep_force_encryption">Mantener cifrado forzado</string>
@@ -52,7 +52,7 @@
 
     <!--Superuser-->
     <string name="su_request_title">Petición de superusuario</string>
-    <string name="touch_filtered_warning">Como otra app está escondiendo la solicitud de superusuario, Magisk no puede verificar tu respuesta</string>
+    <string name="touch_filtered_warning">Como otra app está escondiendo la solicitud de superusuario, MagicMask no puede verificar tu respuesta</string>
     <string name="deny">Denegar</string>
     <string name="prompt">Preguntar</string>
     <string name="grant">Permitir</string>
@@ -82,7 +82,7 @@
 
     <!--Logs-->
     <string name="log_data_none">No se tiene registro, intente usar más sus aplicaciones habilitadas para SU.</string>
-    <string name="log_data_magisk_none">Los registros de Magisk están vacíos, esto es muy raro.</string>
+    <string name="log_data_magicmask_none">Los registros de MagicMask están vacíos, esto es muy raro.</string>
     <string name="menuSaveLog">Guardar registro</string>
     <string name="menuClearLog">Limpiar registro ahora</string>
     <string name="logs_cleared">Registro limpiado correctamente</string>
@@ -91,7 +91,7 @@
 
     <!--SafetyNet-->
 
-    <!-- MagiskHide -->
+    <!-- MagicMaskHide -->
     <string name="show_system_app">Mostrar apps del sistema</string>
     <string name="show_os_app">Mostrar apps del OS</string>
     <string name="hide_filter_hint">Filtrar por nombre</string>
@@ -122,9 +122,9 @@
     <string name="settings_dark_mode_dark">Oscuro</string>
     <string name="settings_download_path_title">Ruta de Descarga</string>
     <string name="settings_download_path_message">Los archivos se guardarán en %1$s</string>
-    <string name="settings_hide_app_title">Esconder la app de Magisk</string>
+    <string name="settings_hide_app_title">Esconder la app de MagicMask</string>
     <string name="settings_hide_app_summary">Instalar una nueva app proxy con una ID de paquete aleatoria y una etiqueta personalizada</string>
-    <string name="settings_restore_app_title">Restaurar la app de Magisk</string>
+    <string name="settings_restore_app_title">Restaurar la app de MagicMask</string>
     <string name="settings_restore_app_summary">Descubrir la app y restaurarla al APK original</string>
     <string name="language">Idioma</string>
     <string name="system_default">(Idioma del sistema)</string>
@@ -135,9 +135,9 @@
     <string name="settings_update_beta">Beta</string>
     <string name="settings_update_custom">Personalizado</string>
     <string name="settings_update_custom_msg">Insertar una URL personalizada</string>
-    <string name="settings_zygisk_summary">Corre partes de magisk en zygote</string>
+    <string name="settings_zygisk_summary">Corre partes de magicmask en zygote</string>
     <string name="settings_denylist_title">Aplicar lista de denegacion</string>
-    <string name="settings_denylist_summary">Los procesos en la lista de denegacion tandran todas las modificaciones de magisk revertidas</string>
+    <string name="settings_denylist_summary">Los procesos en la lista de denegacion tandran todas las modificaciones de magicmask revertidas</string>
     <string name="settings_denylist_error">Esta requere de %1$s para ser activada</string>
     <string name="settings_denylist_config_title">Configurar lista de denegacion</string>
     <string name="settings_denylist_config_summary">Seleccione los procesos para ser incluidos en la lista de denegacion</string>
@@ -190,13 +190,13 @@
     <string name="isolate_summary">Cada sesión root tendrá su propia Namespace</string>
 
     <!--Notifications-->
-    <string name="update_channel">Actualización de Magisk</string>
+    <string name="update_channel">Actualización de MagicMask</string>
     <string name="progress_channel">Notificaciones de progreso</string>
     <string name="updated_channel">Actualización completa</string>
     <string name="download_complete">Descarga Completa</string>
     <string name="download_file_error">Error descargando archivo</string>
-    <string name="magisk_update_title">¡Actualización de Magisk disponible!</string>
-    <string name="updated_title">Magisk Actualizado</string>
+    <string name="magicmask_update_title">¡Actualización de MagicMask disponible!</string>
+    <string name="updated_title">MagicMask Actualizado</string>
     <string name="updated_text">Toca para abrir la aplicación</string>
 
     <!--Toasts, Dialogs-->
@@ -209,7 +209,7 @@
     <string name="flashing">Flasheando…</string>
     <string name="done">¡Hecho!</string>
     <string name="failure">Ha fallado</string>
-    <string name="hide_app_title">Escondiendo la app de Magisk…</string>
+    <string name="hide_app_title">Escondiendo la app de MagicMask…</string>
     <string name="open_link_failed_toast">No se encontró ninguna aplicación para abrir el enlace…</string>
     <string name="complete_uninstall">Desinstalación completa</string>
     <string name="restore_img">Restaurar imágenes</string>
@@ -218,16 +218,16 @@
     <string name="restore_fail">¡El respaldo de la imagen boot Stock no existe!</string>
     <string name="setup_fail">Instalación fallida</string>
     <string name="env_fix_title">Se requiere una instalación adicional</string>
-    <string name="env_fix_msg">Tu dispositivo necesita configuración adicional para el correcto funcionamiento de Magisk. ¿Quieres proceder y reiniciar?</string>
+    <string name="env_fix_msg">Tu dispositivo necesita configuración adicional para el correcto funcionamiento de MagicMask. ¿Quieres proceder y reiniciar?</string>
     <string name="setup_msg">Ejecutando configuración de entorno…</string>
     <string name="authenticate">Autenticar</string>
-    <string name="unsupport_magisk_title">Versión de Magisk no soportada</string>
-    <string name="unsupport_magisk_msg">Esta versión de la app no soporta versiones de Magisk inferiores a la %1$s.\n\nLa aplicación se comportará como si no tuvieses Magisk instalado, por favor actualiza Magisk tan pronto como sea posible.</string>
+    <string name="unsupport_magicmask_title">Versión de MagicMask no soportada</string>
+    <string name="unsupport_magicmask_msg">Esta versión de la app no soporta versiones de MagicMask inferiores a la %1$s.\n\nLa aplicación se comportará como si no tuvieses MagicMask instalado, por favor actualiza MagicMask tan pronto como sea posible.</string>
     <string name="unsupport_general_title">Estado anormal</string>
     <string name="unsupport_system_app_msg">No se admite la ejecución de esta aplicación como una aplicación del sistema. Revierta la aplicación a una aplicación de usuario.</string>
-    <string name="unsupport_other_su_msg">Se ha detectado un binario \"su\" que no es de Magisk. Elimine cualquier solución raíz de la competencia y/o reinstale Magisk.</string>
-    <string name="unsupport_external_storage_msg">Magisk está instalado en el almacenamiento externo. Mueva la aplicación al almacenamiento interno.</string>
-    <string name="unsupport_nonroot_stub_msg">La aplicación Magisk oculta no puede seguir funcionando porque se perdió la raíz. Restaura el APK original.</string>
+    <string name="unsupport_other_su_msg">Se ha detectado un binario \"su\" que no es de MagicMask. Elimine cualquier solución raíz de la competencia y/o reinstale MagicMask.</string>
+    <string name="unsupport_external_storage_msg">MagicMask está instalado en el almacenamiento externo. Mueva la aplicación al almacenamiento interno.</string>
+    <string name="unsupport_nonroot_stub_msg">La aplicación MagicMask oculta no puede seguir funcionando porque se perdió la raíz. Restaura el APK original.</string>
     <string name="unsupport_nonroot_stub_title">@string/settings_restore_app_title</string>
     <string name="external_rw_permission_denied">Conceder permiso de almacenamiento para habilitar esta funcionalidad</string>
     <string name="install_unknown_denied">Permitir "instalar aplicaciones desconocidas" para habilitar esta funcionalidad</string>

@@ -80,10 +80,10 @@ int main(int argc, char *argv[]) {
     umask(0);
 
     auto name = basename(argv[0]);
-    if (name == "magisk"sv)
-        return magisk_proxy_main(argc, argv);
+    if (name == "magicmask"sv)
+        return magicmask_proxy_main(argc, argv);
 
-    if (name == "magiskinit"sv && argc == 2 && argv[1] == "--rules-device"sv)
+    if (name == "magicmaskinit"sv && argc == 2 && argv[1] == "--rules-device"sv)
         return rust::print_rules_device();
 
     if (getpid() != 1)

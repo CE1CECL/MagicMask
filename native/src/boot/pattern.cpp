@@ -1,6 +1,6 @@
 #include <base.hpp>
 
-#include "magiskboot.hpp"
+#include "magicmaskboot.hpp"
 
 #define MATCH(p) else if (strncmp(s + skip, p, sizeof(p) - 1) == 0) skip += (sizeof(p) - 1)
 

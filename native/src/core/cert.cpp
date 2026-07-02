@@ -143,7 +143,7 @@ string read_certificate(int fd, int version) {
             return true;
         });
         if (version > apk_ver) {
-            // Enforce the magisk app to always be newer than magiskd
+            // Enforce the magicmask app to always be newer than magicmaskd
             LOGE("cert: APK version too low\n");
             return {};
         }

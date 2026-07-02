@@ -6,7 +6,7 @@
 
         <variable
             name="item"
-            type="com.topjohnwu.magisk.ui.flash.ConsoleItem" />
+            type="com.topjohnwu.magicmask.ui.flash.ConsoleItem" />
 
     </data>
 

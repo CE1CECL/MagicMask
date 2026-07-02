@@ -34,7 +34,7 @@ pub fn print_rules_device() -> i32 {
         for line in lines {
             if let Ok(line) = line {
                 let new_matched;
-                if line.contains("/.magisk/sepolicy.rules ") {
+                if line.contains("/.magicmask/sepolicy.rules ") {
                     new_matched = EXISTING;
                 } else if line.contains(" - ext4 ") && !line.contains("/dm-") {
                     if line.contains(" / /cache ") && matched < CACHE {

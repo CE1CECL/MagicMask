@@ -1,7 +1,7 @@
 #include <set>
 #include <sys/mount.h>
 
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <base.hpp>
 
 #include "deny.hpp"
@@ -16,10 +16,10 @@ static void lazy_unmount(const char* mountpoint) {
 void revert_unmount() {
     set<string> targets;
 
-    // Unmount dummy skeletons and MAGISKTMP
+    // Unmount dummy skeletons and MAGICMASKTMP
     // since mirror nodes are always mounted under skeleton, we don't have to specifically unmount
     for (auto &info: parse_mount_info("self")) {
-        if (info.source == "magisk" || info.source == "worker" || // magisktmp tmpfs
+        if (info.source == "magicmask" || info.source == "worker" || // magicmasktmp tmpfs
             info.root.starts_with("/adb/modules")) { // bind mount from data partition
             targets.insert(info.target);
         }

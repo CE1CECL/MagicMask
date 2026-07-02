@@ -13,8 +13,8 @@
     <!--Install Fragment-->
     <string name="keep_force_encryption">Palikti priverstinį šifravimą</string>
     <string name="keep_dm_verity">Palikti dm-verity</string>
-    <string name="uninstall_magisk_title">Pašalinti Magisk</string>
-    <string name="uninstall_magisk_msg">Visi papildiniai bus išjungti/pašalinti. Root bus panaikintas. Yra galimybė, kad duomenys bus užšifruoti…</string>
+    <string name="uninstall_magicmask_title">Pašalinti MagicMask</string>
+    <string name="uninstall_magicmask_msg">Visi papildiniai bus išjungti/pašalinti. Root bus panaikintas. Yra galimybė, kad duomenys bus užšifruoti…</string>
     <string name="update">Atnaujinti</string>
 
     <!--Module Fragment-->
@@ -39,10 +39,10 @@
     <string name="repo_install_title">Instaliuoti %1$s %2$s(%3$d)</string>
     <string name="download">Atsisiųsti</string>
     <string name="reboot">Perkrauti</string>
-    <string name="magisk_update_title">Atsirado nauja Magisk versija!</string>
+    <string name="magicmask_update_title">Atsirado nauja MagicMask versija!</string>
     <string name="release_notes">Pakeitimai</string>
     <string name="manager_download_install">Paspauskite, kad atsisiųstumėte ir instaliuotumėte</string>
-    <string name="update_channel">Magisk Atnaujinimai</string>
+    <string name="update_channel">MagicMask Atnaujinimai</string>
     <string name="flashing">Instaliuojama</string>
     <string name="direct_install">Tiesioginis instaliavimas (Rekomenduojamas)</string>
     <string name="complete_uninstall">Pilnas pašalinimas</string>
@@ -60,7 +60,7 @@
     <string name="language">Kalba</string>
     <string name="system_default">(Sistemos)</string>
     <string name="settings_check_update_title">Automatiškas atnaujinimų ieškojimas</string>
-    <string name="settings_check_update_summary">Automatiškai ieškoti Magisk ir Magisk Manager atnaujinimų</string>
+    <string name="settings_check_update_summary">Automatiškai ieškoti MagicMask ir MagicMask Manager atnaujinimų</string>
     <string name="settings_update_channel_title">Atnaujinimų tipai</string>
     <string name="settings_update_stable">Stabilūs</string>
     <string name="settings_update_beta">Beta</string>

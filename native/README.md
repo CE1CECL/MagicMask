@@ -2,7 +2,7 @@
 
 ## Prerequisite
 
-Install the NDK required to build and develop Magisk with `./build.py ndk`. The NDK will be installed to `$ANDROID_SDK_ROOT/ndk/magisk`. You don't need to manually install a Rust toolchain with `rustup`, as the NDK installed already has a Rust toolchain bundled.
+Install the NDK required to build and develop MagicMask with `./build.py ndk`. The NDK will be installed to `$ANDROID_SDK_ROOT/ndk/magicmask`. You don't need to manually install a Rust toolchain with `rustup`, as the NDK installed already has a Rust toolchain bundled.
 
 ## Build Configs
 
@@ -21,7 +21,7 @@ We use the [`cxx`](https://cxx.rs) project for Rust and C++ interop.
 All C++ code should be recognized and properly indexed by Android Studio out of the box. For Rust:
 
 - Install the [Rust plugin](https://www.jetbrains.com/rust/) in Android Studio
-- In Preferences > Languages & Frameworks > Rust, set `$ANDROID_SDK_ROOT/ndk/magisk/toolchains/rust/bin` as the toolchain location
+- In Preferences > Languages & Frameworks > Rust, set `$ANDROID_SDK_ROOT/ndk/magicmask/toolchains/rust/bin` as the toolchain location
 - Open `native/src/Cargo.toml`, and select "Attach" in the "No Cargo projects found" banner
 
 Note: run `./build.py binary` before developing to make sure generated code is created.

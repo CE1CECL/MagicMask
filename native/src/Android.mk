@@ -4,10 +4,10 @@ LOCAL_PATH := $(call my-dir)
 # Binaries
 ########################
 
-ifdef B_MAGISK
+ifdef B_MAGICMASK
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := magisk
+LOCAL_MODULE := magicmask
 LOCAL_STATIC_LIBRARIES := \
     libbase \
     libnanopb \
@@ -15,11 +15,11 @@ LOCAL_STATIC_LIBRARIES := \
     libphmap \
     liblsplt \
     libmincrypt \
-    libmagisk-rs
+    libmagicmask-rs
 
 LOCAL_SRC_FILES := \
     core/applets.cpp \
-    core/magisk.cpp \
+    core/magicmask.cpp \
     core/daemon.cpp \
     core/bootstages.cpp \
     core/socket.cpp \
@@ -70,7 +70,7 @@ endif
 ifdef B_INIT
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := magiskinit
+LOCAL_MODULE := magicmaskinit
 LOCAL_STATIC_LIBRARIES := \
     libbase \
     libcompat \
@@ -93,7 +93,7 @@ endif
 ifdef B_BOOT
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := magiskboot
+LOCAL_MODULE := magicmaskboot
 LOCAL_STATIC_LIBRARIES := \
     libbase \
     libcompat \
@@ -124,7 +124,7 @@ endif
 ifdef B_POLICY
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := magiskpolicy
+LOCAL_MODULE := magicmaskpolicy
 LOCAL_STATIC_LIBRARIES := \
     libbase \
     libbase \
@@ -146,7 +146,7 @@ LOCAL_STATIC_LIBRARIES := \
     libcompat \
     libnanopb \
     libsystemproperties \
-    libmagisk-rs
+    libmagicmask-rs
 
 LOCAL_SRC_FILES := \
     core/applet_stub.cpp \

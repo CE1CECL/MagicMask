@@ -79,7 +79,7 @@ run_test() {
   timeout 60 adb wait-for-device
   timeout 60 bash -c wait_for_boot
 
-  adb shell magisk -v
+  adb shell magicmask -v
   kill -INT $pid
   wait $pid
 

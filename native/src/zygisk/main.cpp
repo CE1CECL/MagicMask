@@ -2,7 +2,7 @@
 #include <android/dlext.h>
 #include <dlfcn.h>
 
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <base.hpp>
 #include <socket.hpp>
 #include <daemon.hpp>
@@ -33,7 +33,7 @@ int app_process_main(int argc, char *argv[]) {
 
     if (!zygote) {
         // For the non zygote case, we need to get real app_process via passthrough
-        // We have to connect magiskd via exec-ing magisk due to SELinux restrictions
+        // We have to connect magicmaskd via exec-ing magicmask due to SELinux restrictions
 
         // This is actually only relevant for calling app_process via ADB shell
         // because zygisk shall already have the app_process overlays unmounted
@@ -46,16 +46,16 @@ int app_process_main(int argc, char *argv[]) {
             fcntl(fds[1], F_SETFD, 0);
             ssprintf(buf, sizeof(buf), "%d", fds[1]);
 #if defined(__LP64__)
-            execlp("magisk", "", "zygisk", "passthrough", buf, "1", (char *) nullptr);
+            execlp("magicmask", "", "zygisk", "passthrough", buf, "1", (char *) nullptr);
 #else
-            execlp("magisk", "", "zygisk", "passthrough", buf, "0", (char *) nullptr);
+            execlp("magicmask", "", "zygisk", "passthrough", buf, "0", (char *) nullptr);
 #endif
             exit(-1);
         }
 
         close(fds[1]);
         if (read_int(fds[0]) != 0) {
-            fprintf(stderr, "Failed to connect magiskd, try umount %s or reboot.\n", argv[0]);
+            fprintf(stderr, "Failed to connect magicmaskd, try umount %s or reboot.\n", argv[0]);
             return 1;
         }
         int app_proc_fd = recv_fd(fds[0]);
@@ -90,7 +90,7 @@ int app_process_main(int argc, char *argv[]) {
             } else {
                 setenv("LD_PRELOAD", HIJACK_BIN, 1);
             }
-            setenv(MAGISKTMP_ENV, tmp.data(), 1);
+            setenv(MAGICMASKTMP_ENV, tmp.data(), 1);
 
             close(socket);
 
@@ -152,12 +152,12 @@ static void zygiskd(int socket) {
     for (;;) {
         poll(&pfd, 1, -1);
         if (pfd.revents && !(pfd.revents & POLLIN)) {
-            // Something bad happened in magiskd, terminate zygiskd
+            // Something bad happened in magicmaskd, terminate zygiskd
             exit(0);
         }
         int client = recv_fd(socket);
         if (client < 0) {
-            // Something bad happened in magiskd, terminate zygiskd
+            // Something bad happened in magicmaskd, terminate zygiskd
             exit(0);
         }
         int module_id = read_int(client);
@@ -194,17 +194,17 @@ int zygisk_main(int argc, char *argv[]) {
         int is_64_bit = parse_int(argv[3]);
         if (fcntl(client, F_GETFD) < 0)
             return 1;
-        if (int magiskd = connect_daemon(MainRequest::ZYGISK_PASSTHROUGH); magiskd >= 0) {
-            write_int(magiskd, ZygiskRequest::PASSTHROUGH);
-            write_int(magiskd, is_64_bit);
+        if (int magicmaskd = connect_daemon(MainRequest::ZYGISK_PASSTHROUGH); magicmaskd >= 0) {
+            write_int(magicmaskd, ZygiskRequest::PASSTHROUGH);
+            write_int(magicmaskd, is_64_bit);
 
-            if (read_int(magiskd) != 0) {
+            if (read_int(magicmaskd) != 0) {
                 write_int(client, 1);
                 return 0;
             }
 
             write_int(client, 0);
-            int real_app_fd = recv_fd(magiskd);
+            int real_app_fd = recv_fd(magicmaskd);
             send_fd(client, real_app_fd);
         } else {
             write_int(client, 1);

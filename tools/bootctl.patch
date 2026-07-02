@@ -1,4 +1,4 @@
-# How to build the bootctl bundled within the Magisk app:
+# How to build the bootctl bundled within the MagicMask app:
 #
 # 1. Checkout and sync the AOSP tree:
 #    https://source.android.com/setup/build/downloading

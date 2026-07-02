@@ -7,11 +7,11 @@
 
         <variable
             name="item"
-            type="com.topjohnwu.magisk.ui.home.DeveloperItem" />
+            type="com.topjohnwu.magicmask.ui.home.DeveloperItem" />
 
         <variable
             name="viewModel"
-            type="com.topjohnwu.magisk.ui.home.HomeViewModel" />
+            type="com.topjohnwu.magicmask.ui.home.HomeViewModel" />
 
     </data>
 

@@ -1,45 +1,45 @@
 ![](docs/images/logo.png)
 
-[![Downloads](https://img.shields.io/badge/dynamic/json?color=green&label=Downloads&query=totalString&url=https%3A%2F%2Fraw.githubusercontent.com%2Ftopjohnwu%2Fmagisk-files%2Fcount%2Fcount.json&cacheSeconds=1800)](https://raw.githubusercontent.com/topjohnwu/magisk-files/count/count.json)
+[![Downloads](https://img.shields.io/badge/dynamic/json?color=green&label=Downloads&query=totalString&url=https%3A%2F%2Fraw.githubusercontent.com%2Ftopjohnwu%2Fmagicmask-files%2Fcount%2Fcount.json&cacheSeconds=1800)](https://raw.githubusercontent.com/topjohnwu/magicmask-files/count/count.json)
 
 #### This is not an officially supported Google product
 
 ## Introduction
 
-Magisk is a suite of open source software for customizing Android, supporting devices higher than Android 5.0.<br>
+MagicMask is a suite of open source software for customizing Android, supporting devices higher than Android 5.0.<br>
 Some highlight features:
 
-- **MagiskSU**: Provide root access for applications
-- **Magisk Modules**: Modify read-only partitions by installing modules
-- **MagiskBoot**: The most complete tool for unpacking and repacking Android boot images
+- **MagicMaskSU**: Provide root access for applications
+- **MagicMask Modules**: Modify read-only partitions by installing modules
+- **MagicMaskBoot**: The most complete tool for unpacking and repacking Android boot images
 - **Zygisk**: Run code in every Android applications' processes
 
 ## Downloads
 
-[Github](https://github.com/topjohnwu/Magisk/) is the only source where you can get official Magisk information and downloads.
+[Github](https://github.com/topjohnwu/MagicMask/) is the only source where you can get official MagicMask information and downloads.
 
-[![](https://img.shields.io/badge/Magisk-v25.2-blue)](https://github.com/topjohnwu/Magisk/releases/tag/v25.2)
-[![](https://img.shields.io/badge/Magisk%20Beta-v25.2-blue)](https://github.com/topjohnwu/Magisk/releases/tag/v25.2)
-[![](https://img.shields.io/badge/Magisk-Canary-red)](https://raw.githubusercontent.com/topjohnwu/magisk-files/canary/app-release.apk)
-[![](https://img.shields.io/badge/Magisk-Debug-red)](https://raw.githubusercontent.com/topjohnwu/magisk-files/canary/app-debug.apk)
+[![](https://img.shields.io/badge/MagicMask-v25.2-blue)](https://github.com/topjohnwu/MagicMask/releases/tag/v25.2)
+[![](https://img.shields.io/badge/MagicMask%20Beta-v25.2-blue)](https://github.com/topjohnwu/MagicMask/releases/tag/v25.2)
+[![](https://img.shields.io/badge/MagicMask-Canary-red)](https://raw.githubusercontent.com/topjohnwu/magicmask-files/canary/app-release.apk)
+[![](https://img.shields.io/badge/MagicMask-Debug-red)](https://raw.githubusercontent.com/topjohnwu/magicmask-files/canary/app-debug.apk)
 
 ## Useful Links
 
-- [Installation Instruction](https://topjohnwu.github.io/Magisk/install.html)
-- [Magisk Documentation](https://topjohnwu.github.io/Magisk/)
+- [Installation Instruction](https://topjohnwu.github.io/MagicMask/install.html)
+- [MagicMask Documentation](https://topjohnwu.github.io/MagicMask/)
 
 ## Bug Reports
 
 **Only bug reports from Debug builds will be accepted.**
 
 For installation issues, upload both boot image and install logs.<br>
-For Magisk issues, upload boot logcat or dmesg.<br>
-For Magisk app crashes, record and upload the logcat when the crash occurs.
+For MagicMask issues, upload boot logcat or dmesg.<br>
+For MagicMask app crashes, record and upload the logcat when the crash occurs.
 
 ## Building and Development
 
-- Magisk builds on any OS Android Studio supports. Install Android Studio and do the initial setups.
-- Clone sources: `git clone --recurse-submodules https://github.com/topjohnwu/Magisk.git`
+- MagicMask builds on any OS Android Studio supports. Install Android Studio and do the initial setups.
+- Clone sources: `git clone --recurse-submodules https://github.com/topjohnwu/MagicMask.git`
 - Install Python 3.8+ \
   (Windows only: select **'Add Python to PATH'** in installer, and run `pip install colorama` after install)
 - Configure to use the JDK bundled in Android Studio:
@@ -55,14 +55,14 @@ For Magisk app crashes, record and upload the logcat when the crash occurs.
 
 ## Signing and Distribution
 
-- The certificate of the key used to sign the final Magisk APK product is also directly embedded into some executables. In release builds, Magisk's root daemon will enforce this certificate check and reject and forcefully uninstall any non-matching Magisk apps to protect users from malicious and unverified Magisk APKs.
-- To do any development on Magisk itself, switch to an **official debug build and reinstall Magisk** to bypass the signature check.
-- To distribute your own Magisk builds signed with your own keys, set your signing configs in `config.prop`.
+- The certificate of the key used to sign the final MagicMask APK product is also directly embedded into some executables. In release builds, MagicMask's root daemon will enforce this certificate check and reject and forcefully uninstall any non-matching MagicMask apps to protect users from malicious and unverified MagicMask APKs.
+- To do any development on MagicMask itself, switch to an **official debug build and reinstall MagicMask** to bypass the signature check.
+- To distribute your own MagicMask builds signed with your own keys, set your signing configs in `config.prop`.
 - Check [Google's Documentation](https://developer.android.com/studio/publish/app-signing.html#generate-key) for more details on generating your own key.
 
 ## Translation Contributions
 
-Default string resources for the Magisk app and its stub APK are located here:
+Default string resources for the MagicMask app and its stub APK are located here:
 
 - `app/src/main/res/values/strings.xml`
 - `stub/src/main/res/values/strings.xml`
@@ -71,7 +71,7 @@ Translate each and place them in the respective locations (`[module]/src/main/re
 
 ## License
 
-    Magisk, including all git submodules are free software:
+    MagicMask, including all git submodules are free software:
     you can redistribute it and/or modify it under the terms of the
     GNU General Public License as published by the Free Software Foundation,
     either version 3 of the License, or (at your option) any later version.

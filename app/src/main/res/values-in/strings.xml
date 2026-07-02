@@ -20,16 +20,16 @@
     <string name="home_package">Paket</string>
     <string name="home_app_title">Aplikasi</string>
 
-    <string name="home_notice_content">Unduh Magisk HANYA dari halaman GitHub resmi kami. File dari sumber yang tidak dikenal bisa berbahaya!</string>
+    <string name="home_notice_content">Unduh MagicMask HANYA dari halaman GitHub resmi kami. File dari sumber yang tidak dikenal bisa berbahaya!</string>
     <string name="home_support_title">Dukung kami</string>
     <string name="home_follow_title">Ikuti Kami</string>
     <string name="home_item_source">Sumber</string>
-    <string name="home_support_content">Magisk gratis dan bersumber terbuka, dan akan selalu seperti itu. Bagaimanapun juga Anda dapat menunjukan kepedulian Anda kepada kami dengan mengirimkan sedikit donasi.</string>
+    <string name="home_support_content">MagicMask gratis dan bersumber terbuka, dan akan selalu seperti itu. Bagaimanapun juga Anda dapat menunjukan kepedulian Anda kepada kami dengan mengirimkan sedikit donasi.</string>
     <string name="home_installed_version">Terpasang</string>
     <string name="home_latest_version">Terbaru</string>
     <string name="invalid_update_channel">Saluran pembaruan tidak valid</string>
-    <string name="uninstall_magisk_title">Copot Magisk</string>
-    <string name="uninstall_magisk_msg">Semua modul akan dinonaktifkan/dihapus!\nRoot akan dihapus!\nData Anda berpotensi terenkripsi jika belum!</string>
+    <string name="uninstall_magicmask_title">Copot MagicMask</string>
+    <string name="uninstall_magicmask_msg">Semua modul akan dinonaktifkan/dihapus!\nRoot akan dihapus!\nData Anda berpotensi terenkripsi jika belum!</string>
 
     <!--Install-->
     <string name="keep_force_encryption">Pertahankan enkripsi paksa</string>
@@ -52,7 +52,7 @@
 
     <!--Superuser-->
     <string name="su_request_title">Permintaan superuser</string>
-    <string name="touch_filtered_warning">Karena terdapat aplikasi yang menghalangi dialog permintaan superuser, Magisk tidak dapat memverifikasi respons Anda</string>
+    <string name="touch_filtered_warning">Karena terdapat aplikasi yang menghalangi dialog permintaan superuser, MagicMask tidak dapat memverifikasi respons Anda</string>
     <string name="deny">Tolak</string>
     <string name="prompt">Ajukan</string>
     <string name="grant">Izinkan</string>
@@ -82,7 +82,7 @@
 
     <!--Logs-->
     <string name="log_data_none">Log Anda masih kosong, coba gunakan lebih banyak aplikasi yang membutuhkan SU Anda</string>
-    <string name="log_data_magisk_none">Log Magisk kosong, ini aneh</string>
+    <string name="log_data_magicmask_none">Log MagicMask kosong, ini aneh</string>
     <string name="menuSaveLog">Simpan log</string>
     <string name="menuClearLog">Hapus log sekarang</string>
     <string name="logs_cleared">Log berhasil dihapus</string>
@@ -91,7 +91,7 @@
 
     <!--SafetyNet-->
 
-    <!--MagiskHide-->
+    <!--MagicMaskHide-->
     <string name="show_system_app">Tampilkan aplikasi sistem</string>
     <string name="show_os_app">Tampilkan aplikasi OS</string>
     <string name="hide_filter_hint">Filter menurut nama</string>
@@ -122,9 +122,9 @@
     <string name="settings_dark_mode_dark">Selalu gelap</string>
     <string name="settings_download_path_title">Lokasi unduhan</string>
     <string name="settings_download_path_message">File akan disimpan ke %1$s</string>
-    <string name="settings_hide_app_title">Sembunyikan aplikasi Magisk</string>
+    <string name="settings_hide_app_title">Sembunyikan aplikasi MagicMask</string>
     <string name="settings_hide_app_summary">Pasang aplikasi proxy dengan ID paket acak dan label aplikasi khusus</string>
-    <string name="settings_restore_app_title">Pulihkan aplikasi Magisk</string>
+    <string name="settings_restore_app_title">Pulihkan aplikasi MagicMask</string>
     <string name="settings_restore_app_summary">Tampilkan aplikasi and pulihkan APK asli</string>
     <string name="language">Bahasa</string>
     <string name="system_default">(Bawaan sistem)</string>
@@ -135,9 +135,9 @@
     <string name="settings_update_beta">Beta</string>
     <string name="settings_update_custom">Saluran khusus</string>
     <string name="settings_update_custom_msg">Masukkan URL khusus</string>
-    <string name="settings_zygisk_summary">Jalankan bagian-bagian Magisk dalam zygote daemon</string>
+    <string name="settings_zygisk_summary">Jalankan bagian-bagian MagicMask dalam zygote daemon</string>
     <string name="settings_denylist_title">Paksa DenyList</string>
-    <string name="settings_denylist_summary">Proses pada denylist akan mengembalikan semua modifikasi Magisk</string>
+    <string name="settings_denylist_summary">Proses pada denylist akan mengembalikan semua modifikasi MagicMask</string>
     <string name="settings_denylist_error">Fitur ini membutuhkan %1$s untuk diaktifkan</string>
     <string name="settings_denylist_config_title">Konfigurasi DenyList</string>
     <string name="settings_denylist_config_summary">Pilih proses yang akan disertakan pada denylist</string>
@@ -190,13 +190,13 @@
     <string name="isolate_summary">Setiap sesi root akan memiliki ruang-nama tersendiri</string>
 
     <!--Notifications-->
-    <string name="update_channel">Pembaruan Magisk</string>
+    <string name="update_channel">Pembaruan MagicMask</string>
     <string name="progress_channel">Notifikasi Kemajuan</string>
     <string name="updated_channel">Pembaruan Selesai</string>
     <string name="download_complete">Unduhan selesai</string>
     <string name="download_file_error">Kesalahan saat mengunduh file</string>
-    <string name="magisk_update_title">Pembaruan Magisk tersedia!</string>
-    <string name="updated_title">Magisk Diperbarui</string>
+    <string name="magicmask_update_title">Pembaruan MagicMask tersedia!</string>
+    <string name="updated_title">MagicMask Diperbarui</string>
     <string name="updated_text">Ketuk untuk buka aplikasi</string>
 
     <!--Toasts, Dialogs-->
@@ -209,7 +209,7 @@
     <string name="flashing">Memasang…</string>
     <string name="done">Selesai!</string>
     <string name="failure">Gagal!</string>
-    <string name="hide_app_title">Menyembunyikan aplikasi Magisk…</string>
+    <string name="hide_app_title">Menyembunyikan aplikasi MagicMask…</string>
     <string name="open_link_failed_toast">Tidak ditemukan aplikasi untuk membuka link ini</string>
     <string name="complete_uninstall">Pencopotan penuh</string>
     <string name="restore_img">Pulihkan image</string>
@@ -218,16 +218,16 @@
     <string name="restore_fail">Cadangan stock tidak ada!</string>
     <string name="setup_fail">Penyiapan gagal</string>
     <string name="env_fix_title">Perlu penyiapan tambahan</string>
-    <string name="env_fix_msg">Perangkat Anda membutuhkan pengaturan tambahan untuk Magisk agar berfungsi dengan benar. Apakah Anda ingin melanjutkan dan Menyalakan ulang?</string>
+    <string name="env_fix_msg">Perangkat Anda membutuhkan pengaturan tambahan untuk MagicMask agar berfungsi dengan benar. Apakah Anda ingin melanjutkan dan Menyalakan ulang?</string>
     <string name="setup_msg">Memproses penyiapan lingkungan…</string>
     <string name="authenticate">Autentikasi</string>
-    <string name="unsupport_magisk_title">Versi Magisk tidak didukung</string>
-    <string name="unsupport_magisk_msg">Versi aplikasi ini tidak mendukung versi Magisk yang lebih rendah dari %1$s.\n\nAplikasi akan berperilaku seolah-olah tidak ada Magisk yang dipasang, harap tingkatkan Magisk sesegera mungkin.</string>
+    <string name="unsupport_magicmask_title">Versi MagicMask tidak didukung</string>
+    <string name="unsupport_magicmask_msg">Versi aplikasi ini tidak mendukung versi MagicMask yang lebih rendah dari %1$s.\n\nAplikasi akan berperilaku seolah-olah tidak ada MagicMask yang dipasang, harap tingkatkan MagicMask sesegera mungkin.</string>
     <string name="unsupport_general_title">Keadaan tidak normal</string>
     <string name="unsupport_system_app_msg">Menjalankan aplikasi ini sebagai aplikasi sistem tidak didukung. Harap kembalikan aplikasi ke aplikasi pengguna.</string>
-    <string name="unsupport_other_su_msg">Sebuah \"su\" biner bukan dari Magisk telah terdeteksi. Hapus semua solusi root yang bersaing dan/atau pasang ulang Magisk.</string>
-    <string name="unsupport_external_storage_msg">Magisk dipasang ke penyimpanan eksternal. Harap pindahkan aplikasi ke penyimpanan internal.</string>
-    <string name="unsupport_nonroot_stub_msg">Aplikasi Magisk yang tersembunyi tidak dapat terus berfungsi karena root hilang. Tolong pulihkan APK asli.</string>
+    <string name="unsupport_other_su_msg">Sebuah \"su\" biner bukan dari MagicMask telah terdeteksi. Hapus semua solusi root yang bersaing dan/atau pasang ulang MagicMask.</string>
+    <string name="unsupport_external_storage_msg">MagicMask dipasang ke penyimpanan eksternal. Harap pindahkan aplikasi ke penyimpanan internal.</string>
+    <string name="unsupport_nonroot_stub_msg">Aplikasi MagicMask yang tersembunyi tidak dapat terus berfungsi karena root hilang. Tolong pulihkan APK asli.</string>
     <string name="unsupport_nonroot_stub_title">@string/settings_restore_app_title</string>
     <string name="external_rw_permission_denied">Berikan izin akses ke penyimpanan untuk mengaktifkan fungsi ini</string>
     <string name="post_notifications_denied">Berikan izin akses ke notifikasi untuk mengaktifkan fungsi ini</string>

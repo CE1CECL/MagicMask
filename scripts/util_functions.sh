@@ -1,8 +1,8 @@
 ############################################
-# Magisk General Utility Functions
+# MagicMask General Utility Functions
 ############################################
 
-#MAGISK_VERSION_STUB
+#MAGICMASK_VERSION_STUB
 
 ###################
 # Helper Functions
@@ -48,8 +48,8 @@ grep_get_prop() {
 getvar() {
   local VARNAME=$1
   local VALUE
-  local PROPPATH='/data/.magisk /cache/.magisk'
-  [ ! -z $MAGISKTMP ] && PROPPATH="$MAGISKTMP/config $PROPPATH"
+  local PROPPATH='/data/.magicmask /cache/.magicmask'
+  [ ! -z $MAGICMASKTMP ] && PROPPATH="$MAGICMASKTMP/config $PROPPATH"
   VALUE=$(grep_prop $VARNAME $PROPPATH)
   [ ! -z $VALUE ] && eval $VARNAME=\$VALUE
 }
@@ -68,7 +68,7 @@ abort() {
 }
 
 resolve_vars() {
-  MAGISKBIN=$NVBASE/magisk
+  MAGICMASKBIN=$NVBASE/magicmask
   POSTFSDATAD=$NVBASE/post-fs-data.d
   SERVICED=$NVBASE/service.d
 }
@@ -119,8 +119,8 @@ ensure_bb() {
   local bb
   if [ -f $TMPDIR/busybox ]; then
     bb=$TMPDIR/busybox
-  elif [ -f $MAGISKBIN/busybox ]; then
-    bb=$MAGISKBIN/busybox
+  elif [ -f $MAGICMASKBIN/busybox ]; then
+    bb=$MAGICMASKBIN/busybox
   else
     abort "! Cannot find BusyBox"
   fi
@@ -472,8 +472,8 @@ flash_image() {
 }
 
 # Common installation script for flash_script.sh and addon.d.sh
-install_magisk() {
-  cd $MAGISKBIN
+install_magicmask() {
+  cd $MAGICMASKBIN
 
   if [ ! -c $BOOTIMAGE ]; then
     eval $BOOTSIGNER -verify < $BOOTIMAGE && BOOTSIGNED=true
@@ -495,7 +495,7 @@ install_magisk() {
       ;;
   esac
 
-  ./magiskboot cleanup
+  ./magicmaskboot cleanup
   rm -f new-boot.img
 
   run_migrations
@@ -580,7 +580,7 @@ check_data() {
     touch /data/.rw && rm /data/.rw && DATA=true
     # Test if data is decrypted
     $DATA && [ -d /data/adb ] && touch /data/adb/.rw && rm /data/adb/.rw && DATA_DE=true
-    $DATA_DE && [ -d /data/adb/magisk ] || mkdir /data/adb/magisk || DATA_DE=false
+    $DATA_DE && [ -d /data/adb/magicmask ] || mkdir /data/adb/magicmask || DATA_DE=false
   fi
   NVBASE=/data
   $DATA || NVBASE=/cache/data_adb
@@ -588,24 +588,24 @@ check_data() {
   resolve_vars
 }
 
-find_magisk_apk() {
+find_magicmask_apk() {
   local DBAPK
-  [ -z $APK ] && APK=/data/app/com.topjohnwu.magisk*/base.apk
-  [ -f $APK ] || APK=/data/app/*/com.topjohnwu.magisk*/base.apk
+  [ -z $APK ] && APK=/data/app/com.topjohnwu.magicmask*/base.apk
+  [ -f $APK ] || APK=/data/app/*/com.topjohnwu.magicmask*/base.apk
   if [ ! -f $APK ]; then
-    DBAPK=$(magisk --sqlite "SELECT value FROM strings WHERE key='requester'" 2>/dev/null | cut -d= -f2)
-    [ -z $DBAPK ] && DBAPK=$(strings $NVBASE/magisk.db | grep -oE 'requester..*' | cut -c10-)
+    DBAPK=$(magicmask --sqlite "SELECT value FROM strings WHERE key='requester'" 2>/dev/null | cut -d= -f2)
+    [ -z $DBAPK ] && DBAPK=$(strings $NVBASE/magicmask.db | grep -oE 'requester..*' | cut -c10-)
     [ -z $DBAPK ] || APK=/data/user_de/0/$DBAPK/dyn/current.apk
     [ -f $APK ] || [ -z $DBAPK ] || APK=/data/data/$DBAPK/dyn/current.apk
   fi
-  [ -f $APK ] || ui_print "! Unable to detect Magisk app APK for BootSigner"
+  [ -f $APK ] || ui_print "! Unable to detect MagicMask app APK for BootSigner"
 }
 
 run_migrations() {
   local LOCSHA1
   local TARGET
   # Legacy app installation
-  local BACKUP=$MAGISKBIN/stock_boot*.gz
+  local BACKUP=$MAGICMASKBIN/stock_boot*.gz
   if [ -f $BACKUP ]; then
     cp $BACKUP /data
     rm -f $BACKUP
@@ -616,20 +616,20 @@ run_migrations() {
     [ -f $gz ] || break
     LOCSHA1=`basename $gz | sed -e 's/stock_boot_//' -e 's/.img.gz//'`
     [ -z $LOCSHA1 ] && break
-    mkdir /data/magisk_backup_${LOCSHA1} 2>/dev/null
-    mv $gz /data/magisk_backup_${LOCSHA1}/boot.img.gz
+    mkdir /data/magicmask_backup_${LOCSHA1} 2>/dev/null
+    mv $gz /data/magicmask_backup_${LOCSHA1}/boot.img.gz
   done
 
   # Stock backups
   LOCSHA1=$SHA1
   for name in boot dtb dtbo dtbs; do
-    BACKUP=$MAGISKBIN/stock_${name}.img
+    BACKUP=$MAGICMASKBIN/stock_${name}.img
     [ -f $BACKUP ] || continue
     if [ $name = 'boot' ]; then
-      LOCSHA1=`$MAGISKBIN/magiskboot sha1 $BACKUP`
-      mkdir /data/magisk_backup_${LOCSHA1} 2>/dev/null
+      LOCSHA1=`$MAGICMASKBIN/magicmaskboot sha1 $BACKUP`
+      mkdir /data/magicmask_backup_${LOCSHA1} 2>/dev/null
     fi
-    TARGET=/data/magisk_backup_${LOCSHA1}/${name}.img
+    TARGET=/data/magicmask_backup_${LOCSHA1}/${name}.img
     cp $BACKUP $TARGET
     rm -f $BACKUP
     gzip -9f $TARGET
@@ -637,7 +637,7 @@ run_migrations() {
 }
 
 copy_sepolicy_rules() {
-  local RULESDIR=$(magisk --path)/.magisk/sepolicy.rules
+  local RULESDIR=$(magicmask --path)/.magicmask/sepolicy.rules
   if ! grep -q " $RULESDIR " /proc/mounts; then
     ui_print "- Unable to find sepolicy rules dir"
     return 1
@@ -758,7 +758,7 @@ install_module() {
     set_permissions
   else
     print_title "$MODNAME" "by $MODAUTH"
-    print_title "Powered by Magisk"
+    print_title "Powered by MagicMask"
 
     unzip -o "$ZIPFILE" customize.sh -d $MODPATH >&2
 
@@ -785,7 +785,7 @@ install_module() {
   done
 
   if $BOOTMODE; then
-    # Update info for Magisk app
+    # Update info for MagicMask app
     mktouch $NVBASE/modules/$MODID/update
     rm -rf $NVBASE/modules/$MODID/remove 2>/dev/null
     rm -rf $NVBASE/modules/$MODID/disable 2>/dev/null
@@ -824,7 +824,7 @@ NVBASE=/data/adb
 TMPDIR=/dev/tmp
 
 # Bootsigner related stuff
-BOOTSIGNERCLASS=com.topjohnwu.magisk.signing.SignBoot
+BOOTSIGNERCLASS=com.topjohnwu.magicmask.signing.SignBoot
 BOOTSIGNER='/system/bin/dalvikvm -Xnoimage-dex2oat -cp $APK $BOOTSIGNERCLASS'
 BOOTSIGNED=false
 

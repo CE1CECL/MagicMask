@@ -1,5 +1,5 @@
 ##################################
-# Magisk app internal scripts
+# MagicMask app internal scripts
 ##################################
 
 run_delay() {
@@ -7,14 +7,14 @@ run_delay() {
 }
 
 env_check() {
-  for file in busybox magiskboot magiskinit util_functions.sh boot_patch.sh; do
-    [ -f "$MAGISKBIN/$file" ] || return 1
+  for file in busybox magicmaskboot magicmaskinit util_functions.sh boot_patch.sh; do
+    [ -f "$MAGICMASKBIN/$file" ] || return 1
   done
   if [ "$2" -ge 25000 ]; then
-    [ -f "$MAGISKBIN/magiskpolicy" ] || return 1
+    [ -f "$MAGICMASKBIN/magicmaskpolicy" ] || return 1
   fi
-  grep -xqF "MAGISK_VER='$1'" "$MAGISKBIN/util_functions.sh" || return 1
-  grep -xqF "MAGISK_VER_CODE=$2" "$MAGISKBIN/util_functions.sh" || return 1
+  grep -xqF "MAGICMASK_VER='$1'" "$MAGICMASKBIN/util_functions.sh" || return 1
+  grep -xqF "MAGICMASK_VER_CODE=$2" "$MAGICMASKBIN/util_functions.sh" || return 1
   return 0
 }
 
@@ -38,13 +38,13 @@ cp_readlink() {
 
 fix_env() {
   # Cleanup and make dirs
-  rm -rf $MAGISKBIN/*
-  mkdir -p $MAGISKBIN 2>/dev/null
+  rm -rf $MAGICMASKBIN/*
+  mkdir -p $MAGICMASKBIN 2>/dev/null
   chmod 700 $NVBASE
   rm $1/stub.apk
-  cp_readlink $1 $MAGISKBIN
+  cp_readlink $1 $MAGICMASKBIN
   rm -rf $1
-  chown -R 0:0 $MAGISKBIN
+  chown -R 0:0 $MAGICMASKBIN
 }
 
 direct_install() {
@@ -78,7 +78,7 @@ run_uninstaller() {
 
 restore_imgs() {
   [ -z $SHA1 ] && return 1
-  local BACKUPDIR=/data/magisk_backup_$SHA1
+  local BACKUPDIR=/data/magicmask_backup_$SHA1
   [ -d $BACKUPDIR ] || return 1
 
   get_flags
@@ -114,18 +114,18 @@ EOF
 
 add_hosts_module() {
   # Do not touch existing hosts module
-  [ -d $MAGISKTMP/modules/hosts ] && return
-  cd $MAGISKTMP/modules
+  [ -d $MAGICMASKTMP/modules/hosts ] && return
+  cd $MAGICMASKTMP/modules
   mkdir -p hosts/system/etc
   cat << EOF > hosts/module.prop
 id=hosts
 name=Systemless Hosts
 version=1.0
 versionCode=1
-author=Magisk
-description=Magisk app built-in systemless hosts module
+author=MagicMask
+description=MagicMask app built-in systemless hosts module
 EOF
-  magisk --clone /system/etc/hosts hosts/system/etc/hosts
+  magicmask --clone /system/etc/hosts hosts/system/etc/hosts
   touch hosts/update
   cd /
 }
@@ -226,7 +226,7 @@ app_init() {
   check_boot_ramdisk && RAMDISKEXIST=true
   get_flags
   run_migrations
-  SHA1=$(grep_prop SHA1 $MAGISKTMP/config)
+  SHA1=$(grep_prop SHA1 $MAGICMASKTMP/config)
   check_encryption
 }
 

@@ -21,7 +21,7 @@ static int fmt_and_log_with_rs(LogLevel level, const char *fmt, va_list ap) {
 int (*cpp_logger)(LogLevel level, const char *fmt, va_list ap) = fmt_and_log_with_rs;
 
 // Used to override external C library logging
-extern "C" int magisk_log_print(int prio, const char *tag, const char *fmt, ...) {
+extern "C" int magicmask_log_print(int prio, const char *tag, const char *fmt, ...) {
     LogLevel level;
     switch (prio) {
     case ANDROID_LOG_DEBUG:
@@ -65,7 +65,7 @@ extern "C" int magisk_log_print(int prio, const char *tag, const char *fmt, ...)
 }
 
 // LTO will optimize out the NOP function
-#if MAGISK_DEBUG
+#if MAGICMASK_DEBUG
 void LOGD(const char *fmt, ...) { LOG_BODY(Debug) }
 #else
 void LOGD(const char *fmt, ...) {}

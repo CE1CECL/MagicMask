@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-# Magisk project-wide common code
+# MagicMask project-wide common code
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libbase
@@ -23,7 +23,7 @@ include $(BUILD_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE := libcompat
 # Workaround "hacky" libc.a missing symbols
-# To build Magisk with vanilla NDK, comment out the next line
+# To build MagicMask with vanilla NDK, comment out the next line
 LOCAL_SRC_FILES := compat/compat.cpp
 # Fix static variables' ctor/dtor when using LTO
 # See: https://github.com/android/ndk/issues/1461

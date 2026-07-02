@@ -10,7 +10,7 @@
 
     <style name="Theme.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/splash_background</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_magisk_padded</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_magicmask_padded</item>
     </style>
 
 </resources>

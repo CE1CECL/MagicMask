@@ -124,7 +124,7 @@ extern "C" void klog_write(const char *msg, int len) {
 
 static int klog_with_rs(LogLevel level, const char *fmt, va_list ap) {
     char buf[4096];
-    strscpy(buf, "magiskinit: ", sizeof(buf));
+    strscpy(buf, "magicmaskinit: ", sizeof(buf));
     int len = vssprintf(buf + 12, sizeof(buf) - 12, fmt, ap) + 12;
     log_with_rs(level, rust::Str(buf, len));
     return len;
@@ -236,7 +236,7 @@ void load_kernel_info(BootConfig *config) {
     config->set(parse_cmdline(full_read("/proc/cmdline")));
     config->set(parse_bootconfig(full_read("/proc/bootconfig")));
 
-    parse_prop_file("/.backup/.magisk", [=](auto key, auto value) -> bool {
+    parse_prop_file("/.backup/.magicmask", [=](auto key, auto value) -> bool {
         if (key == "RECOVERYMODE" && value == "true") {
             config->skip_initramfs = config->emulator || !check_key_combo();
             return false;

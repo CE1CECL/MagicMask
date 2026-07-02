@@ -1,4 +1,4 @@
-# Magisk Manager Changelog
+# MagicMask Manager Changelog
 
 ### v8.0.7
 
@@ -16,11 +16,11 @@
 ### v8.0.4
 
 - A lot of stability changes and minor bug fixes
-- Collect device properties, app logcat, and Magisk logs when saving logs in the logs menu
+- Collect device properties, app logcat, and MagicMask logs when saving logs in the logs menu
 
 ### v8.0.3
 
-- Switch to the new Magisk Module Repo setup in preparation to allow 3rd party repos
+- Switch to the new MagicMask Module Repo setup in preparation to allow 3rd party repos
 - Add tapjacking protection on Superuser request dialog
 - Stability changes and bug fixes
 
@@ -40,25 +40,25 @@
 
 - 100% full app rewrite! Will highlight functional changes below.
 - Add detailed device info in home screen to assist user installation
-- Support Magisk v21.0 communication protocol
+- Support MagicMask v21.0 communication protocol
 - Support patching modern Samsung `AP.tar`
 
 ### v7.5.1
 
-- Fix toggling app components in MagiskHide screen
+- Fix toggling app components in MagicMaskHide screen
 - Update translations
 
 ### v7.5.0
 
-- Support new MagiskSU communication method (ContentProvider)
+- Support new MagicMaskSU communication method (ContentProvider)
 - Fix several issues with hidden stub APK
 - Support using BiometricPrompt (face unlock)
 
 ### v7.4.0
 
-- Hide Magisk Manager with stub APKs on Android 9.0+
-- Allow customizing app name when hiding Magisk Manager
-- Generate random keys to sign the hidden Magisk Manager to prevent signature detections
+- Hide MagicMask Manager with stub APKs on Android 9.0+
+- Allow customizing app name when hiding MagicMask Manager
+- Generate random keys to sign the hidden MagicMask Manager to prevent signature detections
 - Fix fingerprint UI infinite loop
 
 ### v7.3.5
@@ -78,7 +78,7 @@
 - HUGE code base modernization, thanks @diareuse!
 - More sweet changes coming in the future!
 - Reboot device using proper API (no more abrupt reboot)
-- New floating button in Magisk logs to go to bottom
+- New floating button in MagicMask logs to go to bottom
 
 ### v7.2.0
 
@@ -97,7 +97,7 @@
 ### v7.1.0
 
 - Support the new module format
-- Support per-application component granularity MagiskHide targets (only on v19+)
+- Support per-application component granularity MagicMaskHide targets (only on v19+)
 - Ask for fingerprint before deleting rules if enabled
 - Fix the bug that causes repackaging to lose settings
 - Several UI fixes
@@ -106,28 +106,28 @@
 
 - Major UI redesign!
 - Render Markdown natively (no more buggy WebView!)
-- Support down to Android 4.1 (native Magisk only support Android 4.2 though)
-- Significantly improve Magisk log display performance
+- Support down to Android 4.1 (native MagicMask only support Android 4.2 though)
+- Significantly improve MagicMask log display performance
 - Fix post OTA scripts for A/B devices
 - Reduce memory usages when verifying and signing boot image
-- Drop support for Magisk lower than v18.0
+- Drop support for MagicMask lower than v18.0
 
 ### v6.1.0
 
 - Introduce new downloading methods: no longer uses buggy system Download Manager
 - Introduce many new notifications for better user experience
-- Add support for Magisk v18.0
+- Add support for MagicMask v18.0
 - Change application name to "Manager" after hiding(repackaging) to prevent app name detection
 - Add built-in systemless hosts module (access in settings)
-- Auto launch the newly installed app after hiding(repackaging) and restoring Magisk Manager
+- Auto launch the newly installed app after hiding(repackaging) and restoring MagicMask Manager
 - Fix bug causing incomplete module.prop in modules to have improper UI
 
 ### v6.0.1
 
 - Update to use new online module's organizing method
 - When fingerprint authentication is enabled, toggling root permissions in "Superuser" section now requires fingerprint beforehand
-- Fix crashes when entering MagiskHide section on some devices
-- Remove support to Magisk version lower than v15.0
+- Fix crashes when entering MagicMaskHide section on some devices
+- Remove support to MagicMask version lower than v15.0
 - Ask storage permissions before patching stock boot image
 - Update dark theme CardView color
 
@@ -136,19 +136,19 @@
 - Update to latest AndroidX support library
 - Fix crashes when online repos contain incomplete metadata
 - Optimize BootSigner to use as little memory as possible, prevent OutOfMemoryError
-- Support new communication scheme between Magisk v17.2 and Magisk Manager
+- Support new communication scheme between MagicMask v17.2 and MagicMask Manager
 - Enable excessive obfuscation to prevent APK analysis root detections (still not 100% obfuscated due to backwards compatibility with stable channel)
 
 ### v5.9.0/v5.9.1
 
 - No more on boot notifications
 - Support new mechanism for installing to inactive slot for OTAs on A/B devices
-- Fix restore Magisk Manager settings on Android P
+- Fix restore MagicMask Manager settings on Android P
 - Verify existing file checksums to prevent unnecessary re-downloads
 - Update SNET extension to use new Google API, fix "Invalid Response" errors
-- Move fingerprint settings to magisk database to prevent the settings to be easily removed
+- Move fingerprint settings to magicmask database to prevent the settings to be easily removed
 - Fingerprint settings are now guarded with fingerprint authentications before it can get changed
-- Prevent any files to be downloaded to /sdcard/MagiskManager
+- Prevent any files to be downloaded to /sdcard/MagicMaskManager
 
 ### v5.8.3
 
@@ -161,16 +161,16 @@
 
 ### v5.8.0
 
-- Remain hidden when upgrading within repackaged Magisk Manager
-- New feature: support reconstructing a proper Magisk environment if error detected (e.g. after factory reset)
-- New uninstall method: download uninstaller and completely remove Magisk + Magisk Manager, following with a reboot
-- Hidden apps are now shown on the top of the list in MagiskHide fragment
+- Remain hidden when upgrading within repackaged MagicMask Manager
+- New feature: support reconstructing a proper MagicMask environment if error detected (e.g. after factory reset)
+- New uninstall method: download uninstaller and completely remove MagicMask + MagicMask Manager, following with a reboot
+- Hidden apps are now shown on the top of the list in MagicMaskHide fragment
 - Tons of under-the-hood bug fixes and improvements
 
 ### v5.7.0
 
 - Add app shortcuts for Android 7.1+
-- Bump minimal module minMagisk requirement to 1500
+- Bump minimal module minMagicMask requirement to 1500
 - Adjustments for new sepolicies on v16.4+
 - Fix crashes when refreshing the online repo
 
@@ -195,9 +195,9 @@
 
 ### v5.6.0
 
-- Remove JNI requirement, Magisk Manager is now pure Java
+- Remove JNI requirement, MagicMask Manager is now pure Java
 - Update the method of handling su database, may fix the issue that root requests won't save
-- Add the option to restore Magisk Manager after repackaging with random package name
+- Add the option to restore MagicMask Manager after repackaging with random package name
 - Massive under-the-hood
 
 ### v5.5.5
@@ -212,14 +212,14 @@
 ### v5.5.3
 
 - Update translations
-- Update internal scripts (in sync with Magisk)
+- Update internal scripts (in sync with MagicMask)
 - Minor adjustments
 
 ### v5.5.2
 
 - Support sorting online repos with last update
 - Fix issue that advanced installation settings won't stick
-- Prevent sudb crashing Magisk Manager
+- Prevent sudb crashing MagicMask Manager
 
 ### v5.5.1
 - Fix an issue in setting up superuser database, which causes some users to experience tons of root issues
@@ -228,12 +228,12 @@
 
 - Fix dynamic resource loading, prevent crashes when checking SafetyNet
 - Update SignAPK to use very little RAM for supporting old devices
-- Support settings migration after hiding Magisk Manager
+- Support settings migration after hiding MagicMask Manager
 - Add reboot menu in modules section
 - Add dark theme to superuser request dialogs
 - Properly handle new HIGHCOMP and add recommended KEEPVERITY and KEEPFORCEENCRYPT flags for installation
 - Support new paths for v14.6
-- Massive improvements in repackaging Magisk Manager
+- Massive improvements in repackaging MagicMask Manager
 
 ### v5.4.3
 
@@ -243,12 +243,12 @@
 ### v5.4.2
 
 - Support new paths and setup of v14.5
-- Support repackaging Magisk Manager for hiding (only works on v14.5+)
+- Support repackaging MagicMask Manager for hiding (only works on v14.5+)
 - Support hardlinking global su database into app data
 - Support signing boot images (AVB 1.0)
 - Update app icon to adaptive icons
-- Remove app from MagiskHide list if uninstalled
-- Add support to save detailed logs when installing Magisk or modules
+- Remove app from MagicMaskHide list if uninstalled
+- Add support to save detailed logs when installing MagicMask or modules
 - Fix download progress error if module is larger than 20MB
 - Changed the way how downloaded repos are processed, should be rock stable
 - Prevent crashes when database is corrupted - clear db instead
@@ -265,23 +265,23 @@
 - Fix several places where external storage is needed but forgot to request
 - Fetching online repo info from sever is significantly faster thanks to multithreading
 - Pulling down Download page will now force a full refresh, thanks to the faster loading speed
-- Using new resetprop tool to properly detect MagiskHide status
+- Using new resetprop tool to properly detect MagicMaskHide status
 
 ### v5.3.5
 
-- Fix error when MagiskManager folder doesn't exist
+- Fix error when MagicMaskManager folder doesn't exist
 - Offload many logic to scripts: script fixes will also be picked up in the app
-- Add installing Magisk to second slot on A/B partition devices
+- Add installing MagicMask to second slot on A/B partition devices
 - Support file based encryption: store necessary files into DE storage
 - Update uninstall method to self remove app and prompt user to manually reboot
 
 ### v5.3.0
 
-- Add hide Magisk Manager feature - hide the app from detection
+- Add hide MagicMask Manager feature - hide the app from detection
 - Add update channel settings - you can now receive beta updates through the app
 - Proper runtime permission implementation - request storage permission only when needed
 - Add boot image file patch feature - you can patch boot images without root!
-- Rewrite Magisk direct install method - merge with boot image file patch mode
+- Rewrite MagicMask direct install method - merge with boot image file patch mode
 - Add feature to restore stock boot image - convenient for applying OTAs
 
 ### v5.2.0
@@ -291,13 +291,13 @@
 - Improve MarkDown support: showing README.MD is much faster and will properly render Unicode characters (e.g. Chinese characters)
 - Add language settings: you can now switch to languages other than system default
 - Remove busybox included within APK; download through Internet if needed
-- Use Magisk internal busybox if detected
+- Use MagicMask internal busybox if detected
 - Busybox is added to the highest priority in PATH to create reliable shell environment
 - Always use global namespace for internal shell if possible
 
 ### v5.1.1
 
-- Fix Magisk Manager hanging when reading files with no end newline
+- Fix MagicMask Manager hanging when reading files with no end newline
 - Massive rewrite AsyncTasks to prevent potential memory leak
 - Fix some minor issues with notifications
 - Improve update notification and popup behavior
@@ -316,7 +316,7 @@
 ### v5.0.5
 
 - Fix update notifications on Android O
-- Fix crash when trying to install Magisk Manager update
+- Fix crash when trying to install MagicMask Manager update
 - Update translations
 
 ### v5.0.4
@@ -338,12 +338,12 @@
 
 ### v5.0.0
 
-- Support the new Magisk unified binary
+- Support the new MagicMask unified binary
 - Properly handle application install / uninstall root management issues
 - Add multiuser mode support
 - Add application upgrade re-authentication feature
 - Add basic integrity check for SafetyNet
-- Merged install fragment and status fragment into Magisk fragment
+- Merged install fragment and status fragment into MagicMask fragment
 - Fix theme switching glitch
 - Update translations
 
@@ -357,7 +357,7 @@
 - Update translations (thanks to all contributors!!)
 
 ### v4.3.1
-- Update proper Magisk busybox detection, will not be confused by busybox installed by default in custom roms
+- Update proper MagicMask busybox detection, will not be confused by busybox installed by default in custom roms
 
 ### v4.3.0
 
@@ -385,23 +385,23 @@
 - Alert Dialog buttons now properly aligned
 - Support very large online modules' zip processing
 - You can now download online modules without installing
-- Add notifications when new Magisk version is available
+- Add notifications when new MagicMask version is available
 - Removed changelog, donation link, support link in download cards
 - Read and display README.md for online modules
 
 ### v4.1
 
-- Change MagiskHide startup
+- Change MagicMaskHide startup
 - Reduce static data (= less memory leaks/issues)
 - Translation updates
 
 ### v4.0
 
-- Whole new Superuser section for MagiskSU management!
+- Whole new Superuser section for MagicMaskSU management!
 - Add Superuser tab in Logs section
 - Add lots of Superuser settings
-- Handle MagiskSU requests, logging, notifications
-- Controls MagiskHide initialization
+- Handle MagicMaskSU requests, logging, notifications
+- Controls MagicMaskHide initialization
 - Add disable button
 - Add uninstall button
 - Tons of improvements, not practical to list all :)
@@ -417,22 +417,22 @@
 ### v3.0
 
 - Now on Play Store
-- Add Status Section, you can check Safety Net, root status, and Magisk status in one place
+- Add Status Section, you can check Safety Net, root status, and MagicMask status in one place
 - Add Install Section, you can manually choose the boot image location and advanced options
 
 ### v2.5
 
-- Add Magisk Hide section, you can now add/remove apps from Magisk Hide list
-- Support custom Magisk Version names, any string is now accepted (for custom builds)
+- Add MagicMask Hide section, you can now add/remove apps from MagicMask Hide list
+- Support custom MagicMask Version names, any string is now accepted (for custom builds)
 - Fixed modules and repos not sorted by name
 
 ### v2.1
 
-- Add Magisk Hide settings
+- Add MagicMask Hide settings
 - Add search bar in "Downloads Sections"
 - Fix crashes when no root is available
 - Fix trash can icon not updated when removing module
-- Prevent crash when Magisk Version is set incorrectly
+- Prevent crash when MagicMask Version is set incorrectly
 
 ### v2.0
 

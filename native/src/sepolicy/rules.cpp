@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void sepolicy::magisk_rules() {
+void sepolicy::magicmask_rules() {
     // Temp suppress warnings
     set_log_level_state(LogLevel::Warn, false);
 
@@ -63,12 +63,12 @@ void sepolicy::magisk_rules() {
             allow(SEPOL_CLIENT_DOMAIN, type, "chr_file", "ioctl");
         }
 
-        // Allow these processes to access MagiskSU
+        // Allow these processes to access MagicMaskSU
         vector<const char *> clients{ "init", "shell", "update_engine", "appdomain" };
         for (auto type : clients) {
             if (!exists(type))
                 continue;
-            // exec magisk
+            // exec magicmask
             allow(type, SEPOL_EXEC_TYPE, "file", "read");
             allow(type, SEPOL_EXEC_TYPE, "file", "open");
             allow(type, SEPOL_EXEC_TYPE, "file", "getattr");
@@ -96,20 +96,20 @@ void sepolicy::magisk_rules() {
             type_transition(type, SEPOL_EXEC_TYPE, "process", SEPOL_CLIENT_DOMAIN);
         }
 
-        // Allow system_server to manage magisk_client
+        // Allow system_server to manage magicmask_client
         allow("system_server", SEPOL_CLIENT_DOMAIN, "process", "getpgid");
         allow("system_server", SEPOL_CLIENT_DOMAIN, "process", "sigkill");
 
-        // Don't allow pesky processes to monitor audit deny logs when poking magisk daemon socket
+        // Don't allow pesky processes to monitor audit deny logs when poking magicmask daemon socket
         dontaudit(ALL, SEPOL_PROC_DOMAIN, "unix_stream_socket", ALL);
 
-        // Only allow client processes and zygote to connect to magisk daemon socket
+        // Only allow client processes and zygote to connect to magicmask daemon socket
         allow(SEPOL_CLIENT_DOMAIN, SEPOL_PROC_DOMAIN, "unix_stream_socket", ALL);
         allow("zygote", SEPOL_PROC_DOMAIN, "unix_stream_socket", ALL);
     } else {
         // Fallback to poking holes in sandbox as Android 4.3 to 7.1 set PR_SET_NO_NEW_PRIVS
 
-        // Allow these processes to access MagiskSU
+        // Allow these processes to access MagicMaskSU
         const char *clients[] { "init", "shell", "appdomain", "zygote" };
         for (auto type : clients) {
             if (!exists(type))
@@ -122,7 +122,7 @@ void sepolicy::magisk_rules() {
     // Let everyone access tmpfs files (for SAR sbin overlay)
     allow(ALL, "tmpfs", "file", ALL);
 
-    // Allow magiskinit daemon to handle mock selinuxfs
+    // Allow magicmaskinit daemon to handle mock selinuxfs
     allow("kernel", "tmpfs", "fifo_file", "write");
 
     // For relabelling files

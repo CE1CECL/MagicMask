@@ -6,7 +6,7 @@
 #include <dirent.h>
 #include <set>
 
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <base.hpp>
 #include <db.hpp>
 

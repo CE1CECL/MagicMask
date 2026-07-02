@@ -2,7 +2,7 @@
 #include <dlfcn.h>
 #include <sys/stat.h>
 
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <db.hpp>
 #include <socket.hpp>
 #include <base.hpp>
@@ -16,7 +16,7 @@ struct sqlite3;
 static sqlite3 *mDB = nullptr;
 
 #define DBLOGV(...)
-//#define DBLOGV(...) LOGD("magiskdb: " __VA_ARGS__)
+//#define DBLOGV(...) LOGD("magicmaskdb: " __VA_ARGS__)
 
 // SQLite APIs
 
@@ -140,7 +140,7 @@ static char *open_and_init_db(sqlite3 *&db) {
     if (!dload_sqlite())
         return strdup("Cannot load libsqlite.so");
 
-    int ret = sqlite3_open_v2(MAGISKDB, &db,
+    int ret = sqlite3_open_v2(MAGICMASKDB, &db,
             SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE | SQLITE_OPEN_FULLMUTEX, nullptr);
     if (ret)
         return strdup(sqlite3_errmsg(db));
@@ -244,7 +244,7 @@ static char *open_and_init_db(sqlite3 *&db) {
     if (ver == 10) {
         sqlite3_exec(db,
                 "DROP TABLE IF EXISTS hidelist;"
-                "DELETE FROM settings WHERE key='magiskhide';",
+                "DELETE FROM settings WHERE key='magicmaskhide';",
                 nullptr, nullptr, &err);
         err_ret(err);
         create_denylist();
@@ -285,7 +285,7 @@ char *db_exec(const char *sql) {
         err = open_and_init_db(mDB);
         db_err_cmd(err,
             // Open fails, remove and reconstruct
-            unlink(MAGISKDB);
+            unlink(MAGICMASKDB);
             err = open_and_init_db(mDB);
             err_ret(err);
         );
@@ -311,7 +311,7 @@ char *db_exec(const char *sql, const db_row_cb &fn) {
         err = open_and_init_db(mDB);
         db_err_cmd(err,
             // Open fails, remove and reconstruct
-            unlink(MAGISKDB);
+            unlink(MAGICMASKDB);
             err = open_and_init_db(mDB);
             err_ret(err);
         );

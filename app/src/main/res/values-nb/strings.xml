@@ -19,15 +19,15 @@
     <string name="home_package">Pakke</string>
     <string name="home_app_title">Program</string>
 
-    <string name="home_notice_content">Kun last ned Magisk fra den offisielle GitHub siden. Filer fra ukjente kilder kan være skadelige!</string>
+    <string name="home_notice_content">Kun last ned MagicMask fra den offisielle GitHub siden. Filer fra ukjente kilder kan være skadelige!</string>
     <string name="home_support_title">Kronerulling</string>
     <string name="home_item_source">Kildekode</string>
-    <string name="home_support_content">Magisk er og vil alltid forbli fritt.\nDu kan vise at du setter pris på programmet ved å sende en slant.</string>
+    <string name="home_support_content">MagicMask er og vil alltid forbli fritt.\nDu kan vise at du setter pris på programmet ved å sende en slant.</string>
     <string name="home_installed_version">Installert</string>
     <string name="home_latest_version">Seneste</string>
     <string name="invalid_update_channel">Ugyldig installasjonskanal</string>
-    <string name="uninstall_magisk_title">Avinstaller Magisk</string>
-    <string name="uninstall_magisk_msg">Alle moduler vil bli avskrudd/fjernet.\nRot-tigang vil bli fjernet!\nKrypter din data hvis den ikke er det allerede.</string>
+    <string name="uninstall_magicmask_title">Avinstaller MagicMask</string>
+    <string name="uninstall_magicmask_msg">Alle moduler vil bli avskrudd/fjernet.\nRot-tigang vil bli fjernet!\nKrypter din data hvis den ikke er det allerede.</string>
 
     <!--Install-->
     <string name="keep_force_encryption">Bevar påvunget kryptering</string>
@@ -49,7 +49,7 @@
 
     <!--Superuser-->
     <string name="su_request_title">Superbrukerforespørsel</string>
-    <string name="touch_filtered_warning">Fordi et program tilslører en superbrukerforespørsel kan ikke Magisk bekrefte</string>
+    <string name="touch_filtered_warning">Fordi et program tilslører en superbrukerforespørsel kan ikke MagicMask bekrefte</string>
     <string name="deny">Avslå</string>
     <string name="prompt">Spør</string>
     <string name="grant">Innvilg</string>
@@ -79,7 +79,7 @@
 
     <!--Logs-->
     <string name="log_data_none">Ingen loggføring. Prøv å bruke superbrukerprogrammene dine oftere.</string>
-    <string name="log_data_magisk_none">Magisk-loggene er tomme, det er rart</string>
+    <string name="log_data_magicmask_none">MagicMask-loggene er tomme, det er rart</string>
     <string name="menuSaveLog">Lagre logg</string>
     <string name="menuClearLog">Tøm logg nå</string>
     <string name="logs_cleared">Loggføring tømt</string>
@@ -88,7 +88,7 @@
 
     <!--SafetyNet-->
 
-    <!--MagiskHide-->
+    <!--MagicMaskHide-->
     <string name="show_system_app">Vis systemprogrammer</string>
     <string name="show_os_app">Vis systemprogrammer</string>
     <string name="hide_filter_hint">Filtrer etter navn</string>
@@ -115,9 +115,9 @@
     <string name="settings_dark_mode_dark">Alltid mørk</string>
     <string name="settings_download_path_title">Nedlastingssti</string>
     <string name="settings_download_path_message">Filer vil lagres i %1$s</string>
-    <string name="settings_hide_app_title">Skjul Magisk-programmet</string>
+    <string name="settings_hide_app_title">Skjul MagicMask-programmet</string>
     <string name="settings_hide_app_summary">Installer et mellomtjenerprogram med tilfeldig pakke-ID og egendefinert program-etikett</string>
-    <string name="settings_restore_app_title">Gjenopprett Magisk-programmet</string>
+    <string name="settings_restore_app_title">Gjenopprett MagicMask-programmet</string>
     <string name="settings_restore_app_summary">Opphev skjuling av programmet og gjenopprett det tilbake til opprinnelig APK</string>
     <string name="language">Språk</string>
     <string name="system_default">(Systemforvalg)</string>
@@ -177,11 +177,11 @@
     <string name="isolate_summary">Hver rot-økt får eget isolert navnerom</string>
 
     <!--Notifications-->
-    <string name="update_channel">Magisk-oppgraderinger</string>
+    <string name="update_channel">MagicMask-oppgraderinger</string>
     <string name="progress_channel">Framdriftsmerknader</string>
     <string name="download_complete">Nedlasting fullført</string>
     <string name="download_file_error">Kunne ikke laste ned fil</string>
-    <string name="magisk_update_title">Ny versjon av Magisk tilgjengelig.</string>
+    <string name="magicmask_update_title">Ny versjon av MagicMask tilgjengelig.</string>
 
     <!--Toasts, Dialogs-->
     <string name="yes">Ja</string>
@@ -193,7 +193,7 @@
     <string name="flashing">Innbrenner …</string>
     <string name="done">Ferdig!</string>
     <string name="failure">Mislykket!</string>
-    <string name="hide_app_title">Skjuler Magisk-programmet …</string>
+    <string name="hide_app_title">Skjuler MagicMask-programmet …</string>
     <string name="open_link_failed_toast">Ingen programmer kunne åpne lenken</string>
     <string name="complete_uninstall">Fullfør avinstallasjon</string>
     <string name="restore_img">Gjenopprett avtrykk</string>
@@ -202,15 +202,15 @@
     <string name="restore_fail">Fabrikk-sikkerhetskopi finnes ikke!</string>
     <string name="setup_fail">Oppsett mislyktes</string>
     <string name="env_fix_title">Krever ytterligere oppsett</string>
-    <string name="env_fix_msg">Enheten din krever ytterligere oppsett for at Magisk skal fungere rett. Fortsett med omstart?</string>
+    <string name="env_fix_msg">Enheten din krever ytterligere oppsett for at MagicMask skal fungere rett. Fortsett med omstart?</string>
     <string name="setup_msg">Kjører oppsett av miljø…</string>
     <string name="authenticate">Identitetsbekreftelse</string>
-    <string name="unsupport_magisk_title">Ustøttet Magisk-versjon</string>
-    <string name="unsupport_magisk_msg">Denne versjonen av programmet støtter ikke Magisk før versjon %1$s.\n\nProgrammet vil oppføre seg som om Magisk ikke er installert. Oppgrader Magisk så snart som mulig.</string>
+    <string name="unsupport_magicmask_title">Ustøttet MagicMask-versjon</string>
+    <string name="unsupport_magicmask_msg">Denne versjonen av programmet støtter ikke MagicMask før versjon %1$s.\n\nProgrammet vil oppføre seg som om MagicMask ikke er installert. Oppgrader MagicMask så snart som mulig.</string>
     <string name="unsupport_general_title">Unormal tilstand</string>
     <string name="unsupport_system_app_msg">Kjøring av dette programmet som systemprogram støttes ikke. Gjør om programmet til et brukerprogram igjen.</string>
-    <string name="unsupport_other_su_msg">En \"su\"-kommando som ikke tilhører Magisk ble oppdaget. Fjern dette andre ustøttede opphavet.</string>
-    <string name="unsupport_external_storage_msg">Magisk er installert på eksternlagring. Flytt det til internlagring.</string>
+    <string name="unsupport_other_su_msg">En \"su\"-kommando som ikke tilhører MagicMask ble oppdaget. Fjern dette andre ustøttede opphavet.</string>
+    <string name="unsupport_external_storage_msg">MagicMask er installert på eksternlagring. Flytt det til internlagring.</string>
     <string name="unsupport_nonroot_stub_msg">Programmet kan ikke fortsette å fungere i skjult tilstand siden rot-tilgang gikk tapt. Gjenopprett det tilbake til opprinnelig APK.</string>
     <string name="unsupport_nonroot_stub_title">@string/settings_restore_app_title</string>
     <string name="external_rw_permission_denied">Innvilg lagringstilgang for å skru på denne funksjonaliteten</string>

@@ -63,13 +63,13 @@ except FileNotFoundError:
 cpu_count = multiprocessing.cpu_count()
 archs = ['armeabi-v7a', 'x86', 'arm64-v8a', 'x86_64']
 triples = ['armv7a-linux-androideabi', 'i686-linux-android', 'aarch64-linux-android', 'x86_64-linux-android']
-default_targets = ['magisk', 'magiskinit', 'magiskboot', 'magiskpolicy', 'busybox']
+default_targets = ['magicmask', 'magicmaskinit', 'magicmaskboot', 'magicmaskpolicy', 'busybox']
 support_targets = default_targets + ['resetprop']
-rust_targets = ['magisk', 'magiskinit', 'magiskboot', 'magiskpolicy']
+rust_targets = ['magicmask', 'magicmaskinit', 'magicmaskboot', 'magicmaskpolicy']
 
 sdk_path = os.environ['ANDROID_SDK_ROOT']
 ndk_root = op.join(sdk_path, 'ndk')
-ndk_path = op.join(ndk_root, 'magisk')
+ndk_path = op.join(ndk_root, 'magicmask')
 ndk_build = op.join(ndk_path, 'ndk-build')
 rust_bin = op.join(ndk_path, 'toolchains', 'rust', 'bin')
 cargo = op.join(rust_bin, 'cargo' + EXE_EXT)
@@ -176,13 +176,8 @@ def load_config(args):
         config.update(parse_props(args.config))
 
     for key, value in parse_props('gradle.properties').items():
-        if key.startswith('magisk.'):
+        if key.startswith('magicmask.'):
             config[key[7:]] = value
-
-    try:
-        config['versionCode'] = int(config['versionCode'])
-    except ValueError:
-        error('Config error: "versionCode" is required to be an integer')
 
     mkdir_p(config['outdir'])
     global STDOUT
@@ -199,7 +194,7 @@ def clean_elf():
                    '-o', elf_cleaner])
     args = [elf_cleaner]
     args.extend(op.join('native', 'out', arch, bin)
-                for arch in archs for bin in ['magisk', 'magiskpolicy'])
+                for arch in archs for bin in ['magicmask', 'magicmaskpolicy'])
     execv(args)
 
 
@@ -221,7 +216,7 @@ def run_cargo_build(args):
     os.chdir(op.join('native', 'src'))
     targets = set(args.target) & set(rust_targets)
     if 'resetprop' in args.target:
-        targets.add('magisk')
+        targets.add('magicmask')
 
     env = os.environ.copy()
     env['CARGO_BUILD_RUSTC'] = op.join(rust_bin, 'rustc' + EXE_EXT)
@@ -325,12 +320,12 @@ def dump_flag_header():
         #pragma once
         #define quote(s)            #s
         #define str(s)              quote(s)
-        #define MAGISK_FULL_VER     MAGISK_VERSION "(" str(MAGISK_VER_CODE) ")"
-        #define NAME_WITH_VER(name) str(name) " " MAGISK_FULL_VER
+        #define MAGICMASK_FULL_VER     MAGICMASK_VERSION "(" str(MAGICMASK_VER_CODE) ")"
+        #define NAME_WITH_VER(name) str(name) " " MAGICMASK_FULL_VER
         ''')
-    flag_txt += f'#define MAGISK_VERSION      "{config["version"]}"\n'
-    flag_txt += f'#define MAGISK_VER_CODE     {config["versionCode"]}\n'
-    flag_txt += f'#define MAGISK_DEBUG        {0 if args.release else 1}\n'
+    flag_txt += f'#define MAGICMASK_VERSION      "{config["version"]}"\n'
+    flag_txt += f'#define MAGICMASK_VER_CODE     {config["versionCode"]}\n'
+    flag_txt += f'#define MAGICMASK_DEBUG        {0 if args.release else 1}\n'
 
     mkdir_p(native_gen_path)
     write_if_diff(op.join(native_gen_path, 'flags.h'), flag_txt)
@@ -340,7 +335,7 @@ def build_binary(args):
     # Verify NDK install
     try:
         with open(op.join(ndk_path, 'ONDK_VERSION'), 'r') as ondk_ver:
-            assert ondk_ver.read().strip(' \t\r\n') == config['ondkVersion']
+            assert ondk_ver.read().strip(' \t\r\n') == 'r25.2'
     except:
         error('Unmatched NDK. Please install/upgrade NDK with "build.py ndk"')
 
@@ -362,35 +357,35 @@ def build_binary(args):
 
     flag = ''
 
-    if 'magisk' in args.target or 'magiskinit' in args.target:
+    if 'magicmask' in args.target or 'magicmaskinit' in args.target:
         flag += ' B_PRELOAD=1'
 
-    if 'magiskpolicy' in args.target:
+    if 'magicmaskpolicy' in args.target:
         flag += ' B_POLICY=1'
 
     if 'test' in args.target:
         flag += ' B_TEST=1'
 
-    if 'magiskinit' in args.target:
+    if 'magicmaskinit' in args.target:
         flag += ' B_PRELOAD=1'
 
     if 'resetprop' in args.target:
         flag += ' B_PROP=1'
 
-    if 'magiskboot' in args.target:
+    if 'magicmaskboot' in args.target:
         flag += ' B_BOOT=1'
 
     if flag:
         run_ndk_build(flag)
 
-    # magiskinit and magisk embeds preload.so
+    # magicmaskinit and magicmask embeds preload.so
 
     flag = ''
 
-    if 'magisk' in args.target:
-        flag += ' B_MAGISK=1'
+    if 'magicmask' in args.target:
+        flag += ' B_MAGICMASK=1'
 
-    if 'magiskinit' in args.target:
+    if 'magicmaskinit' in args.target:
         flag += ' B_INIT=1'
 
     if flag:
@@ -422,7 +417,7 @@ def build_apk(args, module):
 
 
 def build_app(args):
-    header('* Building the Magisk app')
+    header('* Building the MagicMask app')
     build_apk(args, 'app')
 
     # Stub building is directly integrated into the main app
@@ -463,7 +458,7 @@ def cleanup(args):
 
 def setup_ndk(args):
     os_name = platform.system().lower()
-    ndk_ver = config['ondkVersion']
+    ndk_ver = 'r25.2'
     url = f'https://github.com/topjohnwu/ondk/releases/download/{ndk_ver}/ondk-{ndk_ver}-{os_name}.tar.gz'
     ndk_archive = url.split('/')[-1]
 
@@ -496,18 +491,18 @@ def setup_avd(args):
     header('* Setting up emulator')
 
     abi = cmd_out([adb_path, 'shell', 'getprop', 'ro.product.cpu.abi'])
-    proc = execv([adb_path, 'push', f'native/out/{abi}/busybox', 'scripts/avd_magisk.sh', '/data/local/tmp'])
+    proc = execv([adb_path, 'push', f'native/out/{abi}/busybox', 'scripts/avd_magicmask.sh', '/data/local/tmp'])
     if proc.returncode != 0:
         error('adb push failed!')
 
     apk = 'out/app-release.apk' if args.release else 'out/app-debug.apk'
-    proc = execv([adb_path, 'push', apk, '/data/local/tmp/magisk.apk'])
+    proc = execv([adb_path, 'push', apk, '/data/local/tmp/magicmask.apk'])
     if proc.returncode != 0:
         error('adb push failed!')
 
-    proc = execv([adb_path, 'shell', 'sh', '/data/local/tmp/avd_magisk.sh'])
+    proc = execv([adb_path, 'shell', 'sh', '/data/local/tmp/avd_magicmask.sh'])
     if proc.returncode != 0:
-        error('avd_magisk.sh failed!')
+        error('avd_magicmask.sh failed!')
 
 
 def patch_avd_ramdisk(args):
@@ -540,7 +535,7 @@ def patch_avd_ramdisk(args):
         error('adb push failed!')
 
     apk = 'out/app-release.apk' if args.release else 'out/app-debug.apk'
-    proc = execv([adb_path, 'push', apk, '/data/local/tmp/magisk.apk'])
+    proc = execv([adb_path, 'push', apk, '/data/local/tmp/magicmask.apk'])
     if proc.returncode != 0:
         error('adb push failed!')
 
@@ -562,7 +557,7 @@ def build_all(args):
     build_app(args)
 
 
-parser = argparse.ArgumentParser(description='Magisk build script')
+parser = argparse.ArgumentParser(description='MagicMask build script')
 parser.set_defaults(func=lambda x: None)
 parser.add_argument('-r', '--release', action='store_true',
                     help='compile in release mode')
@@ -582,7 +577,7 @@ binary_parser.add_argument(
     or empty for defaults ({', '.join(default_targets)})")
 binary_parser.set_defaults(func=build_binary)
 
-app_parser = subparsers.add_parser('app', help='build the Magisk app')
+app_parser = subparsers.add_parser('app', help='build the MagicMask app')
 app_parser.set_defaults(func=build_app)
 
 stub_parser = subparsers.add_parser('stub', help='build the stub app')
@@ -606,7 +601,7 @@ clean_parser.add_argument(
     'target', nargs='*', help='native, java, or empty to clean both')
 clean_parser.set_defaults(func=cleanup)
 
-ndk_parser = subparsers.add_parser('ndk', help='setup Magisk NDK')
+ndk_parser = subparsers.add_parser('ndk', help='setup MagicMask NDK')
 ndk_parser.set_defaults(func=setup_ndk)
 
 if len(sys.argv) == 1:

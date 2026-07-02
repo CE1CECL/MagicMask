@@ -1,6 +1,6 @@
 #include <sys/mount.h>
 
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <sepolicy.hpp>
 #include <base.hpp>
 
@@ -8,11 +8,11 @@
 
 using namespace std;
 
-void MagiskInit::patch_sepolicy(const char *in, const char *out) {
+void MagicMaskInit::patch_sepolicy(const char *in, const char *out) {
     LOGD("Patching monolithic policy\n");
     auto sepol = unique_ptr<sepolicy>(sepolicy::from_file(in));
 
-    sepol->magisk_rules();
+    sepol->magicmask_rules();
 
     // Custom rules
     if (auto dir = xopen_dir(RULESDIR)) {
@@ -41,7 +41,7 @@ void MagiskInit::patch_sepolicy(const char *in, const char *out) {
 #define MOCK_LOAD      SELINUXMOCK "/load"
 #define MOCK_ENFORCE   SELINUXMOCK "/enforce"
 
-bool MagiskInit::hijack_sepolicy() {
+bool MagicMaskInit::hijack_sepolicy() {
     xmkdir(SELINUXMOCK, 0);
 
     if (access("/system/bin/init", F_OK) == 0) {
@@ -139,7 +139,7 @@ bool MagiskInit::hijack_sepolicy() {
 
     // Load and patch policy
     auto sepol = unique_ptr<sepolicy>(sepolicy::from_file(MOCK_LOAD));
-    sepol->magisk_rules();
+    sepol->magicmask_rules();
     sepol->load_rules(rules);
 
     // Load patched policy into kernel

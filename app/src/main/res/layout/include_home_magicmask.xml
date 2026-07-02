@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.topjohnwu.magicmask.core.Info" />
+
+        <import type="com.topjohnwu.magicmask.ui.home.HomeViewModel.State" />
+
+        <variable
+            name="viewModel"
+            type="com.topjohnwu.magicmask.ui.home.HomeViewModel" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/WidgetFoundation.Card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/l1"
+            android:paddingTop="@dimen/l_50"
+            android:paddingEnd="@dimen/l1"
+            android:paddingBottom="@dimen/l_50"
+            tools:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/home_magicmask_icon"
+                style="@style/WidgetFoundation.Icon.Primary"
+                android:padding="@dimen/l_25"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_magicmask_outline" />
+
+            <TextView
+                android:id="@+id/home_magicmask_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/l1"
+                android:text="@string/magicmask"
+                android:textAppearance="@style/AppearanceFoundation.Title"
+                android:textColor="?colorPrimary"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintBottom_toBottomOf="@+id/home_magicmask_icon"
+                app:layout_constraintEnd_toStartOf="@+id/home_magicmask_button"
+                app:layout_constraintStart_toEndOf="@+id/home_magicmask_icon"
+                app:layout_constraintTop_toTopOf="@+id/home_magicmask_icon" />
+
+            <FrameLayout
+                android:id="@+id/home_magicmask_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/home_magicmask_title"
+                app:layout_constraintTop_toTopOf="@+id/home_magicmask_title">
+
+                <Button
+                    style="@style/WidgetFoundation.Button"
+                    gone="@{viewModel.magicmaskState != State.OUTDATED}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.onMagicMaskPressed()}"
+                    android:text="@string/update"
+                    android:textAllCaps="false"
+                    android:layout_gravity="end"
+                    app:icon="@drawable/ic_update_md2" />
+
+                <Button
+                    style="@style/WidgetFoundation.Button.Text"
+                    gone="@{viewModel.magicmaskState == State.OUTDATED}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.onMagicMaskPressed()}"
+                    android:text="@string/install"
+                    android:textAllCaps="false"
+                    app:icon="@drawable/ic_install"/>
+
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/home_magicmask_title_barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:referencedIds="@{viewModel.magicmaskTitleBarrierIds}"
+                tools:constraint_referenced_ids="home_magicmask_icon,home_magicmask_title,home_magicmask_button" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fadingEdgeLength="@dimen/l1"
+                android:requiresFadingEdge="horizontal"
+                android:scrollbars="none"
+                app:layout_constraintTop_toBottomOf="@+id/home_magicmask_title_barrier">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/home_magicmask_installed_version"
+                            style="@style/W.Home.Item.Top"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                style="@style/W.Home.ItemContent"
+                                android:text="@string/home_installed_version" />
+
+                            <TextView
+                                style="@style/W.Home.ItemContent.Right"
+                                android:text="@{viewModel.magicmaskInstalledVersion}"
+                                tools:text="22.0 (22000)" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/home_device_details_zygisk"
+                            style="@style/W.Home.Item"
+                            app:layout_constraintStart_toStartOf="@+id/home_magicmask_installed_version"
+                            app:layout_constraintTop_toBottomOf="@+id/home_magicmask_installed_version">
+
+                            <TextView
+                                style="@style/W.Home.ItemContent"
+                                android:text="@string/zygisk" />
+
+                            <TextView
+                                style="@style/W.Home.ItemContent.Right"
+                                android:text="@{Info.isZygiskEnabled ? @string/yes : @string/no}"
+                                tools:text="Yes" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/home_device_details_ramdisk"
+                            style="@style/W.Home.Item.Bottom"
+                            app:layout_constraintStart_toStartOf="@+id/home_magicmask_installed_version"
+                            app:layout_constraintTop_toBottomOf="@+id/home_device_details_zygisk">
+
+                            <TextView
+                                style="@style/W.Home.ItemContent"
+                                android:text="Ramdisk" />
+
+                            <TextView
+                                style="@style/W.Home.ItemContent.Right"
+                                android:text="@{Info.ramdisk ? @string/yes : @string/no }"
+                                tools:text="Yes" />
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

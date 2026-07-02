@@ -243,7 +243,7 @@ DCL_HOOK_FUNC(void, android_log_close) {
         close(logd_fd.exchange(-1));
         if (g_ctx->pid <= 0) {
             // Switch to plain old android logging because we cannot talk
-            // to magiskd to fetch our log pipe afterwards anyways.
+            // to magicmaskd to fetch our log pipe afterwards anyways.
             android_logging();
         }
     }
@@ -616,7 +616,7 @@ void HookContext::app_specialize_pre() {
 
 void HookContext::app_specialize_post() {
     run_modules_post();
-    if (info_flags & PROCESS_IS_MAGISK_APP) {
+    if (info_flags & PROCESS_IS_MAGICMASK_APP) {
         setenv("ZYGISK_ENABLED", "1", 1);
     }
 
@@ -685,7 +685,7 @@ void HookContext::nativeForkSystemServer_pre() {
         } else {
             run_modules_pre(module_fds);
 
-            // Send the bitset of module status back to magiskd from system_server
+            // Send the bitset of module status back to magicmaskd from system_server
             dynamic_bitset bits;
             for (const auto &m : modules)
                 bits[m.getId()] = true;

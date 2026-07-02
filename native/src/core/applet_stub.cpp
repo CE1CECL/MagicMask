@@ -1,6 +1,6 @@
 #include <sys/stat.h>
 
-#include <magisk.hpp>
+#include <magicmask.hpp>
 #include <selinux.hpp>
 #include <base.hpp>
 
